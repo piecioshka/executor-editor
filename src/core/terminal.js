@@ -1,18 +1,23 @@
-terminal = (function () {
-    
+(function () {
+    "use strict";
+
+    // master scope
+    var global = this;
+
     var delay = 100,
-        
+
         id = "terminal";
-    
-    return {
+
+    // public API
+    global.terminal = {
         obj: null,
-        
+
         prompt: "> ",
-        
+
         init: function () {
-            this.obj = utils.byId(id);
+            this.obj = utils.by_id(id);
             this.obj.focus();
-            
+
             this.setSizes();
             this.clear();
             this.addPrompt();
@@ -20,7 +25,7 @@ terminal = (function () {
         write: function (text) {
             this.obj.value += text;
         },
-        
+
         clear: function () {
             this.obj.value = "";
         },
@@ -31,11 +36,11 @@ terminal = (function () {
             this.write("\n");
             this.addPrompt();
         },
-        
+
         setSizes: function () {
-            this.obj.style.height = pklib.utils.size.window("height") - 21 + "px";
-            this.obj.style.width = pklib.utils.size.window("width") + "px";
+            this.obj.style.height = pklib.ui.size.window("height") - 21 + "px";
+            this.obj.style.width = pklib.ui.size.window("width") + "px";
         }
     };
-    
-})();
+
+}).call(this);

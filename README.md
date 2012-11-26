@@ -1,0 +1,1 @@
+simple console with JS itnerpreter

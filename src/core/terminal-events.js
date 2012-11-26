@@ -1,13 +1,17 @@
-terminal = this.terminal;
+(function () {
+    "use strict";
 
-terminal.events = (function () {
-    
-    return {
+    // master scope
+    var global = this;
+
+    var terminal = global.terminal;
+
+    terminal.events = {
         init: function () {
             pklib.event.add(window, "resize", function (e) {
                 terminal.setSizes();
             });
-            
+
             this.keyboard();
             this.mouse();
         },
@@ -21,7 +25,7 @@ terminal.events = (function () {
                 }
             });
             pklib.event.add(terminal.obj, "keydown", function (e) {
-                if (utils.keys.isEnter(e)) {
+                if (utils.keys.is_enter(e)) {
                     var command = terminal.command.get();
                     terminal.command.run(command, function () {
                         terminal.addNewLine();
@@ -31,18 +35,18 @@ terminal.events = (function () {
                     } catch (e) {
                         return false;
                     }
-                } else if (utils.keys.isBackspace(e)) {
+                } else if (utils.keys.is_backspace(e)) {
                     var value = terminal.obj.value,
                         len = value.length;
-                    
+
                     try {
                         terminal.obj.setSelectionRange(len, len);
                     } catch (e) {
                         // pass
                     }
-                    
+
                     var prolen = terminal.prompt.length;
-                                        
+
                     if (value.substr(-1 * prolen, prolen) === terminal.prompt) {
                         try {
                             e.preventDefault();
@@ -51,7 +55,7 @@ terminal.events = (function () {
                         }
                     }
                 } else {
-                    var len = terminal.obj.value.length;                
+                    var len = terminal.obj.value.length;
                     try {
                         terminal.obj.setSelectionRange(len, len);
                     } catch (e) {
@@ -66,7 +70,7 @@ terminal.events = (function () {
         mouse: function () {
             var events = ["mousedown", "mouseup", "mousemove", "mouseout"];
             events.push("mouseover", "click", "dblclick");
-            
+
             // with out first event
             for (var i = 1, len = events.length; i < len; ++i) {
                 pklib.event.add(terminal.obj, events[i], function (e) {
@@ -77,10 +81,10 @@ terminal.events = (function () {
                     }
                 });
             }
-            
+
             // disable right button on mouse
             document.oncontextmenu = new Function("return false");
         }
     };
-    
-})();
+
+}).call(this);
