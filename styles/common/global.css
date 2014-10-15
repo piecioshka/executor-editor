@@ -1,7 +1,9 @@
-@charset "utf-8";
-
 .clear {
     clear: both;
     overflow: hidden;
     height: 0.01em;
+}
+
+.hide {
+    display: none;
 }

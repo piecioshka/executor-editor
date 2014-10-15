@@ -1,18 +1,15 @@
-(function () {
+(function (root) {
     "use strict";
 
-    // master scope
-    var global = this;
-
-    // public utils stuff
-    global.utils = {};
+    // Imports.
+    var utils = {};
+    var doc = root.document;
 
     utils.by_id = (function () {
-        var doc = document;
         return function (id) {
             return doc.getElementById(id);
         };
-    })();
+    }());
 
     utils.keys = utils.keys || {};
 
@@ -24,4 +21,7 @@
         return e.keyCode === 8;
     };
 
-}).call(this);
+    // Exports `utils`.
+    root.utils = utils;
+
+}(this));

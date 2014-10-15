@@ -1,15 +1,13 @@
-(function () {
+(function (root) {
     "use strict";
 
-    // master scope
-    var global = this;
-
-    var delay = 100,
-
-        id = "terminal";
+    // Imports.
+    var utils = root.utils;
+    var pklib = root.pklib;
+    var id = "terminal";
 
     // public API
-    global.terminal = {
+    root.terminal = {
         obj: null,
 
         prompt: "> ",
@@ -43,4 +41,4 @@
         }
     };
 
-}).call(this);
+}(this));

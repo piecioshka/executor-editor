@@ -1,1 +1,3 @@
-simple console with JS itnerpreter
+# terminal.js
+
+Simple console with JS interpreter.
