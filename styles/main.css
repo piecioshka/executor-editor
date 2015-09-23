@@ -1,0 +1,13 @@
+#page {
+    width: 960px;
+    margin: 0 auto;
+}
+
+#page > h1 {
+    border-bottom: 1px solid #000;
+    color: #000;
+}
+
+#page > .terminal {
+    margin: 20px 0 0 0;
+}

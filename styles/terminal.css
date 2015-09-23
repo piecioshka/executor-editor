@@ -1,0 +1,70 @@
+.terminal {
+    border: 1px solid #999;
+    overflow: hidden;
+
+    width: 800px;
+    height: 300px;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+.terminal .tools {
+    background: rgba(210, 255, 84, 0.05);
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #999;
+    font-size: 13px;
+}
+
+.terminal .tools .tools-control {
+    padding: 0 20px;
+    float: left;
+    border-right: 1px solid #999;
+}
+
+.terminal .tools .tools-control:last-child {
+    border-right: none;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+.terminal .tools .tools-control > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+}
+
+.terminal .tools .tools-control > ul > li {
+    display: inline-block;
+}
+
+.terminal .tools .tools-control .icon {
+    background: #eee;
+    border-radius: 3px;
+    padding: 3px;
+    cursor: pointer;
+    font-style: normal;
+    text-decoration: none;
+    font-family: "Menlo", monospace;
+    color: #000;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+.terminal .console {
+    background: rgba(210, 255, 84, 0.01);
+    width: calc(100% - 10px);
+    height: calc(100% - 50px - 10px);
+
+    float: left;
+    overflow: auto;
+    outline: none;
+
+    /*border: 1px solid #c0c0c0;*/
+    padding: 5px;
+
+    font-family: "Menlo", monospace;
+    font-size: 16px;
+    color: #2f2f2f;
+}

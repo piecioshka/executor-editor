@@ -1,3 +1,7 @@
 # terminal.js
 
-Simple console with JS interpreter.
+Simple console with ECMAScript interpreter.
+
+## The best way to use?
+
+Slides of presentation.
