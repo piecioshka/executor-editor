@@ -4,7 +4,7 @@ module.exports = {
     },
     entry: './app/scripts/main',
     output: {
-        filename: 'terminal.js',
+        filename: 'bundle.js',
         path: './app/dist'
     },
     module: {
