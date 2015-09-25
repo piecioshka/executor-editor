@@ -198,7 +198,7 @@
     }],
     "no-nested-ternary": [2],
     "no-new-object": [2],
-    "no-restricted-syntax": [2, "FunctionExpression", "WithStatement"],
+    "no-restricted-syntax": [2, "WithStatement"],
     "no-spaced-func": [2],
     "no-ternary": [1],
     "no-trailing-spaces": [2, {
