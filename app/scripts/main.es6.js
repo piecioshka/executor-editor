@@ -1,5 +1,3 @@
-'use strict';
-
 class Main {
     constructor() {
         console.log('test-terminal.js');
@@ -13,6 +11,6 @@ class Main {
     }
 }
 
-let tt = new Main();
+const tt = new Main();
 
 console.log(tt);
