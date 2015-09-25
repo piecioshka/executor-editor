@@ -387,7 +387,7 @@
       "initialized": "never"
     }],
     // require assignment operator shorthand where possible or prohibit it entirely
-    "operator-assignment": [2, "never"],
+    "operator-assignment": [2, "always"],
     // enforce operators to be placed before or after line breaks
     "operator-linebreak": [2, "before"],
     // enforce padding within blocks
