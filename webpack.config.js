@@ -19,7 +19,7 @@ module.exports = {
             {
                 test: /\.es6\.js/,
                 exclude: /node_modules/,
-                loader: 'babel-loader'
+                loader: 'babel-loader?stage=0'
             }
         ]
     }
