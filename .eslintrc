@@ -2,7 +2,7 @@
   // Tip 1: To use Babel.js as ESLint parser:
   // `npm install babel-eslint`
   // In next step uncomment that line:
-  // "parser": "babel-eslint",
+  "parser": "babel-eslint",
 
   // Rules: http://eslint.org/docs/rules/
   // ------------------------------------
