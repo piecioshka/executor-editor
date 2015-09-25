@@ -281,13 +281,17 @@
     "no-plusplus": [0]
   },
   "ecmaFeatures": {
-    "regexYFlag": true,
-    "regexUFlag": true,
+    "arrowFunctions": true,
     "blockBindings": true,
-    "destructuring": true
+    "classes": true,
+    "destructuring": true,
+    "modules": true,
+    "regexUFlag": true,
+    "regexYFlag": true
   },
   "env": {
     "es6": true,
-    "browser": true
+    "browser": true,
+    "node": true
   }
 }
