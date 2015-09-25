@@ -2,7 +2,7 @@ module.exports = {
     resolve: {
         extensions: ['.es6.js', '.js', '']
     },
-    entry: './app/scripts/main.es6.js',
+    entry: './app/scripts/main',
     output: {
         filename: 'terminal.js',
         path: './app/dist'
