@@ -1,20 +1,20 @@
-import VersionManager from './modules/VersionManager';
+import TranspilerManager from './modules/TranspilerManager';
 import AutomaticManager from './modules/AutomaticManager';
 import ExecuteManager from './common/ExecuteManager';
 
 class Terminal {
-    vm = null;
+    tm = null;
     am = null;
 
     constructor() {
-        this.vm = new VersionManager();
+        this.tm = new TranspilerManager();
         this.am = new AutomaticManager();
     }
 
     setup() {
         const $run = document.querySelector('.terminal-execute');
 
-        this.vm.setup();
+        this.tm.setup();
         this.am.setup(this.run.bind(this));
 
         $run.addEventListener('click', this.run.bind(this));
@@ -23,7 +23,7 @@ class Terminal {
     run() {
         const $code = document.querySelector('.terminal-console');
 
-        ExecuteManager.execute(this.vm.getVersion(), $code.innerText);
+        ExecuteManager.execute(this.tm.getName(), $code.innerText);
     }
 }
 

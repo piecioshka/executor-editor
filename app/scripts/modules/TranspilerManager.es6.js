@@ -1,19 +1,19 @@
 import ScriptLoader from '../common/ScriptLoader';
 
-class VersionManager {
+class TranspilerManager {
     $element = null;
 
     setup() {
-        this.$element = document.querySelector('.terminal-version');
+        this.$element = document.querySelector('.terminal-transpiler');
         this.$element.addEventListener('change', this.load.bind(this));
 
         this.load();
     }
 
     load() {
-        const version = this.getVersion();
+        const name = this.getName();
 
-        switch (version) {
+        switch (name) {
             case 'babel':
                 ScriptLoader.remove('traceur');
                 ScriptLoader.load('./scripts/vendor/babel/browser.js', 'babel');
@@ -26,13 +26,14 @@ class VersionManager {
                 ScriptLoader.load('./scripts/vendor/traceur/traceur.js', 'traceur');
                 break;
 
-            // no default
+            default:
+                throw new Error(`TranspilerManager#load: 'name' is not correct transpiler name (${name})`);
         }
     }
 
-    getVersion() {
+    getName() {
         return this.$element.value;
     }
 }
 
-export default VersionManager;
+export default TranspilerManager;

@@ -1,6 +1,7 @@
 .terminal {
     border: 1px solid #999;
     overflow: hidden;
+    position: relative;
 
     width: 800px;
     height: 300px;
@@ -44,9 +45,9 @@
     border-radius: 3px;
     padding: 3px;
     cursor: pointer;
-    font-style: normal;
     text-decoration: none;
     font-family: "Menlo", monospace;
+    font-style: normal;
     color: #000;
 }
 
@@ -67,4 +68,17 @@
     font-family: "Menlo", monospace;
     font-size: 16px;
     color: #2f2f2f;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+.terminal-version {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background: #eee;
+    padding: 5px;
+    font-family: "Menlo", monospace;
+    font-size: 11px;
+    font-style: normal;
 }

@@ -1,6 +1,6 @@
 class ExecuteManager {
-    static execute(version, code) {
-        switch (version) {
+    static execute(name, code) {
+        switch (name) {
             case 'traceur':
                 new window.traceur.WebPageTranscoder(code).run();
                 break;
@@ -11,7 +11,8 @@ class ExecuteManager {
                 });
                 break;
 
-            // no default
+            default:
+                throw new Error(`TranspilerManager#execute: 'name' is not correct transpiler name (${name})`);
         }
     }
 }
