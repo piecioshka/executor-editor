@@ -5,8 +5,8 @@
 
     <meta charset="utf-8"/>
 
-    <link rel="stylesheet" href="styles/vendor/normalize.css" type="text/css"/>
-    <link rel="stylesheet" href="styles/main.css" type="text/css"/>
+    <link rel="stylesheet" href="styles/page/vendor/normalize.css" type="text/css"/>
+    <link rel="stylesheet" href="styles/page/main.css" type="text/css"/>
     <link rel="stylesheet" href="styles/terminal.css" type="text/css"/>
 
     <script src="dist/bundle.js"></script>
@@ -18,20 +18,22 @@
         <div class="terminal">
             <form class="tools">
                 <div class="tools-control">
-                    <label for="automatic">Automatic:</label>
-                    <input type="checkbox" id="automatic" />
+                    <label>Automatic:
+                        <input type="checkbox" class="terminal-automatic" />
+                    </label>
                 </div>
 
                 <div class="tools-control">
-                    <label for="version">Version:</label>
-                    <select name="version" id="version">
-                        <option value="babel">Babel.js</option>
-                        <option value="traceur">Traceur</option>
-                    </select>
+                    <label>Version:
+                        <select name="version" class="terminal-version">
+                            <option value="babel">Babel.js</option>
+                            <option value="traceur">Traceur</option>
+                        </select>
+                    </label>
                 </div>
 
                 <div class="tools-control">
-                    <label for="version">Layout:</label>
+                    <span>Layout:</span>
                     <ul>
                         <li><a class="icon">[|]</a></li>
                         <li><a class="icon">[-]</a></li>
@@ -39,10 +41,10 @@
                 </div>
 
                 <div class="tools-control">
-                    <input type="button" id="run-code" value="Run"/>
+                    <input type="button" class="terminal-execute" value="Execute"/>
                 </div>
             </form>
-            <div class="console" contenteditable="true"></div>
+            <div class="terminal-console" contenteditable="true"></div>
         </div>
     </div>
 

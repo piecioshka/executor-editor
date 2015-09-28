@@ -1,16 +1,34 @@
-class Main {
+import VersionManager from './modules/VersionManager';
+import AutomaticManager from './modules/AutomaticManager';
+import ExecuteManager from './common/ExecuteManager';
+
+class Terminal {
+    vm = null;
+    am = null;
+
     constructor() {
-        console.log('test-terminal.js');
+        this.vm = new VersionManager();
+        this.am = new AutomaticManager();
     }
 
-    /**
-     * @param {string} aa asd
-     */
-    static abc(aa) {
-        console.log(aa);
+    setup() {
+        const $run = document.querySelector('.terminal-execute');
+
+        this.vm.setup();
+        this.am.setup(this.run.bind(this));
+
+        $run.addEventListener('click', this.run.bind(this));
+    }
+
+    run() {
+        const $code = document.querySelector('.terminal-console');
+
+        ExecuteManager.execute(this.vm.getVersion(), $code.innerText);
     }
 }
 
-const tt = new Main();
+window.addEventListener('load', () => {
+    const terminal = new Terminal();
 
-console.log(tt);
+    terminal.setup();
+});
