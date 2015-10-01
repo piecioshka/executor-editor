@@ -7,9 +7,25 @@
 
     <link rel="stylesheet" href="styles/page/vendor/normalize.css" type="text/css"/>
     <link rel="stylesheet" href="styles/page/main.css" type="text/css"/>
+    <link rel="stylesheet" href="styles/vendor/codemirror/codemirror.css" type="text/css"/>
+    <link rel="stylesheet" href="styles/vendor/codemirror/themes/3024-day.css" type="text/css"/>
+    <link rel="stylesheet" href="styles/vendor/codemirror/themes/base16-light.css" type="text/css"/>
+    <link rel="stylesheet" href="styles/vendor/codemirror/themes/elegant.css" type="text/css"/>
+    <link rel="stylesheet" href="styles/vendor/codemirror/themes/mdn-like.css" type="text/css"/>
+    <link rel="stylesheet" href="styles/vendor/codemirror/themes/neat.css" type="text/css"/>
+    <link rel="stylesheet" href="styles/vendor/codemirror/themes/neo.css" type="text/css"/>
+    <link rel="stylesheet" href="styles/vendor/codemirror/themes/ttcn.css" type="text/css"/>
+    <link rel="stylesheet" href="styles/vendor/codemirror/themes/xq-light.css" type="text/css"/>
     <link rel="stylesheet" href="styles/terminal.css" type="text/css"/>
 
     <script src="dist/bundle.js"></script>
+    <script src="scripts/vendor/codemirror/codemirror.js"></script>
+    <script src="scripts/vendor/codemirror/modes/javascript.js"></script>
+    <script src="scripts/vendor/codemirror/addons/search.js"></script>
+    <script src="scripts/vendor/codemirror/addons/searchcursor.js"></script>
+    <script src="scripts/vendor/codemirror/addons/closebrackets.js"></script>
+    <script src="scripts/vendor/codemirror/addons/matchbrackets.js"></script>
+    <script src="scripts/vendor/codemirror/addons/active-line.js"></script>
 </head>
 <body>
     <div id="page">
@@ -44,8 +60,36 @@
                     <input type="button" class="terminal-execute" value="Execute"/>
                 </div>
             </form>
-            <div class="terminal-console" contenteditable="true"></div>
+            <textarea class="terminal-console"></textarea>
             <i class="terminal-version">0.2</i>
+
+            <script>
+                (function (doc) {
+                    'use strict';
+
+                    var $textarea = doc.querySelector('.terminal-console');
+                    var editor = CodeMirror.fromTextArea($textarea, {
+                        mode: 'text/javascript',
+                        lineNumbers: true,
+                        lineWrapping: true,
+                        matchBrackets: true,
+                        autoCloseBrackets: true,
+                        styleActiveLine: true,
+                        // theme: '3024-day'
+                        // theme: 'base16-light'
+                        // theme: 'elegant'
+                        theme: 'mdn-like'
+                        // theme: 'neat'
+                        // theme: 'neo'
+                        // theme: 'ttcn'
+                        // theme: 'xq-light'
+                    });
+
+                    editor.on('change', function () {
+                        $textarea.innerText = editor.getValue();
+                    });
+                })(document);
+            </script>
         </div>
     </div>
 
