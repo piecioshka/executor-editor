@@ -1,0 +1,6 @@
+{
+    "name": "terminal.js",
+    "dependencies": {
+        "ace-builds": "~1.2.0"
+    }
+}

@@ -1,4 +1,5 @@
 node_modules/
 npm-debug.log
 
+app/components/
 app/dist/

@@ -1,42 +1,98 @@
-import TranspilerManager from './modules/TranspilerManager';
+import ResultManager from './modules/ResultManager';
+import LayoutManager from './modules/LayoutManager';
 import ExecuteManager from './common/ExecuteManager';
-import CodeMirrorHelper from './common/CodeMirrorHelper';
-
-const TIME_TO_WAIT_BEFORE_AUTO_EXECUTE = 1000;
+import AceHelper from './common/AceHelper';
 
 class Terminal {
-    tm = null;
-    cmh = null;
+    settings = {
+        fontSize: 12,
+        timeout: 1000
+    };
 
-    constructor() {
-        this.tm = new TranspilerManager();
-        this.cmh = new CodeMirrorHelper();
+    ah = null;
+    rm = null;
+    lm = null;
+
+    $auto = null;
+    $env = null;
+    $fontSize = null;
+    $execute = null;
+    $code = null;
+
+    constructor(settings) {
+        this.settings = Object.assign(this.settings, settings);
+
+        this.ah = new AceHelper();
+        this.rm = new ResultManager();
+        this.lm = new LayoutManager();
+
+        this.$auto = document.querySelector('.terminal-auto');
+        this.$env = document.querySelector('.terminal-env');
+        this.$fontSize = document.querySelector('.terminal-font-size');
+        this.$execute = document.querySelector('.terminal-execute');
+        this.$code = document.querySelector('.terminal-console');
 
         this.setup();
     }
 
     setup() {
+        this.apply();
+
+        this.lm.setup();
+
+        this.handleChangeFontSize();
+        this.handleChangeCode();
+        this.handleChangeEnv();
+        this.handleExecute();
+    }
+
+    apply() {
+        this.rm.$board.style.fontSize = `${this.settings.fontSize}px`;
+        this.ah.editor.setFontSize(this.settings.fontSize);
+        this.$fontSize.value = this.settings.fontSize;
+    }
+
+    handleChangeCode() {
         let delay = null;
-        const $auto = document.querySelector('.terminal-auto');
-        const $execute = document.querySelector('.terminal-execute');
-        const $code = document.querySelector('.terminal-console');
 
-        this.tm.setup();
-        $execute.addEventListener('click', () => this.execute($code.innerText));
-
-        this.cmh.editor.on('change', () => {
-            $code.innerText = this.cmh.editor.getValue();
-
-            if ($auto.checked) {
+        this.ah.editor.on('change', () => {
+            if (this.$auto.checked) {
                 clearTimeout(delay);
-                delay = setTimeout(() => this.execute($code.innerText), TIME_TO_WAIT_BEFORE_AUTO_EXECUTE);
+                delay = setTimeout(() => this.execute(this.$env.value, this.$code.innerText), this.settings.timeout);
             }
         });
     }
 
-    execute(code) {
-        ExecuteManager.execute(this.tm.getName(), code);
+    handleChangeEnv() {
+        this.$env.addEventListener('change', () => {
+            this.execute(this.$env.value, this.$code.innerText);
+        });
+    }
+
+    handleExecute() {
+        this.$execute.addEventListener('click', () => {
+            this.execute(this.$env.value, this.$code.innerText);
+        });
+    }
+
+    handleChangeFontSize() {
+        this.$fontSize.addEventListener('change', () => {
+            this.settings.fontSize = Number(this.$fontSize.value);
+            this.apply();
+        });
+    }
+
+    execute(name, code) {
+        try {
+            ExecuteManager.execute(name, code);
+        } catch (e) {
+            this.rm.add(e.message);
+        }
+
+        this.rm.print();
     }
 }
 
-window.addEventListener('load', () => new Terminal());
+window.addEventListener('load', () => new Terminal({
+    fontSize: 26
+}));

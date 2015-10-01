@@ -2,9 +2,10 @@
     border: 1px solid #999;
     overflow: hidden;
     position: relative;
-
+    font-size: 26px;
+    font-family: 'Menlo', Monaco, Consolas, 'Courier New', monospace;
     width: 800px;
-    height: 300px;
+    height: 460px;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------ */
@@ -14,7 +15,9 @@
     height: 50px;
     line-height: 50px;
     border-bottom: 1px solid #999;
-    font-size: 13px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .terminal .tools .tools-control {
@@ -40,45 +43,91 @@
     display: inline-block;
 }
 
-.terminal .tools .tools-control .icon {
-    background: #eee;
-    border-radius: 3px;
-    padding: 3px;
+.terminal .tools .tools-control .terminal-horizontal-icon,
+.terminal .tools .tools-control .terminal-vertical-icon {
+    background: #f8fdf6;
     cursor: pointer;
     text-decoration: none;
-    font-family: "Menlo", monospace;
     font-style: normal;
-    color: #000;
+    height: 14px;
+    width: 14px;
+    display: inline-block;
+    vertical-align: middle;
+    outline: 2px solid #5a5a5a;
+}
+
+.terminal .tools .tools-control .terminal-horizontal-icon {
+    height: 7px;
+    border-bottom: 7px solid #5a5a5a;
+    margin-right: 10px;
+}
+
+.terminal .tools .tools-control .terminal-vertical-icon {
+    width: 7px;
+    border-right: 7px solid #5a5a5a;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+.terminal .tools .tools-control .terminal-font-size {
+    width: 30px;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+.terminal .terminal-main {
+    overflow: hidden;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------ */
 
 .terminal .terminal-console {
     background: rgba(210, 255, 84, 0.01);
-    width: calc(100% - 10px);
-    height: calc(100% - 50px - 10px);
-
-    float: left;
+    color: #2f2f2f;
+    width: 100%;
+    height: 310px;
     overflow: auto;
     outline: none;
+    border: none;
+    border-bottom: 1px solid #999;
+}
 
-    /*border: 1px solid #c0c0c0;*/
+.terminal .terminal-console.terminal-left-column {
+    width: 50%;
+    height: calc(460px - 50px);
+    float: left;
+    border-bottom: 0;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+.terminal .terminal-result {
+    background: #f1f1f1;
+    color: #c7254e;
+    height: 90px;
     padding: 5px;
+    border-top: 1px solid #999;
+    overflow: auto;
+}
 
-    font-family: "Menlo", monospace;
-    font-size: 16px;
-    color: #2f2f2f;
+.terminal .terminal-result.terminal-right-column {
+    border-top: none;
+    border-left: 1px solid #999;
+    width: calc(50% - 10px - 1px);
+    height: calc(460px - 50px);
+    float: left;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------ */
 
 .terminal-version {
+    background: #fff;
     position: absolute;
     right: 0;
     bottom: 0;
-    background: #eee;
     padding: 5px;
-    font-family: "Menlo", monospace;
+    border-top: 1px solid #999;
+    border-left: 1px solid #999;
     font-size: 11px;
     font-style: normal;
 }

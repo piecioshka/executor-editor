@@ -5,38 +5,38 @@
 
     <meta charset="utf-8"/>
 
-    <link rel="stylesheet" href="styles/page/vendor/normalize.css" type="text/css"/>
+    <link rel="stylesheet" href="styles/vendor/normalize.css" type="text/css"/>
     <link rel="stylesheet" href="styles/page/main.css" type="text/css"/>
-    <link rel="stylesheet" href="styles/vendor/codemirror/codemirror.css" type="text/css"/>
-    <link rel="stylesheet" href="styles/vendor/codemirror/themes/warsawjs.css" type="text/css"/>
     <link rel="stylesheet" href="styles/terminal.css" type="text/css"/>
 
     <script src="dist/bundle.js"></script>
-    <script src="scripts/vendor/codemirror/codemirror.js"></script>
-    <script src="scripts/vendor/codemirror/modes/javascript.js"></script>
-    <script src="scripts/vendor/codemirror/addons/search.js"></script>
-    <script src="scripts/vendor/codemirror/addons/searchcursor.js"></script>
-    <script src="scripts/vendor/codemirror/addons/closebrackets.js"></script>
-    <script src="scripts/vendor/codemirror/addons/matchbrackets.js"></script>
-    <script src="scripts/vendor/codemirror/addons/active-line.js"></script>
+
+    <script src="../node_modules/babel-core/browser.js"></script>
+    <script src="../node_modules/babel-core/browser-polyfill.js"></script>
+    <script src="../node_modules/babel-core/external-helpers.js"></script>
+
+    <script src="components/ace-builds/src/ace.js"></script>
+    <script src="components/ace-builds/src/ext-language_tools.js"></script>
+    <script src="components/ace-builds/src/theme-tomorrow.js"></script>
 </head>
 <body>
     <div id="page">
         <h1>terminal.js</h1>
 
         <div class="terminal">
+            <!-- Top bar with terminal settings. -->
             <form class="tools">
                 <div class="tools-control">
-                    <label>Automatic:
+                    <label>Evaluate:
                         <input type="checkbox" class="terminal-auto" checked="checked"/>
                     </label>
                 </div>
 
                 <div class="tools-control">
-                    <label>Transpiler:
-                        <select name="version" class="terminal-transpiler">
-                            <option value="babel">Babel.js</option>
-                            <option value="traceur">Traceur</option>
+                    <label>Env:
+                        <select class="terminal-env">
+                            <option value="babel">Babel.js (ES6 + ES7)</option>
+                            <option value="browser">Current browser</option>
                         </select>
                     </label>
                 </div>
@@ -44,17 +44,33 @@
                 <div class="tools-control">
                     <span>Layout:</span>
                     <ul>
-                        <li><a class="icon">[|]</a></li>
-                        <li><a class="icon">[-]</a></li>
+                        <li><i class="terminal-horizontal-icon"></i></li>
+                        <li><i class="terminal-vertical-icon"></i></li>
                     </ul>
+                </div>
+
+                <div class="tools-control">
+                    <label>Font Size:
+                        <input type="number" class="terminal-font-size" min="10" max="99" />
+                    </label>
                 </div>
 
                 <div class="tools-control">
                     <input type="button" class="terminal-execute" value="Execute"/>
                 </div>
             </form>
-            <textarea class="terminal-console"></textarea>
-            <i class="terminal-version">0.3</i>
+
+            <!-- Field with code. -->
+            <section class="terminal-main">
+                <!-- This <textarea> tag will be hidden when Ace is active. -->
+                <div class="terminal-console"></div>
+
+                <!-- Board with text which is results of code invocation. -->
+                <div class="terminal-result"></div>
+            </section>
+
+            <!-- Version of `terminal.js`. -->
+            <i class="terminal-version">0.4</i>
         </div>
     </div>
 
