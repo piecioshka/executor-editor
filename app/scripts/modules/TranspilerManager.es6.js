@@ -5,7 +5,7 @@ class TranspilerManager {
 
     setup() {
         this.$element = document.querySelector('.terminal-transpiler');
-        this.$element.addEventListener('change', this.load.bind(this));
+        this.$element.addEventListener('change', () => this.load());
 
         this.load();
     }
