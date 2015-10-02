@@ -2,18 +2,33 @@ class ResultManager {
 
     buffer = new Set();
     $board = null;
+    prevents = null;
 
-    constructor() {
-        this.$board = document.querySelector('.terminal-result');
+    constructor(id) {
+        this.initialize(id);
+    }
 
-        this.override();
+    initialize(id) {
+        this.$board = document.querySelector(`#${id} .terminal-result`);
+    }
+
+    save() {
+        this.prevents = {};
+
+        ResultManager.METHODS.forEach(name => {
+            this.prevents[name] = window.console[name];
+        });
     }
 
     override() {
-        const methods = ['log', 'info', 'warn', 'error'];
-
-        methods.forEach(name => {
+        ResultManager.METHODS.forEach(name => {
             window.console[name] = this.add.bind(this);
+        });
+    }
+
+    prevent() {
+        ResultManager.METHODS.forEach(name => {
+            window.console[name] = this.prevents[name];
         });
     }
 
@@ -43,5 +58,7 @@ class ResultManager {
         this.buffer.clear();
     }
 }
+
+ResultManager.METHODS = ['log', 'info', 'warn', 'error'];
 
 export default ResultManager;

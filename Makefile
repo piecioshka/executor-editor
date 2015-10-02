@@ -1,4 +1,4 @@
-all: npm webpack bower
+all: clean npm webpack bower
 
 clean:
 	npm run clear

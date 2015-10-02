@@ -6,7 +6,7 @@
     <meta charset="utf-8"/>
 
     <link rel="stylesheet" href="styles/vendor/normalize.css" type="text/css"/>
-    <link rel="stylesheet" href="styles/page/main.css" type="text/css"/>
+    <link rel="stylesheet" href="styles/main.css" type="text/css"/>
     <link rel="stylesheet" href="styles/terminal.css" type="text/css"/>
 
     <script src="dist/bundle.js"></script>
@@ -23,7 +23,7 @@
     <div id="page">
         <h1>terminal.js</h1>
 
-        <div class="terminal">
+        <div id="slide-1" class="terminal">
             <!-- Top bar with terminal settings. -->
             <form class="tools">
                 <div class="tools-control">
@@ -33,8 +33,8 @@
                 </div>
 
                 <div class="tools-control">
-                    <label>Env:
-                        <select class="terminal-env">
+                    <label>Environment:
+                        <select class="terminal-environment">
                             <option value="babel">Babel.js (ES6 + ES7)</option>
                             <option value="browser">Current browser</option>
                         </select>
@@ -70,8 +70,72 @@
             </section>
 
             <!-- Version of `terminal.js`. -->
-            <i class="terminal-version">0.4</i>
+            <i class="terminal-version">0.5</i>
         </div>
+
+        <script>
+            new Terminal({
+                id: 'slide-1',
+                fontSize: 26
+            });
+        </script>
+
+        <div id="slide-2" class="terminal">
+            <!-- Top bar with terminal settings. -->
+            <form class="tools">
+                <div class="tools-control">
+                    <label>Evaluate:
+                        <input type="checkbox" class="terminal-auto" checked="checked"/>
+                    </label>
+                </div>
+
+                <div class="tools-control">
+                    <label>Environment:
+                        <select class="terminal-environment">
+                            <option value="babel">Babel.js (ES6 + ES7)</option>
+                            <option value="browser">Current browser</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="tools-control">
+                    <span>Layout:</span>
+                    <ul>
+                        <li><i class="terminal-horizontal-icon"></i></li>
+                        <li><i class="terminal-vertical-icon"></i></li>
+                    </ul>
+                </div>
+
+                <div class="tools-control">
+                    <label>Font Size:
+                        <input type="number" class="terminal-font-size" min="10" max="99" />
+                    </label>
+                </div>
+
+                <div class="tools-control">
+                    <input type="button" class="terminal-execute" value="Execute"/>
+                </div>
+            </form>
+
+            <!-- Field with code. -->
+            <section class="terminal-main">
+                <!-- This <textarea> tag will be hidden when Ace is active. -->
+                <div class="terminal-console"></div>
+
+                <!-- Board with text which is results of code invocation. -->
+                <div class="terminal-result"></div>
+            </section>
+
+            <!-- Version of `terminal.js`. -->
+            <i class="terminal-version">0.5</i>
+        </div>
+
+        <script>
+            new Terminal({
+                id: 'slide-2',
+                fontSize: 20
+            });
+        </script>
     </div>
 
     <a href="https://github.com/piecioshka/terminal.js">
