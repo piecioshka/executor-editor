@@ -29,7 +29,7 @@ class Executor {
 
         this.ah = new AceHelper($executor);
         this.fh = new MaximizeHelper($executor, this.ah.editor);
-        this.lm = new LayoutManager($executor);
+        this.lm = new LayoutManager($executor, this.ah.editor);
         this.rm = new ResultManager($executor);
 
         this.initialize($executor);

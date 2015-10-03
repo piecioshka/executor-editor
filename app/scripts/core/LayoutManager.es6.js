@@ -4,7 +4,8 @@ class LayoutManager {
     $code = null;
     $board = null;
 
-    constructor($executor) {
+    constructor($executor, editor) {
+        this.editor = editor;
         this.initialize($executor);
     }
 
@@ -19,11 +20,13 @@ class LayoutManager {
         this.$horizontal.addEventListener('click', () => {
             this.$code.classList.remove('executor-left-column');
             this.$board.classList.remove('executor-right-column');
+            this.editor.resize();
         });
 
         this.$vertical.addEventListener('click', () => {
             this.$code.classList.add('executor-left-column');
             this.$board.classList.add('executor-right-column');
+            this.editor.resize();
         });
     }
 }
