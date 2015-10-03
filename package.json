@@ -1,8 +1,24 @@
 {
     "private": true,
+
+    "name": "executor.js",
+    "version": "0.6.0",
+    "description": "",
+    "author": "Piotr Kowalski <piecioshka@gmail.com> (http://piecioshka.pl/)",
+
+    "keywords": ["hightlight", "syntax"],
+    "homepage": "http://piecioshka.pl/executor.js/app",
+    "license": "MIT",
+    "bugs": "http://github.com/piecioshka/executor.js/issues",
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/piecioshka/executor.js.git"
+    },
+
     "scripts": {
         "clear": "rm -rf node_modules app/components app/dist"
     },
+
     "devDependencies": {
         "babel-core": "^5.8.25",
         "babel-eslint": "^4.1.3",

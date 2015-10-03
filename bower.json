@@ -1,5 +1,5 @@
 {
-    "name": "terminal.js",
+    "name": "executor.js",
     "dependencies": {
         "ace-builds": "~1.2.0"
     }

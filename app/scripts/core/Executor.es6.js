@@ -1,9 +1,10 @@
-import ResultManager from './ResultManager';
-import LayoutManager from './LayoutManager';
-import ExecuteManager from './ExecuteManager';
 import AceHelper from './AceHelper';
+import ExecuteManager from './ExecuteManager';
+import MaximizeHelper from './MaximizeHelper';
+import LayoutManager from './LayoutManager';
+import ResultManager from './ResultManager';
 
-class Terminal {
+class Executor {
     settings = {
         id: null,
         fontSize: 12,
@@ -11,11 +12,12 @@ class Terminal {
     };
 
     ah = null;
-    rm = null;
+    fh = null;
     lm = null;
+    rm = null;
 
     $auto = null;
-    $environment = null;
+    $env = null;
     $fontSize = null;
     $execute = null;
     $code = null;
@@ -23,30 +25,32 @@ class Terminal {
     constructor(settings) {
         this.settings = Object.assign(this.settings, settings);
 
-        const $terminal = document.querySelector(`#${this.settings.id}`);
+        const $executor = window.document.querySelector(`#${this.settings.id}`);
 
-        this.ah = new AceHelper($terminal);
-        this.rm = new ResultManager($terminal);
-        this.lm = new LayoutManager($terminal);
+        this.ah = new AceHelper($executor);
+        this.fh = new MaximizeHelper($executor, this.ah.editor);
+        this.lm = new LayoutManager($executor);
+        this.rm = new ResultManager($executor);
 
-        this.initialize($terminal);
+        this.initialize($executor);
         this.setup();
     }
 
-    initialize($terminal) {
-        this.$auto = $terminal.querySelector(`.terminal-auto`);
-        this.$environment = $terminal.querySelector(`.terminal-environment`);
-        this.$fontSize = $terminal.querySelector(`.terminal-font-size`);
-        this.$execute = $terminal.querySelector(`.terminal-execute`);
-        this.$code = $terminal.querySelector(`.terminal-console`);
+    initialize($executor) {
+        this.$auto = $executor.querySelector('.executor-auto');
+        this.$env = $executor.querySelector('.executor-env');
+        this.$fontSize = $executor.querySelector('.executor-font-size');
+        this.$execute = $executor.querySelector('.executor-execute');
+        this.$code = $executor.querySelector('.executor-code');
     }
 
     setup() {
         this.apply();
 
+        this.fh.setup();
         this.lm.setup();
 
-        this.handleTerminalSwitch();
+        this.handleExecutorSwitch();
         this.handleChangeFontSize();
         this.handleChangeCode();
         this.handleChangeEnv();
@@ -61,7 +65,7 @@ class Terminal {
         this.$fontSize.value = fontSize;
     }
 
-    handleTerminalSwitch() {
+    handleExecutorSwitch() {
         const holder = this.ah.editor;
 
         holder.on('focus', () => {
@@ -80,16 +84,16 @@ class Terminal {
         this.ah.editor.on('change', () => {
             if (this.$auto.checked) {
                 clearTimeout(delay);
-                delay = setTimeout(() => {
-                    this.execute(this.$environment.value, this.$code.innerText);
+                delay = window.setTimeout(() => {
+                    this.execute(this.$env.value, this.$code.innerText);
                 }, this.settings.timeout);
             }
         });
     }
 
     handleChangeEnv() {
-        this.$environment.addEventListener('change', () => {
-            this.execute(this.$environment.value, this.$code.innerText);
+        this.$env.addEventListener('change', () => {
+            this.execute(this.$env.value, this.$code.innerText);
         });
     }
 
@@ -98,7 +102,7 @@ class Terminal {
             this.rm.save();
             this.rm.override();
 
-            this.execute(this.$environment.value, this.$code.innerText);
+            this.execute(this.$env.value, this.$code.innerText);
         });
     }
 
@@ -120,4 +124,4 @@ class Terminal {
     }
 }
 
-export default Terminal;
+export default Executor;

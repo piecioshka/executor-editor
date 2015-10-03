@@ -4,26 +4,26 @@ class LayoutManager {
     $code = null;
     $board = null;
 
-    constructor($terminal) {
-        this.initialize($terminal);
+    constructor($executor) {
+        this.initialize($executor);
     }
 
-    initialize($terminal) {
-        this.$horizontal = $terminal.querySelector(`.terminal-horizontal-icon`);
-        this.$vertical = $terminal.querySelector(`.terminal-vertical-icon`);
-        this.$code = $terminal.querySelector(`.terminal-console`);
-        this.$board = $terminal.querySelector(`.terminal-result`);
+    initialize($executor) {
+        this.$horizontal = $executor.querySelector('.executor-icon-horizontal');
+        this.$vertical = $executor.querySelector('.executor-icon-vertical');
+        this.$code = $executor.querySelector('.executor-code');
+        this.$board = $executor.querySelector('.executor-result');
     }
 
     setup() {
         this.$horizontal.addEventListener('click', () => {
-            this.$code.classList.remove('terminal-left-column');
-            this.$board.classList.remove('terminal-right-column');
+            this.$code.classList.remove('executor-left-column');
+            this.$board.classList.remove('executor-right-column');
         });
 
         this.$vertical.addEventListener('click', () => {
-            this.$code.classList.add('terminal-left-column');
-            this.$board.classList.add('terminal-right-column');
+            this.$code.classList.add('executor-left-column');
+            this.$board.classList.add('executor-right-column');
         });
     }
 }

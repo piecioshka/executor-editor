@@ -2,8 +2,8 @@ class AceHelper {
     $code = null;
     editor = null;
 
-    constructor($terminal) {
-        this.initialize($terminal);
+    constructor($executor) {
+        this.initialize($executor);
 
         this.editor = window.ace.edit(this.$code);
         this.session = this.editor.getSession();
@@ -12,8 +12,8 @@ class AceHelper {
         this.setupSession();
     }
 
-    initialize($terminal) {
-        this.$code = $terminal.querySelector(`.terminal-console`);
+    initialize($executor) {
+        this.$code = $executor.querySelector('.executor-code');
     }
 
     setupEditor() {

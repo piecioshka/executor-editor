@@ -1,4 +1,4 @@
-import Terminal from './core/Terminal';
+import Executor from './core/Executor';
 
 // Exports to global namespace.
-window.Terminal = Terminal;
+window.Executor = Executor;

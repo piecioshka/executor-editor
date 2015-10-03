@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>terminal.js</title>
+    <title>executor.js</title>
 
     <meta charset="utf-8"/>
 
     <link rel="stylesheet" href="styles/vendor/normalize.css" type="text/css"/>
     <link rel="stylesheet" href="styles/main.css" type="text/css"/>
-    <link rel="stylesheet" href="styles/terminal.css" type="text/css"/>
+    <link rel="stylesheet" href="styles/executor.css" type="text/css"/>
 
     <script src="dist/bundle.js"></script>
 
@@ -21,124 +21,73 @@
 </head>
 <body>
     <div id="page">
-        <h1>terminal.js</h1>
+        <h1>executor.js</h1>
 
-        <div id="slide-1" class="terminal">
-            <!-- Top bar with terminal settings. -->
-            <form class="tools">
-                <div class="tools-control">
+        <div id="slide-1" class="executor">
+            <!-- Top bar with executor settings. -->
+            <form class="executor-tools">
+                <div class="executor-tools-control">
                     <label>Evaluate:
-                        <input type="checkbox" class="terminal-auto" checked="checked"/>
+                        <input type="checkbox" class="executor-auto" checked="checked"/>
                     </label>
                 </div>
 
-                <div class="tools-control">
-                    <label>Environment:
-                        <select class="terminal-environment">
+                <div class="executor-tools-control">
+                    <label>Env:
+                        <select class="executor-env">
                             <option value="babel">Babel.js (ES6 + ES7)</option>
                             <option value="browser">Current browser</option>
                         </select>
                     </label>
                 </div>
 
-                <div class="tools-control">
+                <div class="executor-tools-control">
                     <span>Layout:</span>
                     <ul>
-                        <li><i class="terminal-horizontal-icon"></i></li>
-                        <li><i class="terminal-vertical-icon"></i></li>
+                        <li><i class="executor-icon-horizontal"></i></li>
+                        <li><i class="executor-icon-vertical"></i></li>
                     </ul>
                 </div>
 
-                <div class="tools-control">
-                    <label>Font Size:
-                        <input type="number" class="terminal-font-size" min="10" max="99" />
+                <div class="executor-tools-control">
+                    <label>Maximize:
+                        <i class="executor-icon-maximize"></i>
                     </label>
                 </div>
 
-                <div class="tools-control">
-                    <input type="button" class="terminal-execute" value="Execute"/>
+                <div class="executor-tools-control">
+                    <label>Font Size:
+                        <input type="number" class="executor-font-size" min="10" max="99" />
+                    </label>
+                </div>
+
+                <div class="executor-tools-control">
+                    <input type="button" class="executor-execute" value="Execute"/>
                 </div>
             </form>
 
             <!-- Field with code. -->
-            <section class="terminal-main">
+            <section class="executor-main">
                 <!-- This <textarea> tag will be hidden when Ace is active. -->
-                <div class="terminal-console"></div>
+                <div class="executor-code"></div>
 
                 <!-- Board with text which is results of code invocation. -->
-                <div class="terminal-result"></div>
+                <div class="executor-result"></div>
             </section>
 
-            <!-- Version of `terminal.js`. -->
-            <i class="terminal-version">0.5</i>
+            <!-- Version of `executor.js`. -->
+            <i class="executor-version">0.6</i>
         </div>
 
         <script>
-            new Terminal({
+            new Executor({
                 id: 'slide-1',
                 fontSize: 26
             });
         </script>
-
-        <div id="slide-2" class="terminal">
-            <!-- Top bar with terminal settings. -->
-            <form class="tools">
-                <div class="tools-control">
-                    <label>Evaluate:
-                        <input type="checkbox" class="terminal-auto" checked="checked"/>
-                    </label>
-                </div>
-
-                <div class="tools-control">
-                    <label>Environment:
-                        <select class="terminal-environment">
-                            <option value="babel">Babel.js (ES6 + ES7)</option>
-                            <option value="browser">Current browser</option>
-                        </select>
-                    </label>
-                </div>
-
-                <div class="tools-control">
-                    <span>Layout:</span>
-                    <ul>
-                        <li><i class="terminal-horizontal-icon"></i></li>
-                        <li><i class="terminal-vertical-icon"></i></li>
-                    </ul>
-                </div>
-
-                <div class="tools-control">
-                    <label>Font Size:
-                        <input type="number" class="terminal-font-size" min="10" max="99" />
-                    </label>
-                </div>
-
-                <div class="tools-control">
-                    <input type="button" class="terminal-execute" value="Execute"/>
-                </div>
-            </form>
-
-            <!-- Field with code. -->
-            <section class="terminal-main">
-                <!-- This <textarea> tag will be hidden when Ace is active. -->
-                <div class="terminal-console"></div>
-
-                <!-- Board with text which is results of code invocation. -->
-                <div class="terminal-result"></div>
-            </section>
-
-            <!-- Version of `terminal.js`. -->
-            <i class="terminal-version">0.5</i>
-        </div>
-
-        <script>
-            new Terminal({
-                id: 'slide-2',
-                fontSize: 20
-            });
-        </script>
     </div>
 
-    <a href="https://github.com/piecioshka/terminal.js">
+    <a href="https://github.com/piecioshka/executor.js">
         <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png">
     </a>
 </body>
