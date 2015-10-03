@@ -4,15 +4,15 @@ class LayoutManager {
     $code = null;
     $board = null;
 
-    constructor(id) {
-        this.initialize(id);
+    constructor($terminal) {
+        this.initialize($terminal);
     }
 
-    initialize(id) {
-        this.$horizontal = document.querySelector(`#${id} .terminal-horizontal-icon`);
-        this.$vertical = document.querySelector(`#${id} .terminal-vertical-icon`);
-        this.$code = document.querySelector(`#${id} .terminal-console`);
-        this.$board = document.querySelector(`#${id} .terminal-result`);
+    initialize($terminal) {
+        this.$horizontal = $terminal.querySelector(`.terminal-horizontal-icon`);
+        this.$vertical = $terminal.querySelector(`.terminal-vertical-icon`);
+        this.$code = $terminal.querySelector(`.terminal-console`);
+        this.$board = $terminal.querySelector(`.terminal-result`);
     }
 
     setup() {

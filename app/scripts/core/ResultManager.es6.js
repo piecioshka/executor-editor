@@ -4,12 +4,12 @@ class ResultManager {
     $board = null;
     prevents = null;
 
-    constructor(id) {
-        this.initialize(id);
+    constructor($terminal) {
+        this.initialize($terminal);
     }
 
-    initialize(id) {
-        this.$board = document.querySelector(`#${id} .terminal-result`);
+    initialize($terminal) {
+        this.$board = $terminal.querySelector(`.terminal-result`);
     }
 
     save() {

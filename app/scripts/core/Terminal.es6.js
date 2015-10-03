@@ -23,20 +23,22 @@ class Terminal {
     constructor(settings) {
         this.settings = Object.assign(this.settings, settings);
 
-        this.ah = new AceHelper(this.settings.id);
-        this.rm = new ResultManager(this.settings.id);
-        this.lm = new LayoutManager(this.settings.id);
+        const $terminal = document.querySelector(`#${this.settings.id}`);
 
-        this.initialize(this.settings.id);
+        this.ah = new AceHelper($terminal);
+        this.rm = new ResultManager($terminal);
+        this.lm = new LayoutManager($terminal);
+
+        this.initialize($terminal);
         this.setup();
     }
 
-    initialize(id) {
-        this.$auto = document.querySelector(`#${id} .terminal-auto`);
-        this.$environment = document.querySelector(`#${id} .terminal-environment`);
-        this.$fontSize = document.querySelector(`#${id} .terminal-font-size`);
-        this.$execute = document.querySelector(`#${id} .terminal-execute`);
-        this.$code = document.querySelector(`#${id} .terminal-console`);
+    initialize($terminal) {
+        this.$auto = $terminal.querySelector(`.terminal-auto`);
+        this.$environment = $terminal.querySelector(`.terminal-environment`);
+        this.$fontSize = $terminal.querySelector(`.terminal-font-size`);
+        this.$execute = $terminal.querySelector(`.terminal-execute`);
+        this.$code = $terminal.querySelector(`.terminal-console`);
     }
 
     setup() {
@@ -78,7 +80,9 @@ class Terminal {
         this.ah.editor.on('change', () => {
             if (this.$auto.checked) {
                 clearTimeout(delay);
-                delay = setTimeout(() => this.execute(this.$environment.value, this.$code.innerText), this.settings.timeout);
+                delay = setTimeout(() => {
+                    this.execute(this.$environment.value, this.$code.innerText);
+                }, this.settings.timeout);
             }
         });
     }
