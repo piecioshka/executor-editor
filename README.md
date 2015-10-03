@@ -1,6 +1,8 @@
 # executor.js
 
-Simple console with ECMAScript interpreter.
+> Display your JavaScript code on slides.
+
+![executor](./images/screen.jpg)
 
 ## Purpose
 
@@ -26,7 +28,13 @@ git clone git@github.com:piecioshka/executor.js.git
 cd executor.js
 ```
 
-Main part:
+Install by run single command:
+
+```
+make
+```
+
+or
 
 ```
 npm install     # install Babel.js

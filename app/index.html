@@ -68,8 +68,17 @@
 
             <!-- Field with code. -->
             <section class="executor-main">
-                <!-- This <textarea> tag will be hidden when Ace is active. -->
-                <div class="executor-code"></div>
+                <!-- This <pre> tag will be overwrite by Ace. -->
+<pre class="executor-code">
+class Cake {
+    constructor() {
+        this.type = 'Cheesecake';
+    }
+}
+
+console.log(new Cake());
+console.log('Applepie');
+</pre>
 
                 <!-- Board with text which is results of code invocation. -->
                 <div class="executor-result"></div>
