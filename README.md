@@ -8,11 +8,17 @@
 
 1. Add to `<head>`:
 
-```html
-<script src="dist/executor.js"></script>
-```
+    ```html
+    <script src="dist/executor.js"></script>
+    ```
 
-2. Add class `executor` to container with code.
+2. Add CSS class `executor` to HTML element:
+
+    ```html
+    <div class="executor">
+    ```
+
+3. Create HTML structure.
 
 ## API
 
@@ -21,12 +27,22 @@ All settings you can pass by HTML attributes.
 ### data-font-size
 
 Optional. *Default: 16*<br />
-Change size of font of code and in result container.
+Change size of font of code and in result container.<br />
+Example:
+
+```html
+<div class="executor" data-font-size="26">
+```
 
 ### data-timeout
 
 Optional. *Default: 1000*<br />
-Number of milliseconds of delay between last keydown and evaluate code.
+Number of **milliseconds** of delay between last keydown and evaluate code.<br />
+Example:
+
+```html
+<div class="executor" data-timeout="500">
+```
 
 ## Purpose
 
@@ -35,13 +51,13 @@ Number of milliseconds of delay between last keydown and evaluate code.
 
 ## Features
 
- - embed any code
+ - embed any programming code
  - highlight JavaScript syntax
- - auto-evaluate the code
+ - auto-evaluate ONLY JavaScript the code
  - change environment, modes: `browser`, `Babel.js`
  - change layout, modes: `horizontal`, `vertical`
- - maximize - tools and result boxes are hide
- - change font size, limit: `10` - `99`
+ - maximize window with code - containers: `tools` and `result` are hide
+ - change font size, limits: `10` - `99`
  - execute code on demand
 
 ## Build own version
@@ -69,9 +85,9 @@ webpack         # build `dist/executor.js`
 
 Open in browser `demo/index.html`.
 
-## Authors
+## Contact
 
- - [Piotr Kowalski](http://twitter.com/piecioshka)
+Catch me on Twitter [piecioshka](http://twitter.com/piecioshka).
 
 ## License
 
