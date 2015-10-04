@@ -2,13 +2,18 @@
     "private": true,
     "name": "executor.js",
     "version": "0.8.0",
-    "description": "",
+    "description": "Display and evaluate your JavaScript code.",
     "author": "Piotr Kowalski <piecioshka@gmail.com> (http://piecioshka.pl/)",
     "keywords": [
         "hightlight",
-        "syntax"
+        "syntax",
+        "javascript",
+        "babel",
+        "ace",
+        "editor",
+        "embed"
     ],
-    "homepage": "http://piecioshka.pl/executor.js/app",
+    "homepage": "http://piecioshka.pl/executor.js/demo/",
     "license": "MIT",
     "bugs": "http://github.com/piecioshka/executor.js/issues",
     "repository": {
