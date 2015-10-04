@@ -68,9 +68,7 @@
 	    var $instances = window.document.querySelectorAll('.executor');
 
 	    Array.prototype.forEach.call($instances, function ($instance) {
-	        var settings = {
-	            $el: $instance
-	        };
+	        var settings = {};
 
 	        if (Number($instance.dataset.fontSize)) {
 	            settings.fontSize = Number($instance.dataset.fontSize);
@@ -80,7 +78,7 @@
 	            settings.timeout = Number($instance.dataset.timeout);
 	        }
 
-	        return new _coreExecutor2['default'](settings);
+	        return new _coreExecutor2['default']($instance, settings);
 	    });
 	}
 
@@ -132,11 +130,11 @@
 	var _ResultManager2 = _interopRequireDefault(_ResultManager);
 
 	var Executor = (function () {
-	    function Executor(settings) {
+	    function Executor($executor, settings) {
 	        _classCallCheck(this, Executor);
 
+	        this.$el = null;
 	        this.settings = {
-	            $el: null,
 	            fontSize: 16,
 	            timeout: 1000
 	        };
@@ -150,9 +148,8 @@
 	        this.$execute = null;
 	        this.$code = null;
 
+	        this.$el = $executor;
 	        this.settings = Object.assign(this.settings, settings);
-
-	        var $executor = this.settings.$el;
 
 	        this.ah = new _AceHelper2['default']($executor);
 	        this.fh = new _MaximizeHelper2['default']($executor, this.ah.editor);
