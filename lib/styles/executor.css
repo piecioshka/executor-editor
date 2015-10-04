@@ -15,7 +15,7 @@
 
 /* ------------------------------------------------------------------------------------------------------------------ */
 
-.executor .executor-tools {
+.executor .executor-toolbar {
     background: rgba(210, 255, 84, 0.05);
     height: 50px;
     line-height: 50px;
@@ -33,46 +33,46 @@
     user-select: none;
 }
 
-.executor .executor-tools .executor-tools-control {
+.executor .executor-toolbar .executor-toolbar-control {
     padding: 0 15px;
     float: left;
     border-right: 1px solid #999;
 }
 
-.executor .executor-tools .executor-tools-control:last-child {
+.executor .executor-toolbar .executor-toolbar-control:last-child {
     border-right: none;
     padding-right: 0;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------ */
 
-.executor .executor-tools .executor-tools-control .executor-auto {
+.executor .executor-toolbar .executor-toolbar-control .executor-auto {
     margin: 0;
     cursor: pointer;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------ */
 
-.executor .executor-tools .executor-tools-control .executor-env {
+.executor .executor-toolbar .executor-toolbar-control .executor-env {
     cursor: context-menu;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------ */
 
-.executor .executor-tools .executor-tools-control > ul {
+.executor .executor-toolbar .executor-toolbar-control > ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: inline-block;
 }
 
-.executor .executor-tools .executor-tools-control > ul > li {
+.executor .executor-toolbar .executor-toolbar-control > ul > li {
     display: inline-block;
 }
 
-.executor .executor-tools .executor-tools-control .executor-icon-horizontal,
-.executor .executor-tools .executor-tools-control .executor-icon-vertical,
-.executor .executor-tools .executor-tools-control .executor-icon-maximize {
+.executor .executor-toolbar .executor-toolbar-control .executor-icon-horizontal,
+.executor .executor-toolbar .executor-toolbar-control .executor-icon-vertical,
+.executor .executor-toolbar .executor-toolbar-control .executor-icon-maximize {
     background: #f8fdf6;
     cursor: pointer;
     text-decoration: none;
@@ -85,33 +85,33 @@
     outline: 2px solid #5a5a5a;
 }
 
-.executor .executor-tools .executor-tools-control .executor-icon-horizontal:active,
-.executor .executor-tools .executor-tools-control .executor-icon-vertical:active,
-.executor .executor-tools .executor-tools-control .executor-icon-maximize:active {
+.executor .executor-toolbar .executor-toolbar-control .executor-icon-horizontal:active,
+.executor .executor-toolbar .executor-toolbar-control .executor-icon-vertical:active,
+.executor .executor-toolbar .executor-toolbar-control .executor-icon-maximize:active {
     border-color: #000;
     outline: 2px solid #000;
 }
 
-.executor .executor-tools .executor-tools-control .executor-icon-horizontal {
+.executor .executor-toolbar .executor-toolbar-control .executor-icon-horizontal {
     height: 7px;
     border-bottom: 7px solid #5a5a5a;
     margin-right: 10px;
 }
 
-.executor .executor-tools .executor-tools-control .executor-icon-vertical {
+.executor .executor-toolbar .executor-toolbar-control .executor-icon-vertical {
     width: 7px;
     border-right: 7px solid #5a5a5a;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------ */
 
-.executor .executor-tools .executor-tools-control .executor-font-size {
+.executor .executor-toolbar .executor-toolbar-control .executor-font-size {
     width: 30px;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------ */
 
-.executor .executor-tools .executor-tools-control .executor-execute {
+.executor .executor-toolbar .executor-toolbar-control .executor-execute {
     cursor: pointer;
 }
 
@@ -134,6 +134,7 @@
     outline: none;
     border: none;
     margin: 0;
+    position: relative;
 }
 
 .executor .executor-code.executor-left-column {
@@ -170,7 +171,7 @@
 
 /* ------------------------------------------------------------------------------------------------------------------ */
 
-.executor-version {
+.executor-version-label {
     background: #fff;
     position: absolute;
     right: 0;

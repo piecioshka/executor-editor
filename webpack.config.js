@@ -1,6 +1,6 @@
 module.exports = {
     resolve: {
-        extensions: ['.css', '.es6.js', '.js', '']
+        extensions: ['.es6.js', '.js', '']
     },
     entry: './lib/scripts/main',
     output: {
@@ -19,6 +19,11 @@ module.exports = {
             }
         ],
         loaders: [
+            {
+                test: /\.json/,
+                exclude: /node_modules/,
+                loader: 'json-loader'
+            },
             {
                 test: /\.css/,
                 exclude: /node_modules/,

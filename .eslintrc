@@ -298,7 +298,7 @@
     // require function expressions to have a name
     "func-names": [2],
     // enforce use of function declarations or expressions
-    "func-style": [2, "declaration"],
+    "func-style": [2, "expression"],
     // this option enforces minimum and maximum identifier lengths (variable names, property names etc.)
     "id-length": [2, {
       "min": 1,
@@ -341,7 +341,7 @@
     // disallow the omission of parentheses when invoking a constructor with no arguments
     "new-parens": [2],
     // require or disallow an empty newline after variable declarations
-    "newline-after-var": [2, "always"],
+    "newline-after-var": [0, "always"],
     // disallow use of the Array constructor
     "no-array-constructor": [2],
     // disallow use of the continue statement
@@ -467,7 +467,7 @@
     // suggest using arrow functions as callbacks
     "prefer-arrow-callback": [2],
     // suggest using const declaration for variables that are never modified after declared
-    "prefer-const": [2],
+    "prefer-const": [0],
     // suggest using the spread operator instead of .apply().
     "prefer-spread": [2],
     // suggest using Reflect methods where applicable
@@ -491,7 +491,7 @@
     // limits the number of parameters that can be used in the function declaration.
     "max-params": [2, 10],
     // specify the maximum number of statement allowed in a function
-    "max-statements": [2, 10],
+    "max-statements": [2, 20],
     // disallow use of bitwise operators
     "no-bitwise": [2],
     // disallow use of unary operators, ++ and --

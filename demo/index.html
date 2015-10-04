@@ -12,53 +12,7 @@
             <a href="./index.html">executor.js</a>
         </h1>
 
-        <div class="executor" data-font-size="26">
-            <!-- Top bar with executor settings. -->
-            <form class="executor-tools">
-                <div class="executor-tools-control">
-                    <label>Evaluate:
-                        <input type="checkbox" class="executor-auto" checked="checked"/>
-                    </label>
-                </div>
-
-                <div class="executor-tools-control">
-                    <label>Env:
-                        <select class="executor-env">
-                            <option value="babel">Babel.js (ES6 + ES7)</option>
-                            <option value="browser">Current browser</option>
-                        </select>
-                    </label>
-                </div>
-
-                <div class="executor-tools-control">
-                    <span>Layout:</span>
-                    <ul>
-                        <li><i class="executor-icon-horizontal"></i></li>
-                        <li><i class="executor-icon-vertical"></i></li>
-                    </ul>
-                </div>
-
-                <div class="executor-tools-control">
-                    <label>Maximize:
-                        <i class="executor-icon-maximize"></i>
-                    </label>
-                </div>
-
-                <div class="executor-tools-control">
-                    <label>Font Size:
-                        <input type="number" class="executor-font-size" min="10" max="99" />
-                    </label>
-                </div>
-
-                <div class="executor-tools-control">
-                    <input type="button" class="executor-execute" value="Execute"/>
-                </div>
-            </form>
-
-            <!-- Field with code. -->
-            <section class="executor-main">
-                <!-- This <pre> tag will be overwrite by Ace. -->
-<pre class="executor-code">
+<pre class="executor-code" data-font-size="26">
 class Cake {
     constructor() {
         this.type = 'Cheesecake';
@@ -69,13 +23,20 @@ console.log(new Cake());
 console.log('Applepie');
 </pre>
 
-                <!-- Board with text which is results of code invocation. -->
-                <div class="executor-result"></div>
-            </section>
+        <hr/>
 
-            <!-- Version of `executor.js`. -->
-            <i class="executor-version">0.8</i>
-        </div>
+<pre class="executor-code" data-font-size="11">
+function * generator() {
+    yield 1;
+    yield 2;
+}
+
+var gen = generator();
+
+console.log(gen.next());
+console.log(gen.next());
+console.log(gen.next());
+</pre>
     </div>
 
     <a href="https://github.com/piecioshka/executor.js">

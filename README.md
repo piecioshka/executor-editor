@@ -12,13 +12,19 @@
     <script src="dist/executor.js"></script>
     ```
 
-2. Add CSS class `executor` to HTML element:
+2. Add CSS class `executor-code` to HTML element:
 
     ```html
-    <div class="executor">
+    <pre class="executor-code">
+    class Cake {
+        constructor() {
+            this.type = 'Cheesecake';
+        }
+    }
+    console.log(new Cake());
+    console.log('Applepie');
+    </pre>
     ```
-
-3. Create HTML structure.
 
 ## API
 
@@ -31,7 +37,7 @@ Change size of font of code and in result container.<br />
 Example:
 
 ```html
-<div class="executor" data-font-size="26">
+<div class="executor-code" data-font-size="26">
 ```
 
 ### data-timeout
@@ -41,7 +47,7 @@ Number of **milliseconds** of delay between last keydown and evaluate code.<br /
 Example:
 
 ```html
-<div class="executor" data-timeout="500">
+<div class="executor-code" data-timeout="500">
 ```
 
 ## Purpose
@@ -53,12 +59,13 @@ Example:
 
  - embed any programming code
  - highlight JavaScript syntax
- - auto-evaluate ONLY JavaScript the code
+ - auto-evaluate the JavaScript code
  - change environment, modes: `browser`, `Babel.js`
  - change layout, modes: `horizontal`, `vertical`
  - maximize window with code - containers: `tools` and `result` are hide
  - change font size, limits: `10` - `99`
  - execute code on demand
+ - multiple instance on single page
 
 ## Build own version
 
