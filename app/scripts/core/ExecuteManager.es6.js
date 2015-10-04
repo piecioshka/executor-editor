@@ -1,8 +1,10 @@
+import babel from '../../../node_modules/babel-core/browser.min';
+
 class ExecuteManager {
     static execute(name, code) {
         switch (name) {
             case 'babel':
-                window.babel.run(code, {
+                babel.run(code, {
                     stage: 0
                 });
                 break;

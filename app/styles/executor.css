@@ -6,6 +6,7 @@
     font-family: 'Menlo', Monaco, Consolas, 'Courier New', monospace;
     width: 800px;
     height: 460px;
+    border-radius: 5px;
 }
 
 .executor .executor-hidden-item {
@@ -22,6 +23,14 @@
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 14px;
     overflow: hidden;
+    position: relative;
+
+    /* Disable select */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .executor .executor-tools .executor-tools-control {
@@ -32,6 +41,21 @@
 
 .executor .executor-tools .executor-tools-control:last-child {
     border-right: none;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+.executor .executor-tools .executor-tools-control .executor-auto {
+    font-size: larger;
+    margin: 0;
+    cursor: pointer;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+.executor .executor-tools .executor-tools-control .executor-env {
+    font-size: larger;
+    cursor: context-menu;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------ */
@@ -58,7 +82,15 @@
     width: 14px;
     display: inline-block;
     vertical-align: middle;
+    border-color: #5a5a5a;
     outline: 2px solid #5a5a5a;
+}
+
+.executor .executor-tools .executor-tools-control .executor-icon-horizontal:active,
+.executor .executor-tools .executor-tools-control .executor-icon-vertical:active,
+.executor .executor-tools .executor-tools-control .executor-icon-maximize:active {
+    border-color: #000;
+    outline: 2px solid #000;
 }
 
 .executor .executor-tools .executor-tools-control .executor-icon-horizontal {
@@ -75,7 +107,15 @@
 /* ------------------------------------------------------------------------------------------------------------------ */
 
 .executor .executor-tools .executor-tools-control .executor-font-size {
+    font-size: 14px;
     width: 30px;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+.executor .executor-tools .executor-tools-control .executor-execute {
+    cursor: pointer;
+    font-size: larger;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------ */
@@ -96,7 +136,6 @@
     overflow: auto;
     outline: none;
     border: none;
-    border-bottom: 1px solid #999;
     margin: 0;
 }
 
@@ -121,6 +160,7 @@
     padding: 5px;
     border-top: 1px solid #999;
     overflow: auto;
+    position: relative;
 }
 
 .executor .executor-result.executor-right-column {

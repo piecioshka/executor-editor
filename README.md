@@ -8,6 +8,30 @@
 
 Presentation slides.
 
+## How to use?
+
+1. Add to `<head>`:
+
+```html
+<script src="dist/executor.js"></script>
+```
+
+2. Add class `executor` to container with code.
+
+## API
+
+All settings you can pass by HTML attributes.
+
+### data-font-size
+
+Optional. *Default: 16*
+Change size of font of code and in result container.
+
+### data-timeout
+
+Optional. *Default: 1000*
+Number of milliseconds of delay between last keydown and evaluate code.
+
 ## Features
 
  - embed any code
@@ -19,7 +43,7 @@ Presentation slides.
  - change font size, limit: `10` - `99`
  - execute code on demand
 
-## Setup
+## Setup - build own version
 
 Before execute this code check that you have installed globally `npm`, `bower` and `webpack`.
 
@@ -38,8 +62,8 @@ or
 
 ```
 npm install     # install Babel.js
-webpack         # build `bundle.js`
 bower install   # install Ace.js (Builds)
+webpack         # build `executor.js`
 ```
 
 Open in browser `app/index.html`.

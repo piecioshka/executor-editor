@@ -2,28 +2,19 @@
 <html>
 <head>
     <title>executor.js</title>
-
     <meta charset="utf-8"/>
-
-    <link rel="stylesheet" href="styles/vendor/normalize.css" type="text/css"/>
     <link rel="stylesheet" href="styles/main.css" type="text/css"/>
-    <link rel="stylesheet" href="styles/executor.css" type="text/css"/>
-
-    <script src="dist/bundle.js"></script>
-
-    <script src="../node_modules/babel-core/browser.js"></script>
-    <script src="../node_modules/babel-core/browser-polyfill.js"></script>
-    <script src="../node_modules/babel-core/external-helpers.js"></script>
-
-    <script src="components/ace-builds/src/ace.js"></script>
-    <script src="components/ace-builds/src/ext-language_tools.js"></script>
-    <script src="components/ace-builds/src/theme-tomorrow.js"></script>
+    <script src="dist/executor.js"></script>
 </head>
 <body>
     <div id="page">
-        <h1>executor.js</h1>
+        <h1>
+            <a href="http://piecioshka.pl/executor.js/app/">
+                executor.js
+            </a>
+        </h1>
 
-        <div id="slide-1" class="executor">
+        <div class="executor" data-font-size="26">
             <!-- Top bar with executor settings. -->
             <form class="executor-tools">
                 <div class="executor-tools-control">
@@ -85,15 +76,8 @@ console.log('Applepie');
             </section>
 
             <!-- Version of `executor.js`. -->
-            <i class="executor-version">0.6</i>
+            <i class="executor-version">0.7</i>
         </div>
-
-        <script>
-            new Executor({
-                id: 'slide-1',
-                fontSize: 26
-            });
-        </script>
     </div>
 
     <a href="https://github.com/piecioshka/executor.js">

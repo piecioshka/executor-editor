@@ -6,8 +6,8 @@ import ResultManager from './ResultManager';
 
 class Executor {
     settings = {
-        id: null,
-        fontSize: 12,
+        $el: null,
+        fontSize: 16,
         timeout: 1000
     };
 
@@ -25,7 +25,7 @@ class Executor {
     constructor(settings) {
         this.settings = Object.assign(this.settings, settings);
 
-        const $executor = window.document.querySelector(`#${this.settings.id}`);
+        const $executor = this.settings.$el;
 
         this.ah = new AceHelper($executor);
         this.fh = new MaximizeHelper($executor, this.ah.editor);

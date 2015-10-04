@@ -4,10 +4,18 @@
 }
 
 #page > h1 {
+    font-family: 'Menlo', Monaco, Consolas, 'Courier New', monospace;
     border-bottom: 1px solid #000;
-    color: #000;
 }
 
-#page > .executor {
-    margin: 20px 0 0 0;
+#page > h1 > a {
+    color: #efefef;
+    text-shadow: 0 0 2px #676767;
+    transition: 0.5s all;
+    text-decoration: none;
+}
+
+#page > h1 > a:hover {
+    color: #676767;
+    text-shadow: 0 0 2px #000;
 }
