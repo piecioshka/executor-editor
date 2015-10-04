@@ -2,10 +2,10 @@ module.exports = {
     resolve: {
         extensions: ['.css', '.es6.js', '.js', '']
     },
-    entry: './app/scripts/main',
+    entry: './lib/scripts/main',
     output: {
         filename: 'executor.js',
-        path: './app/dist'
+        path: './dist'
     },
     module: {
         noParse: [

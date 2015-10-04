@@ -1,4 +1,4 @@
-all: clean npm webpack bower
+all: clean npm bower webpack
 
 clean:
 	npm run clear
@@ -6,8 +6,8 @@ clean:
 npm:
 	npm install
 
-webpack:
-	webpack -p
-
 bower:
 	bower install
+
+webpack:
+	webpack -p

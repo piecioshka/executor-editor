@@ -1,7 +1,7 @@
 {
     "private": true,
     "name": "executor.js",
-    "version": "0.7.0",
+    "version": "0.8.0",
     "description": "",
     "author": "Piotr Kowalski <piecioshka@gmail.com> (http://piecioshka.pl/)",
     "keywords": [
@@ -16,7 +16,7 @@
         "url": "http://github.com/piecioshka/executor.js.git"
     },
     "scripts": {
-        "clear": "rm -rf node_modules app/components app/dist"
+        "clear": "rm -rf node_modules bower_components"
     },
     "devDependencies": {
         "babel-core": "^5.8.25",
