@@ -193,6 +193,11 @@
 	            this.$fontSize.value = fontSize;
 	        }
 	    }, {
+	        key: 'getCode',
+	        value: function getCode() {
+	            return this.ah.editor.getValue();
+	        }
+	    }, {
 	        key: 'handleExecutorSwitch',
 	        value: function handleExecutorSwitch() {
 	            var _this = this;
@@ -219,7 +224,7 @@
 	                if (_this2.$auto.checked) {
 	                    clearTimeout(delay);
 	                    delay = window.setTimeout(function () {
-	                        _this2.execute(_this2.$env.value, _this2.$code.innerText);
+	                        _this2.execute(_this2.$env.value, _this2.getCode());
 	                    }, _this2.settings.timeout);
 	                }
 	            });
@@ -230,7 +235,7 @@
 	            var _this3 = this;
 
 	            this.$env.addEventListener('change', function () {
-	                _this3.execute(_this3.$env.value, _this3.$code.innerText);
+	                _this3.execute(_this3.$env.value, _this3.getCode());
 	            });
 	        }
 	    }, {
@@ -242,7 +247,7 @@
 	                _this4.rm.save();
 	                _this4.rm.override();
 
-	                _this4.execute(_this4.$env.value, _this4.$code.innerText);
+	                _this4.execute(_this4.$env.value, _this4.getCode());
 	            });
 	        }
 	    }, {
@@ -2466,8 +2471,13 @@
 	    }, {
 	        key: 'print',
 	        value: function print() {
-	            this.$board.innerText = ResultManager.parse.apply(ResultManager, _toConsumableArray(this.buffer));
+	            this.append(ResultManager.parse.apply(ResultManager, _toConsumableArray(this.buffer)));
 	            this.buffer.clear();
+	        }
+	    }, {
+	        key: 'append',
+	        value: function append(text) {
+	            this.$board.innerHTML = text;
 	        }
 	    }], [{
 	        key: 'parse',
@@ -2486,7 +2496,7 @@
 	                        result += e.message;
 	                    }
 	                });
-	                result += '\n';
+	                result += '<br />';
 	            });
 
 	            return result;
