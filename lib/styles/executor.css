@@ -2,7 +2,7 @@
     border: 1px solid #999;
     overflow: hidden;
     position: relative;
-    font-size: 26px;
+    font-size: 16px;
     font-family: 'Menlo', Monaco, Consolas, 'Courier New', monospace;
     width: 800px;
     height: 460px;
@@ -41,12 +41,12 @@
 
 .executor .executor-tools .executor-tools-control:last-child {
     border-right: none;
+    padding-right: 0;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------ */
 
 .executor .executor-tools .executor-tools-control .executor-auto {
-    font-size: larger;
     margin: 0;
     cursor: pointer;
 }
@@ -54,7 +54,6 @@
 /* ------------------------------------------------------------------------------------------------------------------ */
 
 .executor .executor-tools .executor-tools-control .executor-env {
-    font-size: larger;
     cursor: context-menu;
 }
 
@@ -107,7 +106,6 @@
 /* ------------------------------------------------------------------------------------------------------------------ */
 
 .executor .executor-tools .executor-tools-control .executor-font-size {
-    font-size: 14px;
     width: 30px;
 }
 
@@ -115,7 +113,6 @@
 
 .executor .executor-tools .executor-tools-control .executor-execute {
     cursor: pointer;
-    font-size: larger;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------ */
