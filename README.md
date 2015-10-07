@@ -2,7 +2,7 @@
 
 > Display and evaluate your JavaScript code.
 
-![executor](./demo/images/screen.png)
+![executor](./demo/images/screen.jpg)
 
 ## How to use?
 
