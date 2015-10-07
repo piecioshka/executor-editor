@@ -2547,19 +2547,24 @@
 	        key: 'compile',
 	        value: function compile() {
 	            this.$el = window.document.createDocumentFragment();
+
 	            var $span = window.document.createElement('span');
+
 	            $span.appendChild(window.document.createTextNode('Layout: '));
 	            this.$el.appendChild($span);
 
 	            var $ul = window.document.createElement('ul');
+
 	            this.$horizontal = window.document.createElement('i');
 	            this.$horizontal.classList.add('executor-icon-horizontal');
 
 	            var $li1 = window.document.createElement('li');
+
 	            $li1.appendChild(this.$horizontal);
 	            $ul.appendChild($li1);
 
 	            var $li2 = window.document.createElement('li');
+
 	            this.$vertical = window.document.createElement('i');
 	            this.$vertical.classList.add('executor-icon-vertical');
 	            $li2.appendChild(this.$vertical);
@@ -2688,13 +2693,18 @@
 	            this.$el.appendChild(window.document.createTextNode('Env: '));
 	            this.$select = window.document.createElement('select');
 	            this.$select.classList.add('executor-env');
+
 	            var $babel = window.document.createElement('option');
+
 	            $babel.value = 'babel';
 	            $babel.appendChild(window.document.createTextNode('Babel.js (ES6 + ES7)'));
 	            this.$select.appendChild($babel);
+
 	            var $browser = window.document.createElement('option');
+
 	            $browser.value = 'browser';
 	            $browser.appendChild(window.document.createTextNode('Current browser'));
+
 	            this.$select.appendChild($browser);
 	            this.$el.appendChild(this.$select);
 	        }
@@ -2889,8 +2899,8 @@
 			"babel-eslint": "^4.1.3",
 			"babel-loader": "^5.3.2",
 			"css-loader": "^0.19.0",
-			"eslint": "latest",
-			"eslint-config-piecioshka": "latest",
+			"eslint": "^1.6.0",
+			"eslint-config-piecioshka": "^1.0.7",
 			"eslint-loader": "latest",
 			"json-loader": "^0.5.3",
 			"style-loader": "^0.12.4",
