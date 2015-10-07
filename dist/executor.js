@@ -236,6 +236,9 @@
 	            var _this = this;
 
 	            var runCode = function runCode() {
+	                _this.resultsWindow.save();
+	                _this.resultsWindow.override();
+
 	                _this.execute(_this.selectEnvironment.getValue(), _this.aceHelper.getCode());
 	            };
 
@@ -284,12 +287,7 @@
 	            });
 
 	            // Ad 6. Execute
-	            this.executeButton.setup(function () {
-	                _this.resultsWindow.save();
-	                _this.resultsWindow.override();
-
-	                runCode();
-	            });
+	            this.executeButton.setup(runCode);
 
 	            // Results board
 	            // -------------
@@ -2547,11 +2545,7 @@
 	        key: 'compile',
 	        value: function compile() {
 	            this.$el = window.document.createDocumentFragment();
-
-	            var $span = window.document.createElement('span');
-
-	            $span.appendChild(window.document.createTextNode('Layout: '));
-	            this.$el.appendChild($span);
+	            this.$el.appendChild(LayoutSwitcher.buildSpan());
 
 	            var $ul = window.document.createElement('ul');
 
@@ -2577,6 +2571,14 @@
 	        value: function setup(horizontalHandler, verticalHandler) {
 	            this.$horizontal.addEventListener('click', horizontalHandler);
 	            this.$vertical.addEventListener('click', verticalHandler);
+	        }
+	    }], [{
+	        key: 'buildSpan',
+	        value: function buildSpan() {
+	            var $span = window.document.createElement('span');
+
+	            $span.appendChild(window.document.createTextNode('Layout: '));
+	            return $span;
 	        }
 	    }]);
 
