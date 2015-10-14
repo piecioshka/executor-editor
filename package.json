@@ -1,6 +1,7 @@
 {
     "name": "executor",
     "version": "0.9.1",
+    "license": "MIT",
     "devDependencies": {
         "babel-core": "^5.8.25",
         "babel-eslint": "^4.1.3",
