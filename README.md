@@ -1,5 +1,9 @@
 # executor
 
+![](https://img.shields.io/bower/v/executor.svg)
+![](https://img.shields.io/bower/dt/executor.svg)
+![](https://img.shields.io/bower/l/executor.svg)
+
 > Display and evaluate your JavaScript code.
 
 ![executor](./demo/images/screen.jpg)
