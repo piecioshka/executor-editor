@@ -1,24 +1,6 @@
 {
-    "private": true,
-    "name": "executor.js",
+    "name": "executor",
     "version": "0.9.1",
-    "description": "Display and evaluate your JavaScript code.",
-    "author": "Piotr Kowalski <piecioshka@gmail.com> (http://piecioshka.pl/)",
-    "license": "MIT",
-    "homepage": "http://piecioshka.pl/executor.js/demo/",
-    "keywords": [
-        "hightlight",
-        "syntax",
-        "javascript",
-        "babel",
-        "ace",
-        "editor",
-        "embed"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "http://github.com/piecioshka/executor.js.git"
-    },
     "devDependencies": {
         "babel-core": "^5.8.25",
         "babel-eslint": "^4.1.3",

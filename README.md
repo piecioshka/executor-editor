@@ -1,4 +1,4 @@
-# executor.js
+# executor
 
 > Display and evaluate your JavaScript code.
 
@@ -72,8 +72,8 @@ Example:
 Before execute this code check that you have installed globally `npm`, `bower` and `webpack`.
 
 ```
-git clone git@github.com:piecioshka/executor.js.git
-cd executor.js
+git clone git@github.com:piecioshka/executor.git
+cd executor
 ```
 
 Install by run single command:
