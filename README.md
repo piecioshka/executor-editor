@@ -9,7 +9,7 @@
 1. Add to `<head>`:
 
     ```html
-    <script src="dist/executor.js"></script>
+    <script src="dist/executor.min.js"></script>
     ```
 
 2. Add CSS class `executor-code` to HTML element:
@@ -94,7 +94,7 @@ Open in browser `demo/index.html`.
 
 ## Contact
 
-Catch me on Twitter [piecioshka](http://twitter.com/piecioshka).
+Catch me on @[piecioshka](http://twitter.com/piecioshka).
 
 ## License
 
