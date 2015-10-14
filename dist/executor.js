@@ -236,9 +236,6 @@
 	            var _this = this;
 
 	            var runCode = function runCode() {
-	                _this.resultsWindow.save();
-	                _this.resultsWindow.override();
-
 	                _this.execute(_this.selectEnvironment.getValue(), _this.aceHelper.getCode());
 	            };
 
@@ -292,14 +289,7 @@
 	            // Results board
 	            // -------------
 
-	            this.aceHelper.editor.on('focus', function () {
-	                _this.resultsWindow.save();
-	                _this.resultsWindow.override();
-	            });
-
-	            this.aceHelper.editor.on('blur', function () {
-	                _this.resultsWindow.prevent();
-	            });
+	            this.resultsWindow.setup();
 
 	            this.$main.appendChild(this.resultsWindow.$el);
 	        }
@@ -318,7 +308,7 @@
 	            try {
 	                _commonExecuteManager2['default'].execute(name, code);
 	            } catch (e) {
-	                this.resultsWindow.add(e.message);
+	                console.error(e.message);
 	            }
 
 	            this.resultsWindow.print();
@@ -2750,49 +2740,28 @@
 
 	        this.$el = null;
 	        this.buffer = new Set();
-	        this.prevents = null;
 
 	        this.$el = window.document.createElement('div');
 	        this.$el.classList.add('executor-result');
 	    }
 
 	    _createClass(ResultsWindow, [{
-	        key: 'save',
-	        value: function save() {
+	        key: 'setup',
+	        value: function setup() {
 	            var _this = this;
 
-	            this.prevents = {};
+	            ['log', 'info', 'warn', 'error'].forEach(function (name) {
+	                var primaryMethod = window.console[name];
 
-	            ResultsWindow.METHODS.forEach(function (name) {
-	                _this.prevents[name] = window.console[name];
+	                window.console[name] = function () {
+	                    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	                        args[_key] = arguments[_key];
+	                    }
+
+	                    primaryMethod.apply(window.console, args);
+	                    _this.buffer.add(args);
+	                };
 	            });
-	        }
-	    }, {
-	        key: 'override',
-	        value: function override() {
-	            var _this2 = this;
-
-	            ResultsWindow.METHODS.forEach(function (name) {
-	                window.console[name] = _this2.add.bind(_this2);
-	            });
-	        }
-	    }, {
-	        key: 'prevent',
-	        value: function prevent() {
-	            var _this3 = this;
-
-	            ResultsWindow.METHODS.forEach(function (name) {
-	                window.console[name] = _this3.prevents[name];
-	            });
-	        }
-	    }, {
-	        key: 'add',
-	        value: function add() {
-	            for (var _len = arguments.length, text = Array(_len), _key = 0; _key < _len; _key++) {
-	                text[_key] = arguments[_key];
-	            }
-
-	            this.buffer.add(text);
 	        }
 	    }, {
 	        key: 'print',
@@ -2808,7 +2777,7 @@
 	    }], [{
 	        key: 'parse',
 	        value: function parse() {
-	            var result = '';
+	            var result = [];
 
 	            for (var _len2 = arguments.length, buffer = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
 	                buffer[_key2] = arguments[_key2];
@@ -2817,22 +2786,26 @@
 	            buffer.forEach(function (row) {
 	                row.forEach(function (item) {
 	                    try {
-	                        result += JSON.stringify(item) + ' ';
+	                        if (typeof item === 'string') {
+	                            result.push(item);
+	                        } else if (typeof item === 'function') {
+	                            result.push(item.toString());
+	                        } else {
+	                            result.push(JSON.stringify(item) + ' ');
+	                        }
 	                    } catch (e) {
-	                        result += e.message;
+	                        result.push(e.message);
 	                    }
 	                });
-	                result += '<br />';
+	                result.push('<br />');
 	            });
 
-	            return result;
+	            return result.join('');
 	        }
 	    }]);
 
 	    return ResultsWindow;
 	})();
-
-	ResultsWindow.METHODS = ['log', 'info', 'warn', 'error'];
 
 	exports['default'] = ResultsWindow;
 	module.exports = exports['default'];
@@ -2873,9 +2846,11 @@
 	module.exports = {
 		"private": true,
 		"name": "executor.js",
-		"version": "0.9.0",
+		"version": "0.9.1",
 		"description": "Display and evaluate your JavaScript code.",
 		"author": "Piotr Kowalski <piecioshka@gmail.com> (http://piecioshka.pl/)",
+		"license": "MIT",
+		"homepage": "http://piecioshka.pl/executor.js/demo/",
 		"keywords": [
 			"hightlight",
 			"syntax",
@@ -2885,16 +2860,9 @@
 			"editor",
 			"embed"
 		],
-		"homepage": "http://piecioshka.pl/executor.js/demo/",
-		"license": "MIT",
-		"bugs": "http://github.com/piecioshka/executor.js/issues",
 		"repository": {
 			"type": "git",
 			"url": "http://github.com/piecioshka/executor.js.git"
-		},
-		"scripts": {
-			"clear": "rm -rf node_modules bower_components",
-			"lint": "eslint lib/scripts/"
 		},
 		"devDependencies": {
 			"babel-core": "^5.8.25",
@@ -2907,6 +2875,10 @@
 			"json-loader": "^0.5.3",
 			"style-loader": "^0.12.4",
 			"webpack": "^1.12.2"
+		},
+		"scripts": {
+			"clear": "rm -rf node_modules bower_components",
+			"lint": "eslint lib/scripts/"
 		},
 		"eslintConfig": {
 			"extends": "piecioshka",

@@ -4,7 +4,7 @@
     <title>executor.js</title>
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="styles/main.css" type="text/css"/>
-    <script src="../dist/executor.js"></script>
+    <script src="../dist/executor.min.js"></script>
 </head>
 <body>
     <div id="page">
@@ -12,7 +12,7 @@
             <a href="./index.html">executor.js</a>
         </h1>
 
-<pre class="executor-code" data-font-size="26">
+<pre class="executor-code" data-font-size="16">
 class Cake {
     constructor() {
         this.type = 'Cheesecake';
@@ -23,20 +23,6 @@ console.log(new Cake());
 console.log('Applepie');
 </pre>
 
-        <hr/>
-
-<pre class="executor-code" data-font-size="11">
-function * generator() {
-    yield 1;
-    yield 2;
-}
-
-var gen = generator();
-
-console.log(gen.next());
-console.log(gen.next());
-console.log(gen.next());
-</pre>
     </div>
 
     <a href="https://github.com/piecioshka/executor.js">
