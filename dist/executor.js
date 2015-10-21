@@ -2624,6 +2624,9 @@
 
 	                escapeHandler();
 	                window.document.body.removeEventListener('keydown', handleKeydown);
+
+	                // Fixed embed in presentation slides, ex. shower.js
+	                evt.stopPropagation();
 	            };
 
 	            /**
@@ -2840,7 +2843,7 @@
 
 	module.exports = {
 		"name": "executor",
-		"version": "0.9.2",
+		"version": "0.9.3",
 		"license": "MIT",
 		"devDependencies": {
 			"babel-core": "^5.8.25",
