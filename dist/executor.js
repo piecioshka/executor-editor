@@ -236,6 +236,7 @@
 	            var _this = this;
 
 	            var runCode = function runCode() {
+	                _this.resultsWindow.setup();
 	                _this.execute(_this.selectEnvironment.getValue(), _this.aceHelper.getCode());
 	            };
 
@@ -285,11 +286,6 @@
 
 	            // Ad 6. Execute
 	            this.executeButton.setup(runCode);
-
-	            // Results board
-	            // -------------
-
-	            this.resultsWindow.setup();
 
 	            this.$main.appendChild(this.resultsWindow.$el);
 	        }
@@ -2739,6 +2735,8 @@
 	        _classCallCheck(this, ResultsWindow);
 
 	        this.$el = null;
+	        this.buffer = null;
+
 	        this.buffer = new Set();
 
 	        this.$el = window.document.createElement('div');
@@ -2751,15 +2749,12 @@
 	            var _this = this;
 
 	            ['log', 'info', 'warn', 'error'].forEach(function (name) {
-	                var primaryMethod = window.console[name];
-
 	                window.console[name] = function () {
 	                    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
 	                        args[_key] = arguments[_key];
 	                    }
 
-	                    primaryMethod.apply(window.console, args);
-	                    _this.buffer.add(args);
+	                    return _this.buffer.add(args);
 	                };
 	            });
 	        }
@@ -2844,26 +2839,9 @@
 /***/ function(module, exports) {
 
 	module.exports = {
-		"private": true,
-		"name": "executor.js",
-		"version": "0.9.1",
-		"description": "Display and evaluate your JavaScript code.",
-		"author": "Piotr Kowalski <piecioshka@gmail.com> (http://piecioshka.pl/)",
+		"name": "executor",
+		"version": "0.9.2",
 		"license": "MIT",
-		"homepage": "http://piecioshka.pl/executor.js/demo/",
-		"keywords": [
-			"hightlight",
-			"syntax",
-			"javascript",
-			"babel",
-			"ace",
-			"editor",
-			"embed"
-		],
-		"repository": {
-			"type": "git",
-			"url": "http://github.com/piecioshka/executor.js.git"
-		},
 		"devDependencies": {
 			"babel-core": "^5.8.25",
 			"babel-eslint": "^4.1.3",
@@ -2877,7 +2855,7 @@
 			"webpack": "^1.12.2"
 		},
 		"scripts": {
-			"clear": "rm -rf node_modules bower_components",
+			"clear": "rm -rf node_modules/ bower_components/",
 			"lint": "eslint lib/scripts/"
 		},
 		"eslintConfig": {
