@@ -6,14 +6,14 @@
 
 > Display and evaluate your JavaScript code.
 
-![executor](./demo/images/screen.jpg)
+![executor](./screenshots/editor.jpg)
 
 ## How to use?
 
 1. Add to `<head>`:
 
     ```html
-    <script src="dist/executor.min.js"></script>
+    <script src="build/dist/executor.min.js"></script>
     ```
 
 2. Add CSS class `executor-code` to HTML element:
@@ -28,6 +28,14 @@
     console.log(new Cake());
     console.log('Applepie');
     </pre>
+    ```
+
+3. Run
+
+    ```html
+    <script>
+    Executor.setup();
+    </script>
     ```
 
 ## API
@@ -89,17 +97,17 @@ make
 or
 
 ```
-npm install     # install Babel.js
-bower install   # install Ace.js (Builds)
-webpack         # build `dist/executor.js`
+npm install
+bower install
+npm run build
 ```
 
-Open in browser `demo/index.html`.
+Open in browser `build/index.html`.
 
 ## Contact
 
-Catch me on @[piecioshka](http://twitter.com/piecioshka).
+Catch me on Twitter: @[piecioshka](http://twitter.com/piecioshka).
 
 ## License
 
-[The MIT License](http://piecioshka.mit-license.org)
+[The MIT License](http://piecioshka.mit-license.org) @ 2015
