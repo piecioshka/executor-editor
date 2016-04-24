@@ -8,7 +8,13 @@
 
 ![executor](./screenshots/editor.jpg)
 
-## How to use?
+## Install
+
+ * `bower install executor`
+ * Grap `dist/executor.js`
+ * Build own version by `make` command
+
+## Usage
 
 1. Add CSS class `executor-code` to HTML element:
 
