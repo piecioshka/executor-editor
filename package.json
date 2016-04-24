@@ -1,6 +1,11 @@
 {
     "name": "executor",
     "version": "0.9.4",
+    "author": {
+        "name": "Piotr Kowalski",
+        "email": "piecioshka@gmail.com",
+        "url": "http://piecioshka.pl/"
+    },
     "scripts": {
         "clear": "rm -rf node_modules/ bower_components/",
         "lint": "eslint lib/scripts/",
