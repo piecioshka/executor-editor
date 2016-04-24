@@ -1,39 +1,59 @@
+'use strict';
+
+var webpack = require('webpack');
+var del = require('del');
+
+// Remove last version of lib.
+del([__dirname + '/dist/']);
+
 module.exports = {
-    resolve: {
-        extensions: ['.es6.js', '.js', '']
+    entry: {
+        'executor': './lib/index',
+        'executor.min': './lib/index'
     },
-    entry: './lib/scripts/main',
+
+    devtool: 'source-map',
+
     output: {
-        filename: 'executor.js',
-        path: './dist'
+        library: 'Executor',
+        libraryTarget: 'umd',
+
+        filename: '[name].js',
+        path: './dist',
+        pathinfo: true
     },
+
     module: {
         noParse: [
             /ace-builds/
         ],
-        preLoaders: [
-            {
-                test: /\.es6\.js/,
-                exclude: /node_modules/,
-                loader: 'eslint-loader'
-            }
-        ],
         loaders: [
             {
-                test: /\.json/,
-                exclude: /node_modules/,
+                test: /\.json$/,
+                exclude: /executor\/node_modules/,
                 loader: 'json-loader'
             },
             {
-                test: /\.css/,
-                exclude: /node_modules/,
+                test: /\.css$/,
+                exclude: /executor\/node_modules/,
                 loader: 'style-loader!css-loader'
             },
             {
-                test: /\.es6\.js/,
-                exclude: /node_modules/,
-                loader: 'babel-loader?stage=0'
+                test: /\.js$/,
+                exclude: /executor\/node_modules/,
+                loader: 'babel-loader',
+                query: {
+                    cacheDirectory: true,
+                    presets: ['es2015', 'stage-0']
+                }
             }
         ]
-    }
+    },
+
+    plugins: [
+        new webpack.optimize.UglifyJsPlugin({
+            include: /\.min\.js$/,
+            minimize: true
+        })
+    ]
 };
