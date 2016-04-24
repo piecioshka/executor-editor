@@ -10,9 +10,9 @@
 
 ## Install
 
- * `bower install executor`
- * Grap `dist/executor.js`
- * Build own version by `make` command
+* By command: `bower install executor`
+* Grap from http://piecioshka.github.io/executor/dist/executor.js
+* Build own version by `make` command
 
 ## Usage
 
@@ -38,6 +38,10 @@
     Executor.setup();
     </script>
     ```
+
+## Demo
+
+:zap: Please enter to: http://piecioshka.github.io/executor/demo/
 
 ## API
 
@@ -65,20 +69,20 @@ Example:
 
 ## Purpose
 
- - presentation slides
- - application which evaluate code in ECMAScript 6 or 7
+* presentation slides
+* application which evaluate code in ECMAScript 6 or 7
 
 ## Features
 
- - embed any programming code
- - highlight JavaScript syntax
- - auto-evaluate the JavaScript code
- - change environment, modes: `browser`, `Babel.js`
- - change layout, modes: `horizontal`, `vertical`
- - maximize window with code - containers: `tools` and `result` are hide
- - change font size, limits: `10` - `99`
- - execute code on demand
- - multiple instance on single page
+* embed any programming code
+* highlight JavaScript syntax
+* auto-evaluate the JavaScript code
+* change environment, modes: `browser`, `Babel.js`
+* change layout, modes: `horizontal`, `vertical`
+* maximize window with code - containers: `tools` and `result` are hide
+* change font size, limits: `10` - `99`
+* execute code on demand
+* multiple instance on single page
 
 ## Build own version
 
@@ -102,8 +106,6 @@ npm install
 bower install
 npm run build
 ```
-
-Open in browser `demo/index.html`.
 
 ## Contact
 
