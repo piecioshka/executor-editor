@@ -1,8 +1,12 @@
 {
     "name": "executor",
     "description": "Display and evaluate your JavaScript code.",
-    "main": "dist/executor.min.js",
-    "moduleType": "es6",
+    "main": [
+        "lib/index.js"
+    ],
+    "moduleType": [
+        "es6"
+    ],
     "authors": [
         {
             "name": "Piotr Kowalski",
