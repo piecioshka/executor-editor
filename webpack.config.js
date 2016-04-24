@@ -1,6 +1,10 @@
 'use strict';
 
 var webpack = require('webpack');
+var del = require('del');
+
+// Remove last version of lib.
+del([__dirname + '/dist/']);
 
 module.exports = {
     entry: {
@@ -15,7 +19,7 @@ module.exports = {
         libraryTarget: 'umd',
 
         filename: '[name].js',
-        path: './build/dist',
+        path: './dist',
         pathinfo: true
     },
 
@@ -25,12 +29,12 @@ module.exports = {
         ],
         loaders: [
             {
-                test: /\.json/,
+                test: /\.json$/,
                 exclude: /executor\/node_modules/,
                 loader: 'json-loader'
             },
             {
-                test: /\.css/,
+                test: /\.css$/,
                 exclude: /executor\/node_modules/,
                 loader: 'style-loader!css-loader'
             },

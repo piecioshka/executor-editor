@@ -1,13 +1,10 @@
-all: clean npm bower build
+all: clean install build
 
 clean:
 	npm run clear
 
-npm:
-	npm install
-
-bower:
-	bower install
+install:
+	npm install && bower install
 
 build:
 	npm run build

@@ -1,7 +1,7 @@
 {
     "name": "executor",
     "description": "Display and evaluate your JavaScript code.",
-    "main": "build/dist/executor.min.js",
+    "main": "dist/executor.min.js",
     "moduleType": "es6",
     "authors": [
         {

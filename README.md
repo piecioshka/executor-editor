@@ -10,13 +10,7 @@
 
 ## How to use?
 
-1. Add to `<head>`:
-
-    ```html
-    <script src="build/dist/executor.min.js"></script>
-    ```
-
-2. Add CSS class `executor-code` to HTML element:
+1. Add CSS class `executor-code` to HTML element:
 
     ```html
     <pre class="executor-code">
@@ -30,9 +24,10 @@
     </pre>
     ```
 
-3. Run
+2. Add on the bottom of page, example before `</body>`
 
     ```html
+    <script src="dist/executor.min.js"></script>
     <script>
     Executor.setup();
     </script>
@@ -102,7 +97,7 @@ bower install
 npm run build
 ```
 
-Open in browser `build/index.html`.
+Open in browser `demo/index.html`.
 
 ## Contact
 
