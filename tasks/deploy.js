@@ -9,7 +9,10 @@ var options = {
     src: [
         'demo/**',
         'dist/**'
-    ]
+    ],
+    logger: function (message) {
+        console.log(message);
+    }
 };
 
 ghpages.publish(root, options, function (error) {
