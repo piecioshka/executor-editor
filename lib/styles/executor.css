@@ -4,9 +4,10 @@
     position: relative;
     font-size: 16px;
     font-family: 'Menlo', Monaco, Consolas, 'Courier New', monospace;
-    width: 800px;
-    height: 460px;
+    width: inherit;
+    height: inherit;
     border-radius: 5px;
+    text-align: left;
 }
 
 .executor .executor-hidden-item {
@@ -77,8 +78,8 @@
     cursor: pointer;
     text-decoration: none;
     font-style: normal;
-    height: 14px;
     width: 14px;
+    height: 14px;
     display: inline-block;
     vertical-align: middle;
     border-color: #5a5a5a;
@@ -118,8 +119,8 @@
 /* ------------------------------------------------------------------------------------------------------------------ */
 
 .executor .executor-main {
-    height: inherit;
     width: inherit;
+    height: calc(100% - 50px);
     overflow: hidden;
 }
 
@@ -129,7 +130,7 @@
     background: rgba(210, 255, 84, 0.01);
     color: #2f2f2f;
     width: 100%;
-    height: 310px;
+    height: 50%;
     overflow: auto;
     outline: none;
     border: none;
@@ -139,14 +140,14 @@
 
 .executor .executor-code.executor-left-column {
     width: 50%;
-    height: calc(460px - 50px);
+    height: 100%;
     float: left;
     border-bottom: 0;
 }
 
 .executor .executor-code.executor-maximize {
-    height: inherit;
     width: inherit;
+    height: inherit;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------ */
@@ -154,7 +155,8 @@
 .executor .executor-result {
     background: #f1f1f1;
     color: #c7254e;
-    height: 90px;
+    width: 100%;
+    height: calc(50% - 10px);
     padding: 5px;
     border-top: 1px solid #999;
     overflow: auto;
@@ -163,7 +165,7 @@
 
 .executor .executor-result.executor-right-column {
     width: calc(50% - 10px - 1px);
-    height: calc(460px - 50px);
+    height: calc(100% - 10px);
     float: right;
     border-top: none;
     border-left: 1px solid #999;
@@ -179,6 +181,7 @@
     padding: 5px;
     border-top: 1px solid #999;
     border-left: 1px solid #999;
+    border-top-left-radius: 10px;
     font-size: 11px;
     font-style: normal;
 }

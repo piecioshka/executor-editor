@@ -11,9 +11,12 @@
             <a href="./index.html">executor</a>
         </h1>
 
-        <h4>Default <em>font-size: 16px</em></h4>
+        <div class="editor">
 
-<pre class="executor-code">
+            <h4>Default <em>font-size: 16px</em></h4>
+            <h4>Updated <em>width: 1000px</em> and <em>height: 800px</em></h4>
+
+<pre class="executor-code" data-width="1000" data-height="800">
 class Cake {
     constructor() {
         this.type = 'Cheesecake';
@@ -24,10 +27,11 @@ console.log(new Cake());
 console.log('Applepie');
 </pre>
 
-        <br/><br/>
-        <hr/>
+        </div>
 
-        <h4>Updated <em>font-size: 26px</em></h4>
+        <div class="editor">
+
+            <h4>Updated <em>font-size: 26px</em></h4>
 
 <pre class="executor-code" data-font-size="26">
 function * generator() {
@@ -42,6 +46,12 @@ console.log(gen.next());
 console.log(gen.next());
 </pre>
 
+        </div>
+
+        <footer>
+            <p><a href="http://piecioshka.pl/">Piotr Kowalski</a> @ 2015</p>
+        </footer>
+
     </div>
 
     <a href="https://github.com/piecioshka/executor">
@@ -49,8 +59,6 @@ console.log(gen.next());
     </a>
 
     <script src="../dist/executor.min.js"></script>
-    <script>
-        Executor.setup();
-    </script>
+    <script>Executor.setup();</script>
 </body>
 </html>

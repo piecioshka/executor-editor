@@ -8,6 +8,10 @@
 
 ![executor](./screenshots/editor.jpg)
 
+## Demo
+
+:zap: Please enter to: http://piecioshka.github.io/executor/demo/
+
 ## Install
 
 * By command: `bower install executor`
@@ -39,10 +43,6 @@
     </script>
     ```
 
-## Demo
-
-:zap: Please enter to: http://piecioshka.github.io/executor/demo/
-
 ## API
 
 All settings you can pass by HTML attributes.
@@ -67,6 +67,26 @@ Example:
 <div class="executor-code" data-timeout="500">
 ```
 
+### data-width
+
+Optional. *Default: 800*<br />
+Width of editor<br />
+Example:
+
+```html
+<div class="executor-code" data-width="1000">
+```
+
+### data-height
+
+Optional. *Default: 460*<br />
+Height of editor<br />
+Example:
+
+```html
+<div class="executor-code" data-height="800">
+```
+
 ## Purpose
 
 * presentation slides
@@ -74,6 +94,7 @@ Example:
 
 ## Features
 
+* use Ace (https://ace.c9.io/#nav=howto) editor
 * embed any programming code
 * highlight JavaScript syntax
 * auto-evaluate the JavaScript code
