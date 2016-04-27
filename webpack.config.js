@@ -12,7 +12,7 @@ module.exports = {
         'executor.min': './lib/index'
     },
 
-    // devtool: 'source-map',
+    devtool: 'source-map',
 
     output: {
         library: 'Executor',

@@ -38,9 +38,7 @@
 
     ```html
     <script src="dist/executor.min.js"></script>
-    <script>
-    Executor.setup();
-    </script>
+    <script>Executor.setup();</script>
     ```
 
 ## API
