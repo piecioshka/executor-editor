@@ -1,10 +1,6 @@
 'use strict';
 
 var webpack = require('webpack');
-var del = require('del');
-
-// Remove last version of lib.
-del([__dirname + '/dist/']);
 
 module.exports = {
     entry: {

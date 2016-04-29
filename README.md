@@ -14,7 +14,8 @@
 
 ## Install
 
-* By command: `bower install executor`
+* By Bower command: `bower install executor`
+* By npm command: `npm install executor-editor`
 * Grap from http://piecioshka.github.io/executor/dist/executor.js
 * Build own version by `make` command
 

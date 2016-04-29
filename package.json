@@ -1,19 +1,23 @@
 {
-    "name": "executor",
-    "version": "0.9.5",
+    "name": "executor-editor",
+    "version": "0.9.6",
+    "description": "Display and evaluate your JavaScript (ES2015) code",
+    "homepage": "http://piecioshka.github.io/executor/demo",
+    "main": "lib/index.js",
     "author": {
         "name": "Piotr Kowalski",
         "email": "piecioshka@gmail.com",
         "url": "http://piecioshka.pl/"
     },
     "scripts": {
-        "clear": "rm -rf node_modules/ bower_components/",
+        "clear": "rm -rf node_modules/ dist/",
         "lint": "eslint lib/scripts/",
         "build": "webpack --profile",
         "watch": "webpack -w",
         "deploy": "node ./tasks/deploy.js"
     },
     "devDependencies": {
+        "ace-builds": "^1.2.2",
         "babel-core": "^6.7.7",
         "babel-eslint": "^4.1.8",
         "babel-loader": "^6.2.4",
@@ -22,7 +26,6 @@
         "babel-preset-stage-0": "^6.5.0",
         "babel-standalone": "^6.7.7",
         "css-loader": "^0.19.0",
-        "del": "^2.2.0",
         "eslint": "^1.10.3",
         "eslint-config-piecioshka": "^1.0.9",
         "eslint-loader": "^1.3.0",
@@ -32,6 +35,20 @@
         "super-event-emitter": "^4.1.0",
         "webpack": "^1.13.0"
     },
+    "keywords": [
+        "executor",
+        "highlight",
+        "syntax",
+        "evaluate",
+        "javascript",
+        "code",
+        "babel",
+        "ace",
+        "editor",
+        "embed",
+        "slides",
+        "presentation"
+    ],
     "eslintConfig": {
         "extends": "piecioshka",
         "parser": "babel-eslint",
@@ -41,6 +58,11 @@
             "es6": true
         }
     },
+    "files": [
+        "demo",
+        "lib",
+        "README.md"
+    ],
     "repository": {
         "type": "git",
         "url": "git@github.com:piecioshka/executor.git"

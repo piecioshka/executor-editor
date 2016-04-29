@@ -1,6 +1,7 @@
 {
     "name": "executor",
-    "description": "Display and evaluate your JavaScript code.",
+    "description": "Display and evaluate your JavaScript (ES2015) code",
+    "homepage": "http://piecioshka.github.io/executor/demo",
     "main": [
         "lib/index.js"
     ],
@@ -14,9 +15,6 @@
             "homepage": "http://piecioshka.pl/"
         }
     ],
-    "devDependencies": {
-        "ace-builds": "^1.2.3"
-    },
     "keywords": [
         "executor",
         "highlight",
@@ -27,7 +25,9 @@
         "babel",
         "ace",
         "editor",
-        "embed"
+        "embed",
+        "slides",
+        "presentation"
     ],
     "ignore": [
         "**/.*",
@@ -36,7 +36,6 @@
         "tasks",
         "webpack.config.js"
     ],
-    "homepage": "http://piecioshka.github.io/executor/",
     "repository": {
         "type": "git",
         "url": "http://github.com/piecioshka/executor.git"
