@@ -161,16 +161,13 @@
     background: #f1f1f1;
     color: #c7254e;
     width: 100%;
-    height: calc(50% - 1px);
-    border-top: 1px solid #999;
+    height: 50%;
     position: relative;
 }
 
 .executor .executor-result.executor-right-column {
     float: right;
-    border-top: none;
-    border-left: 1px solid #999;
-    width: calc(50% - 1px);
+    width: 50%;
     height: 100%;
 }
 
@@ -180,9 +177,13 @@
     top: 0;
     width: 100%;
     height: 10px;
+    border: none;
+    border-top: 1px solid #c3c3c3;
+    border-bottom: 1px solid #c3c3c3;
+    border-radius: 5px 5px 0 0;
     cursor: s-resize;
 
-    background-color: red;
+    background-color: #e4e4e4;
 }
 
 .executor .executor-result .executor-resize-handle-bar:before {
@@ -202,6 +203,10 @@
     width: 10px;
     height: 100%;
     cursor: e-resize;
+    border: none;
+    border-left: 1px solid #c3c3c3;
+    border-right: 1px solid #c3c3c3;
+    border-radius: 5px 0 0 5px;
 }
 
 .executor .executor-result.executor-right-column .executor-resize-handle-bar:before {
@@ -219,14 +224,13 @@
     overflow: auto;
     width: calc(100% - 10px);
     height: calc(100% - 10px - 10px);
-    padding: 5px;
-    margin: 10px 0 0 0;
+    padding: 15px 5px 5px 5px;
 }
 
 .executor .executor-result.executor-right-column .executor-result-console {
     width: calc(100% - 10px - 10px);
     height: calc(100% - 10px);
-    margin: 0 0 0 10px;
+    padding: 5px 5px 5px 15px;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------ */
