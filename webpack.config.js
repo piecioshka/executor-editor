@@ -9,18 +9,18 @@ del([__dirname + '/dist/']);
 module.exports = {
     entry: {
         'executor': './lib/index',
-        // 'executor.min': './lib/index'
+        'executor.min': './lib/index'
     },
 
-    // devtool: 'source-map',
+    devtool: 'source-map',
 
     output: {
         library: 'Executor',
         libraryTarget: 'umd',
-
+        umdNamedDefine: true,
         filename: '[name].js',
         path: './dist',
-        pathinfo: true
+        pathinfo: false
     },
 
     module: {
