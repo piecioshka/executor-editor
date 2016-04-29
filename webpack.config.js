@@ -17,10 +17,10 @@ module.exports = {
     output: {
         library: 'Executor',
         libraryTarget: 'umd',
-
+        umdNamedDefine: true,
         filename: '[name].js',
         path: './dist',
-        pathinfo: true
+        pathinfo: false
     },
 
     module: {

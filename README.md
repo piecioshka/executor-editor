@@ -8,6 +8,10 @@
 
 ![executor](./screenshots/editor.jpg)
 
+## Demo
+
+:zap: Please enter to: http://piecioshka.github.io/executor/demo/
+
 ## Install
 
 * By command: `bower install executor`
@@ -34,14 +38,8 @@
 
     ```html
     <script src="dist/executor.min.js"></script>
-    <script>
-    Executor.setup();
-    </script>
+    <script>Executor.setup();</script>
     ```
-
-## Demo
-
-:zap: Please enter to: http://piecioshka.github.io/executor/demo/
 
 ## API
 
@@ -57,14 +55,34 @@ Example:
 <div class="executor-code" data-font-size="26">
 ```
 
-### data-timeout
+### data-auto-exec-delay
 
 Optional. *Default: 1000*<br />
 Number of **milliseconds** of delay between last keydown and evaluate code.<br />
 Example:
 
 ```html
-<div class="executor-code" data-timeout="500">
+<div class="executor-code" data-auto-exec-delay="500">
+```
+
+### data-width
+
+Optional. *Default: 800*<br />
+Width of editor<br />
+Example:
+
+```html
+<div class="executor-code" data-width="1000">
+```
+
+### data-height
+
+Optional. *Default: 460*<br />
+Height of editor<br />
+Example:
+
+```html
+<div class="executor-code" data-height="800">
 ```
 
 ## Purpose
@@ -74,6 +92,7 @@ Example:
 
 ## Features
 
+* use Ace (https://ace.c9.io/#nav=howto) editor
 * embed any programming code
 * highlight JavaScript syntax
 * auto-evaluate the JavaScript code

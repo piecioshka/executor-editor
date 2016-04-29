@@ -1,20 +1,51 @@
 #page {
-    width: 802px;
+    width: 1002px;
     margin: 0 auto;
+    font-family: Monaco, Consolas, 'Courier New', monospace;
 }
 
-#page > h1 {
-    font-family: 'Menlo', Monaco, Consolas, 'Courier New', monospace;
-    border-bottom: 1px solid #000;
+#page h1 {
+    border-bottom: 1px solid #9d9d9d;
     font-weight: 400;
 }
 
-#page > h1 > a {
+#page a {
     color: #718C00;
     transition: 0.5s all;
     text-decoration: none;
 }
 
-#page > h1 > a:hover {
+#page a:hover {
     color: #C82829;
+}
+
+#page em {
+    background: #e4e4e4;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#page .editor {
+    text-align: center;
+    padding: 0 0 50px 0;
+    margin: 0 0 50px 0;
+    border-bottom: 1px solid #9d9d9d;
+}
+
+#page .editor > .executor {
+    margin: 0 auto;
+}
+
+#page .editor > .executor-code {
+    text-align: left;
+    background: rgba(210, 255, 84, .05);
+    padding: 10px;
+    border: 1px solid #999;
+    border-radius: 5px;
+}
+
+#page > footer {
+    text-align: center;
+    margin: 100px 0;
+    color: #7b7b7b;
 }
