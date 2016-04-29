@@ -124,6 +124,11 @@
     overflow: hidden;
 }
 
+.executor .executor-main.executor-maximize {
+    width: 100%;
+    height: 100%;
+}
+
 /* ------------------------------------------------------------------------------------------------------------------ */
 
 .executor .executor-code {
@@ -138,16 +143,16 @@
     position: relative;
 }
 
+.executor .executor-main.executor-maximize .executor-code {
+    width: 100%;
+    height: 100%;
+}
+
 .executor .executor-code.executor-left-column {
     width: 50%;
     height: 100%;
     float: left;
     border-bottom: 0;
-}
-
-.executor .executor-code.executor-maximize {
-    width: inherit;
-    height: inherit;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------ */
