@@ -29,6 +29,13 @@
         "editor",
         "embed"
     ],
+    "ignore": [
+        "**/.*",
+        "Makefile",
+        "screenshots",
+        "tasks",
+        "webpack.config.js"
+    ],
     "homepage": "http://piecioshka.github.io/executor/",
     "repository": {
         "type": "git",
