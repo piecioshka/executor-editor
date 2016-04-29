@@ -55,14 +55,14 @@ Example:
 <div class="executor-code" data-font-size="26">
 ```
 
-### data-timeout
+### data-auto-exec-delay
 
 Optional. *Default: 1000*<br />
 Number of **milliseconds** of delay between last keydown and evaluate code.<br />
 Example:
 
 ```html
-<div class="executor-code" data-timeout="500">
+<div class="executor-code" data-auto-exec-delay="500">
 ```
 
 ### data-width
