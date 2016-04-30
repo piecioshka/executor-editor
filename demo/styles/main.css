@@ -25,10 +25,14 @@
     padding: 10px;
 }
 
+#page p {
+    color: #717171;
+}
+
 #page .editor {
     text-align: center;
-    padding: 0 0 50px 0;
-    margin: 0 0 50px 0;
+    padding: 0 0 100px 0;
+    margin: 0 0 100px 0;
     border-bottom: 1px solid #9d9d9d;
 }
 
@@ -36,6 +40,7 @@
     margin: 0 auto;
 }
 
+#page .editor > .embed-example,
 #page .editor > .executor-code {
     text-align: left;
     background: rgba(210, 255, 84, .05);

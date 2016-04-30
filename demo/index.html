@@ -2,20 +2,28 @@
 <html>
 <head>
     <title>executor :: demo</title>
+
     <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
     <link rel="stylesheet" href="styles/main.css" type="text/css"/>
+
+    <!-- Prism.js -->
+    <link rel="stylesheet" href="vendors/prism/prism.css"/>
+    <link rel="stylesheet" href="vendors/prism/custom-prism.css"/>
 </head>
 <body>
     <div id="page">
         <h1>
-            <a href="./index.html">executor</a>
+            <a href="https://github.com/piecioshka/executor">executor</a>
         </h1>
 
         <div class="editor">
 
-            <h4>Setup <em>width: 1000 [px]</em> and <em>height: 800 [px]</em></h4>
+            <h2>Demo #1</h2>
 
-<pre class="executor-code" data-width="1000" data-height="800">
+<pre class="executor-code" data-width="1000" data-height="400">
 class Cake {
     constructor() {
         this.type = 'Cheesecake';
@@ -26,11 +34,31 @@ console.log(new Cake());
 console.log('Applepie');
 </pre>
 
+            <h2>Embed code #1</h2>
+
+            <p>To get editor like <strong>Demo #1</strong> use this code: </p>
+
+<pre class="embed-example language-javascript line-numbers">
+<code>&lt;pre class="executor-code" data-width="1000" data-height="400"&gt;
+class Cake {
+    constructor() {
+        this.type = 'Cheesecake';
+    }
+}
+
+console.log(new Cake());
+console.log('Applepie');
+&lt;/pre&gt;
+
+&lt;script src="https://piecioshka.github.io/executor/dist/executor.js">&lt;/script&gt;
+&lt;script&gt;Executor.setup();&lt;/script&gt;
+</code></pre>
+
         </div>
 
         <div class="editor">
 
-            <h4>Setup <em>font-size: 26 [px]</em> and <em>auto-exec-delay: 3000 [ms]</em></h4>
+            <h2>Demo #2</h2>
 
 <pre class="executor-code" data-font-size="26" data-auto-exec-delay="3000">
 function * generator() {
@@ -45,6 +73,28 @@ console.log(gen.next());
 console.log(gen.next());
 </pre>
 
+            <h2>Embed code #2</h2>
+
+            <p>To get editor like <strong>Demo #2</strong> use this code: </p>
+
+<pre class="embed-example language-javascript line-numbers">
+<code>&lt;pre class="executor-code" data-font-size="26" data-auto-exec-delay="3000"&gt;
+function * generator() {
+    yield 1;
+    yield 2;
+}
+
+var gen = generator();
+
+console.log(gen.next());
+console.log(gen.next());
+console.log(gen.next());
+&lt;/pre&gt;
+
+&lt;script src="https://piecioshka.github.io/executor/dist/executor.js">&lt;/script&gt;
+&lt;script&gt;Executor.setup();&lt;/script&gt;
+</code></pre>
+
         </div>
 
         <footer>
@@ -57,7 +107,12 @@ console.log(gen.next());
         <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png">
     </a>
 
+    <!-- Executor -->
     <script src="../dist/executor.js"></script>
     <script>Executor.setup();</script>
+
+    <!-- Prism.js -->
+    <script src="vendors/prism/prism.js"></script>
+    <script src="vendors/prism/custom-prism.js"></script>
 </body>
 </html>
