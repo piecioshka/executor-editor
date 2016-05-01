@@ -74,8 +74,6 @@
 
 .executor .executor-toolbar .executor-toolbar-control > ul > li::before {
     content: '';
-    padding: 0;
-    width: 0;
 }
 
 .executor .executor-toolbar .executor-toolbar-control > ul > li {
