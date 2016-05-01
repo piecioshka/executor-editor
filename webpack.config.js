@@ -4,14 +4,14 @@ var webpack = require('webpack');
 
 module.exports = {
     entry: {
-        'executor': './lib/index',
-        'executor.min': './lib/index'
+        'executor-editor': './lib/index',
+        'executor-editor.min': './lib/index'
     },
 
     devtool: 'source-map',
 
     output: {
-        library: 'Executor',
+        library: 'ExecutorEditor',
         libraryTarget: 'umd',
         umdNamedDefine: true,
         filename: '[name].js',
@@ -26,17 +26,17 @@ module.exports = {
         loaders: [
             {
                 test: /\.json$/,
-                exclude: /executor\/node_modules/,
+                exclude: /executor-editor\/node_modules/,
                 loader: 'json-loader'
             },
             {
                 test: /\.css$/,
-                exclude: /executor\/node_modules/,
+                exclude: /executor-editor\/node_modules/,
                 loader: 'style-loader!css-loader'
             },
             {
                 test: /\.js$/,
-                exclude: /executor\/node_modules/,
+                exclude: /executor-editor\/node_modules/,
                 loader: 'babel-loader',
                 query: {
                     cacheDirectory: true,

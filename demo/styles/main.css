@@ -41,7 +41,7 @@
 }
 
 #page .editor > .embed-example,
-#page .editor > .executor-code {
+#page .editor > .executor-editor {
     text-align: left;
     background: rgba(210, 255, 84, .05);
     padding: 10px;

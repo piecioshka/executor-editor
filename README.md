@@ -1,30 +1,30 @@
-# executor
+# executor-editor
 
-![](https://img.shields.io/bower/v/executor.svg)
+![](https://img.shields.io/bower/v/executor-editor.svg)
 ![](https://img.shields.io/badge/stable-true-brightgreen.svg)
-![](https://img.shields.io/bower/l/executor.svg)
+![](https://img.shields.io/bower/l/executor-editor.svg)
 
 > Display and evaluate your JavaScript code.
 
-![executor](./screenshots/editor.jpg)
+![executor-editor](./screenshots/editor.jpg)
 
 ## Demo
 
-:zap: Please enter to: http://piecioshka.github.io/executor/demo/
+:zap: Please enter to: http://piecioshka.github.io/executor-editor/demo/
 
 ## Install
 
-* By Bower command: `bower install executor`
+* By Bower command: `bower install executor-editor`
 * By npm command: `npm install executor-editor`
-* Grap from http://piecioshka.github.io/executor/dist/executor.js
+* Grap from http://piecioshka.github.io/executor-editor/dist/executor-editor.js
 * Build own version by `make` command
 
 ## Usage
 
-1. Add CSS class `executor-code` to HTML element:
+1. Add CSS class `executor-editor` to HTML element:
 
     ```html
-    <pre class="executor-code">
+    <pre class="executor-editor">
     class Cake {
         constructor() {
             this.type = 'Cheesecake';
@@ -38,8 +38,8 @@
 2. Add on the bottom of page, example before `</body>`
 
     ```html
-    <script src="dist/executor.min.js"></script>
-    <script>Executor.setup();</script>
+    <script src="dist/executor-editor.min.js"></script>
+    <script>ExecutorEditor.setup();</script>
     ```
 
 ## API
@@ -53,7 +53,7 @@ Change size of font of code and in result container.<br />
 Example:
 
 ```html
-<div class="executor-code" data-font-size="26">
+<div class="executor-editor" data-font-size="26">
 ```
 
 ### data-auto-exec-delay
@@ -63,7 +63,7 @@ Number of **milliseconds** of delay between last keydown and evaluate code.<br /
 Example:
 
 ```html
-<div class="executor-code" data-auto-exec-delay="500">
+<div class="executor-editor" data-auto-exec-delay="500">
 ```
 
 ### data-width
@@ -73,7 +73,7 @@ Width of editor<br />
 Example:
 
 ```html
-<div class="executor-code" data-width="1000">
+<div class="executor-editor" data-width="1000">
 ```
 
 ### data-height
@@ -83,7 +83,7 @@ Height of editor<br />
 Example:
 
 ```html
-<div class="executor-code" data-height="800">
+<div class="executor-editor" data-height="800">
 ```
 
 ## Purpose
@@ -109,17 +109,11 @@ Example:
 Before execute this code check that you have installed globally `npm`, `bower` and `webpack`.
 
 ```
-git clone git@github.com:piecioshka/executor.git
-cd executor
+git clone git@github.com:piecioshka/executor-editor.git
+cd executor-editor
 ```
 
-Install by run single command:
-
-```
-make
-```
-
-or
+Install by run commands:
 
 ```
 npm install

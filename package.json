@@ -1,8 +1,8 @@
 {
     "name": "executor-editor",
-    "version": "0.9.6",
+    "version": "1.0.0",
     "description": "Display and evaluate your JavaScript (ES2015) code",
-    "homepage": "http://piecioshka.github.io/executor/demo",
+    "homepage": "http://piecioshka.github.io/executor-editor/demo",
     "main": "lib/index.js",
     "author": {
         "name": "Piotr Kowalski",
@@ -65,7 +65,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git@github.com:piecioshka/executor.git"
+        "url": "git@github.com:piecioshka/executor-editor.git"
     },
     "license": "MIT"
 }
