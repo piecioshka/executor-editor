@@ -34,7 +34,8 @@
         "Makefile",
         "screenshots",
         "tasks",
-        "webpack.config.js"
+        "webpack.config.js",
+        "package.json"
     ],
     "repository": {
         "type": "git",

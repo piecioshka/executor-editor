@@ -60,7 +60,7 @@
     },
     "files": [
         "demo",
-        "lib",
+        "dist",
         "README.md"
     ],
     "repository": {
