@@ -6,7 +6,7 @@
 
 > Display and evaluate your JavaScript code.
 
-![executor-editor](./screenshots/editor.jpg)
+![executor-editor](./screenshots/editor.png)
 
 ## Demo
 
