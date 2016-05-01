@@ -117,13 +117,12 @@ Install by run commands:
 
 ```
 npm install
-bower install
 npm run build
 ```
 
 ## Contact
 
-Catch me on Twitter: @[piecioshka](http://twitter.com/piecioshka).
+Catch me on Twitter: @[piecioshka](http://twitter.com/piecioshka)
 
 ## License
 
