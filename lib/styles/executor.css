@@ -25,6 +25,7 @@
     font-size: 14px;
     overflow: hidden;
     position: relative;
+    margin: 0;
 
     /* Disable select */
     -webkit-touch-callout: none;
