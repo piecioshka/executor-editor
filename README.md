@@ -1,5 +1,6 @@
 # executor-editor
 
+[![npm version](https://badge.fury.io/js/executor-editor.svg)](https://badge.fury.io/js/executor-editor)
 ![](https://img.shields.io/bower/v/executor-editor.svg)
 ![](https://img.shields.io/badge/stable-true-brightgreen.svg)
 ![](https://img.shields.io/bower/l/executor-editor.svg)
