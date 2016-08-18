@@ -1,6 +1,7 @@
 'use strict';
 
 var webpack = require('webpack');
+var DashboardPlugin = require('webpack-dashboard/plugin');
 
 module.exports = {
     entry: {
@@ -8,12 +9,9 @@ module.exports = {
         'executor-editor.min': './lib/index'
     },
 
-    devtool: 'source-map',
-
     output: {
         library: 'ExecutorEditor',
         libraryTarget: 'umd',
-        umdNamedDefine: true,
         filename: '[name].js',
         path: './dist',
         pathinfo: false
@@ -50,6 +48,7 @@ module.exports = {
         new webpack.optimize.UglifyJsPlugin({
             include: /\.min\.js$/,
             minimize: true
-        })
+        }),
+        new DashboardPlugin()
     ]
 };
