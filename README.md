@@ -109,21 +109,21 @@ Example:
 
 Before execute this code check that you have installed globally `npm`, `bower` and `webpack`.
 
-```
-git clone git@github.com:piecioshka/executor-editor.git
-cd executor-editor
+```bash
+$ git clone git@github.com:piecioshka/executor-editor.git
+$ cd executor-editor
 ```
 
 Install by run commands:
 
-```
-npm install
-npm run build
+```bash
+$ npm install
+$ npm run build
 ```
 
 ## Contact
 
-Catch me on Twitter: @[piecioshka](http://twitter.com/piecioshka)
+* Twitter: @[piecioshka](http://twitter.com/piecioshka)
 
 ## License
 
