@@ -1,13 +1,13 @@
-# executor-editor
+# executor-editor ([npm](https://www.npmjs.com/package/executor-editor))
 
 [![npm version](https://badge.fury.io/js/executor-editor.svg)](https://badge.fury.io/js/executor-editor)
+![](https://img.shields.io/npm/dt/executor-editor.svg)
 ![](https://img.shields.io/bower/v/executor-editor.svg)
-![](https://img.shields.io/badge/stable-true-brightgreen.svg)
 ![](https://img.shields.io/bower/l/executor-editor.svg)
 
 > Display and evaluate your JavaScript code.
 
-![executor-editor](./screenshots/editor.png)
+![](./screenshots/editor.png)
 
 ## Demo
 
@@ -47,7 +47,7 @@
 
 All settings you can pass by HTML attributes.
 
-### data-font-size
+### `data-font-size`
 
 Optional. *Default: 16*<br />
 Change size of font of code and in result container.<br />
@@ -57,7 +57,7 @@ Example:
 <div class="executor-editor" data-font-size="26">
 ```
 
-### data-auto-exec-delay
+### `data-auto-exec-delay`
 
 Optional. *Default: 1000*<br />
 Number of **milliseconds** of delay between last keydown and evaluate code.<br />
@@ -67,7 +67,7 @@ Example:
 <div class="executor-editor" data-auto-exec-delay="500">
 ```
 
-### data-width
+### `data-width`
 
 Optional. *Default: 800*<br />
 Width of editor<br />
@@ -77,7 +77,7 @@ Example:
 <div class="executor-editor" data-width="1000">
 ```
 
-### data-height
+### `data-height`
 
 Optional. *Default: 460*<br />
 Height of editor<br />
@@ -89,21 +89,21 @@ Example:
 
 ## Purpose
 
-* presentation slides
-* application which evaluate code in ECMAScript 6 or 7
+* Presentation slides
+* Application which evaluate code in ECMAScript 6 or 7
 
 ## Features
 
-* use Ace (https://ace.c9.io/#nav=howto) editor
-* embed any programming code
-* highlight JavaScript syntax
-* auto-evaluate the JavaScript code
-* change environment, modes: `browser`, `Babel.js`
-* change layout, modes: `horizontal`, `vertical`
-* maximize window with code - containers: `tools` and `result` are hide
-* change font size, limits: `10` - `99`
-* execute code on demand
-* multiple instance on single page
+* Use Ace (https://ace.c9.io/#nav=howto) editor
+* Embed any programming code
+* Highlight JavaScript syntax
+* Auto-evaluate the JavaScript code
+* Change environment, modes: `browser`, `Babel.js`
+* Change layout, modes: `horizontal`, `vertical`
+* Maximize window with code - containers: `tools` and `result` are hide
+* Change font size, limits: `10` - `99`
+* Execute code on demand
+* Multiple instance on single page
 
 ## Build own version
 
@@ -120,10 +120,6 @@ Install by run commands:
 $ npm install
 $ npm run build
 ```
-
-## Contact
-
-* Twitter: @[piecioshka](http://twitter.com/piecioshka)
 
 ## License
 

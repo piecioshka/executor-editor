@@ -15,7 +15,6 @@
         "build": "webpack --profile",
         "watch": "webpack -w",
         "dev": "webpack-dashboard -- npm run build",
-        "deploy": "node ./tasks/deploy.js"
     },
     "devDependencies": {
         "ace-builds": "^1.2.2",
