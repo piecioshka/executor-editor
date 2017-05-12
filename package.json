@@ -14,7 +14,7 @@
         "lint": "eslint lib/scripts/",
         "build": "webpack --profile",
         "watch": "webpack -w",
-        "dev": "webpack-dashboard -- npm run build",
+        "dev": "webpack-dashboard -- npm run build"
     },
     "devDependencies": {
         "ace-builds": "^1.2.2",
