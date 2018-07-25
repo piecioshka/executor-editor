@@ -3,6 +3,8 @@ export default class MaximizeButton {
     $button = null;
 
     constructor() {
+        this.escapeHandler = null;
+        this.clickHandler = null;
         this.compile();
     }
 
@@ -22,7 +24,7 @@ export default class MaximizeButton {
         }
 
         this.escapeHandler();
-        window.document.body.removeEventListener('keydown', this._handleKeyDown);
+        window.document.body.removeEventListener('keydown', this._handleKeyDown.bind(this));
 
         // Fixed embed in presentation slides, ex. shower.js
         evt.stopPropagation();
@@ -30,13 +32,13 @@ export default class MaximizeButton {
 
     _handleMaximizeClick() {
         this.clickHandler();
-        window.document.body.addEventListener('keydown', this._handleKeyDown);
+        window.document.body.addEventListener('keydown', this._handleKeyDown.bind(this));
     }
 
     setup(escapeHandler, clickHandler) {
         this.escapeHandler = escapeHandler;
         this.clickHandler = clickHandler;
-        this.$button.addEventListener('click', this._handleMaximizeClick);
+        this.$button.addEventListener('click', this._handleMaximizeClick.bind(this));
     }
 }
 
