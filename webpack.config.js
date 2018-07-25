@@ -1,7 +1,5 @@
-'use strict';
-
-var webpack = require('webpack');
-var DashboardPlugin = require('webpack-dashboard/plugin');
+const webpack = require('webpack');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 
 module.exports = {
     entry: {
