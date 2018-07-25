@@ -3,8 +3,8 @@ const DashboardPlugin = require('webpack-dashboard/plugin');
 
 module.exports = {
     entry: {
-        'executor-editor': './lib/index',
-        'executor-editor.min': './lib/index'
+        'executor-editor': './src/index',
+        'executor-editor.min': './src/index'
     },
 
     output: {

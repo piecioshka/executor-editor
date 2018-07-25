@@ -3,7 +3,7 @@
     "version": "1.0.1",
     "description": "Display and evaluate your JavaScript (ES2015) code",
     "homepage": "http://piecioshka.github.io/executor-editor/demo",
-    "main": "lib/index.js",
+    "main": "src/index.js",
     "author": {
         "name": "Piotr Kowalski",
         "email": "piecioshka@gmail.com",

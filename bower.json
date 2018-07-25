@@ -3,7 +3,7 @@
     "description": "Display and evaluate your JavaScript (ES2015) code",
     "homepage": "http://piecioshka.github.io/executor-editor/demo",
     "main": [
-        "lib/index.js"
+        "src/index.js"
     ],
     "moduleType": [
         "es6"
