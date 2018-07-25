@@ -1,2 +1,4 @@
+demo/
 dist/
-lib/scripts/vendors/*
+
+src/vendors/

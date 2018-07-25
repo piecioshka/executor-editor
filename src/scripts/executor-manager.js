@@ -2,10 +2,11 @@ import EventEmitter from 'super-event-emitter';
 
 import Toolbar from './gui/toolbar/toolbar';
 
-import ExecuteManager from './helpers/execute-manager';
+import CodeExecuteHelper from './helpers/code-execute-helper';
 import AceEditorWrapper from './editor/ace-editor-wrapper';
 
-import AutoEvaluateCheckbox from './gui/toolbar/controls/auto-evaluate-checkbox';
+import AutoEvaluateCheckbox
+    from './gui/toolbar/controls/auto-evaluate-checkbox';
 import ExecuteButton from './gui/toolbar/controls/execute-button';
 import FontSizeInput from './gui/toolbar/controls/font-size-input';
 import LayoutSwitcher from './gui/toolbar/controls/layout-switcher';
@@ -90,16 +91,18 @@ export default class ExecutorManager {
         this.executeButton = this.toolbar.add(new ExecuteButton());
 
         this.resultsWindow = new ResultWindow();
-        this.resultsWindow.resizeHandlerBar.on(ResizeHandleBar.EVENTS.RESIZE, () => {
-            this.aceHelper.editor.resize();
-        });
+        this.resultsWindow.resizeHandlerBar
+            .on(ResizeHandleBar.EVENTS.RESIZE, () => {
+                this.aceHelper.editor.resize();
+            });
         this.versionLabel = new VersionLabel();
     }
 
     setupEvents() {
         let runCode = () => {
             this.resultsWindow.catchConsole();
-            this.execute(this.selectEnvironment.getValue(), this.aceHelper.getCode());
+            const code = this.aceHelper.getCode();
+            this.execute(this.selectEnvironment.getValue(), code);
         };
 
         // Toolbar
@@ -164,7 +167,7 @@ export default class ExecutorManager {
         });
 
         // Ad 5. Font Size
-        this.fontSizeInput.setup(size => {
+        this.fontSizeInput.setup((size) => {
             this.settings.fontSize = size;
             this.applySettings();
         });
@@ -185,9 +188,9 @@ export default class ExecutorManager {
 
     execute(name, code) {
         try {
-            ExecuteManager.execute(name, code);
+            CodeExecuteHelper.execute(name, code);
         } catch (error) {
-            console.error(error.message);
+            console.error(error.message); // eslint-disable-line no-console
         }
 
         this.resultsWindow.print();

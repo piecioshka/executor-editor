@@ -11,12 +11,10 @@ export default class Toolbar {
     }
 
     add(item) {
-        let $item = window.document.createElement('div');
-
+        const $item = window.document.createElement('div');
         $item.classList.add('executor-toolbar-control');
         $item.appendChild(item.$el);
         this.$el.appendChild($item);
-
         return item;
     }
 }

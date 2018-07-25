@@ -1,19 +1,31 @@
-# executor-editor ([npm](https://www.npmjs.com/package/executor-editor))
+# executor-editor
 
 [![npm version](https://badge.fury.io/js/executor-editor.svg)](https://badge.fury.io/js/executor-editor)
-![](https://img.shields.io/npm/dt/executor-editor.svg)
-![](https://img.shields.io/bower/v/executor-editor.svg)
-![](https://img.shields.io/bower/l/executor-editor.svg)
+[![downloads count](https://img.shields.io/npm/dt/executor-editor.svg)](https://www.npmjs.com/~piecioshka)
+[![dependencies](https://david-dm.org/piecioshka/INSERT_NAME.svg)](https://gibhu.com/piecioshka/INSERT_NAME)
 
-> Display and evaluate your JavaScript code.
+:hammer: Display and evaluate your JavaScript code.
 
 ![](./screenshots/editor.png)
+
+## Features
+
+* :checkered_flag: Use Ace (https://ace.c9.io/#nav=howto) editor
+* :checkered_flag: Embed any programming code
+* :checkered_flag: Highlight JavaScript syntax
+* :checkered_flag: Auto-evaluate the JavaScript code
+* :checkered_flag: Change environment, modes: `browser`, `Babel.js`
+* :checkered_flag: Change layout, modes: `horizontal`, `vertical`
+* :checkered_flag: Maximize window with code - containers: `tools` and `result` are hide
+* :checkered_flag: Change font size, limits: `10` - `99`
+* :checkered_flag: Execute code on demand
+* :checkered_flag: Multiple instance on single page
 
 ## Demo
 
 :zap: Please enter to: http://piecioshka.github.io/executor-editor/demo/
 
-## Install
+## Installation
 
 * By Bower command: `bower install executor-editor`
 * By npm command: `npm install executor-editor`
@@ -92,33 +104,20 @@ Example:
 * Presentation slides
 * Application which evaluate code in ECMAScript 6 or 7
 
-## Features
-
-* Use Ace (https://ace.c9.io/#nav=howto) editor
-* Embed any programming code
-* Highlight JavaScript syntax
-* Auto-evaluate the JavaScript code
-* Change environment, modes: `browser`, `Babel.js`
-* Change layout, modes: `horizontal`, `vertical`
-* Maximize window with code - containers: `tools` and `result` are hide
-* Change font size, limits: `10` - `99`
-* Execute code on demand
-* Multiple instance on single page
-
 ## Build own version
 
 Before execute this code check that you have installed globally `npm`, `bower` and `webpack`.
 
 ```bash
-$ git clone git@github.com:piecioshka/executor-editor.git
-$ cd executor-editor
+git clone git@github.com:piecioshka/executor-editor.git
+cd executor-editor
 ```
 
 Install by run commands:
 
 ```bash
-$ npm install
-$ npm run build
+npm install
+npm run build
 ```
 
 ## License

@@ -1,5 +1,12 @@
 import EventEmitter from 'super-event-emitter';
 
+/**
+ * Simplest way to get CSS property.
+ *
+ * @param {HTMLElement} element
+ * @param {string} prop
+ * @return {string}
+ */
 function getCSSProperty(element, prop) {
     return window.getComputedStyle(element).getPropertyValue(prop);
 }
@@ -20,14 +27,14 @@ export default class ResizeHandleBar {
         this.$el.addEventListener('mousedown', (event) => {
             drag = true;
 
-            let editor = this.$el.parentNode.parentNode.childNodes[0];
-            let result = this.$el.parentNode.parentNode.childNodes[1];
+            const editor = this.$el.parentNode.parentNode.childNodes[0];
+            const result = this.$el.parentNode.parentNode.childNodes[1];
 
             initialHeights = {
-                editorHeight: parseInt(getCSSProperty(editor, 'height')),
-                resultHeight: parseInt(getCSSProperty(result, 'height')),
-                editorWidth: parseInt(getCSSProperty(editor, 'width')),
-                resultWidth: parseInt(getCSSProperty(result, 'width'))
+                editorHeight: parseInt(getCSSProperty(editor, 'height'), 10),
+                resultHeight: parseInt(getCSSProperty(result, 'height'), 10),
+                editorWidth: parseInt(getCSSProperty(editor, 'width'), 10),
+                resultWidth: parseInt(getCSSProperty(result, 'width'), 10)
             };
 
             initialPosition = {
@@ -41,15 +48,16 @@ export default class ResizeHandleBar {
                 return;
             }
 
-            let deltaX = initialPosition.x - event.clientX;
-            let deltaY = initialPosition.y - event.clientY;
+            const deltaX = initialPosition.x - event.clientX;
+            const deltaY = initialPosition.y - event.clientY;
 
-            this.emit(ResizeHandleBar.EVENTS.RESIZE, {
+            const payload = {
                 editorWindowHeight: initialHeights.editorHeight - deltaY,
                 resultWindowHeight: initialHeights.resultHeight + deltaY,
                 editorWindowWidth: initialHeights.editorWidth - deltaX,
                 resultWindowWidth: initialHeights.resultWidth + deltaX
-            });
+            };
+            this.emit(ResizeHandleBar.EVENTS.RESIZE, payload);
         });
 
         document.addEventListener('mouseup', () => {
@@ -58,6 +66,6 @@ export default class ResizeHandleBar {
     }
 }
 
-ResizeHandleBar.EVENTS = {
+ResizeHandleBar.EVENTS = { // eslint-disable-line object-curly-newline
     RESIZE: 'ResizeHandleBar.EVENTS.RESIZE'
 };

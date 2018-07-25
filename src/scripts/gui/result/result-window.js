@@ -19,15 +19,15 @@ export default class ResultWindow {
         this.resizeHandlerBar.setupDOMListeners();
 
         this.resizeHandlerBar.on(ResizeHandleBar.EVENTS.RESIZE, (payload) => {
-            let editor = this.$el.parentNode.childNodes[0];
-            let isVerticalMode = editor.classList.contains('executor-left-column');
+            const editor = this.$el.parentNode.childNodes[0];
+            const isVerticalMode = editor.classList.contains('executor-left-column');
 
             if (isVerticalMode) {
-                editor.style.width = payload.editorWindowWidth + 'px';
-                this.$el.style.width = payload.resultWindowWidth + 'px';
+                editor.style.width = `${payload.editorWindowWidth}px`;
+                this.$el.style.width = `${payload.resultWindowWidth}px`;
             } else {
-                editor.style.height = payload.editorWindowHeight + 'px';
-                this.$el.style.height = payload.resultWindowHeight + 'px';
+                editor.style.height = `${payload.editorWindowHeight}px`;
+                this.$el.style.height = `${payload.resultWindowHeight}px`;
             }
         });
 
@@ -36,16 +36,16 @@ export default class ResultWindow {
     }
 
     catchConsole() {
-        ['log', 'info', 'warn', 'error'].forEach(name => {
+        ['log', 'info', 'warn', 'error'].forEach((name) => {
             window.console[name] = (...args) => this.buffer.add(args);
         });
     }
 
     static parse(...buffer) {
-        let result = [];
+        const result = [];
 
-        buffer.forEach(row => {
-            row.forEach(item => {
+        buffer.forEach((row) => {
+            row.forEach((item) => {
                 try {
                     if (typeof item === 'string') {
                         result.push(item);
@@ -54,11 +54,11 @@ export default class ResultWindow {
                     } else {
                         result.push(`${JSON.stringify(item)} `);
                     }
-                } catch (e) {
-                    result.push(e.message);
+                } catch (evt) {
+                    result.push(evt.message);
                 }
             });
-            result.push(`<br />`);
+            result.push('<br />');
         });
 
         return result.join('');
