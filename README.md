@@ -114,7 +114,7 @@ All settings you can pass by HTML attributes.
 
 ## Purpose
 
-Project was made to embed code on presentation slides.
+The project was created for presentation slides, to embed code and quickly execute it.
 
 ## License
 

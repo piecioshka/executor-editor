@@ -24,7 +24,7 @@ class Manager extends EventEmitter {
 
     editor = null;
 
-    autoEvaluateCheckbox = null;
+    autoEvaluate = null;
     layoutSwitcher = null;
     executeButton = null;
 
@@ -41,6 +41,7 @@ class Manager extends EventEmitter {
         this._setupMode();
         this._setupEditor($code.textContent);
         this._buildDOM();
+        this._setupAutoEvaluate();
         this._setupEvents();
 
         this.render($code);
@@ -74,23 +75,25 @@ class Manager extends EventEmitter {
     }
 
     _buildDOM() {
-        this.autoEvaluateCheckbox = this.toolbar.add(new AutoEvaluateCheckbox());
-        this.autoEvaluateCheckbox.on(AutoEvaluateCheckbox.EVENTS.CHECK, () => {
-            this.settings.autoevaluate = true;
-        });
-        this.autoEvaluateCheckbox.on(AutoEvaluateCheckbox.EVENTS.UNCHECK, () => {
-            this.settings.autoevaluate = false;
-        });
-
-        if (this.settings.autoevaluate) {
-            this.autoEvaluateCheckbox.mark();
-        }
-
+        this.autoEvaluate = this.toolbar.add(new AutoEvaluateCheckbox());
         this.layoutSwitcher = this.toolbar.add(new LayoutSwitcherButton());
         this.executeButton = this.toolbar.add(new ExecuteButton());
 
         this.resultsWindow = new ResultWindow();
         this.versionLabel = new VersionLabel();
+    }
+
+    _setupAutoEvaluate() {
+        this.autoEvaluate.on(AutoEvaluateCheckbox.EVENTS.CHECK, () => {
+            this.settings.autoevaluate = true;
+        });
+        this.autoEvaluate.on(AutoEvaluateCheckbox.EVENTS.UNCHECK, () => {
+            this.settings.autoevaluate = false;
+        });
+
+        if (this.settings.autoevaluate) {
+            this.autoEvaluate.mark();
+        }
     }
 
     _setupEvents() {
