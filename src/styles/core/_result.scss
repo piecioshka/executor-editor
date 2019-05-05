@@ -1,0 +1,72 @@
+$resize-handle-bar-size: 16px;
+
+.executor {
+    .executor-result {
+        float: left;
+        width: 100%;
+        height: 50%;
+        position: relative;
+        margin: 0;
+
+        .executor-resize-handle-bar {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: $resize-handle-bar-size;
+            cursor: s-resize;
+
+            &:before {
+                content: "";
+                position: absolute;
+                width: 22px;
+                height: 10px;
+                top: 0;
+                left: 50%;
+            }
+        }
+
+        .executor-result-console {
+            overflow: auto;
+            width: 100%;
+            height: calc(100% - 16px);
+            padding: 10px;
+            margin: 16px 0 0 0;
+        }
+    }
+}
+
+.executor.executor-column-mode {
+    .executor-result {
+        width: 50%;
+        height: 100%;
+
+        .executor-resize-handle-bar {
+            width: $resize-handle-bar-size;
+            height: 100%;
+            cursor: e-resize;
+
+            &:before {
+                top: 50%;
+                left: -6px;
+
+                -webkit-transform: rotate(-90deg);
+                -moz-transform: rotate(-90deg);
+                -ms-transform: rotate(-90deg);
+                -o-transform: rotate(-90deg);
+                transform: rotate(-90deg);
+            }
+        }
+
+        .executor-result-console {
+            width: calc(100% - 16px);
+            height: 100%;
+            padding: 10px;
+            margin: 0 0 0 16px;
+
+            .executor-error {
+                color: red;
+            }
+        }
+    }
+}

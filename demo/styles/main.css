@@ -1,55 +1,55 @@
 #page {
-    width: 1002px;
+    width: 720px;
     margin: 0 auto;
-    font-family: Monaco, Consolas, 'Courier New', monospace;
+    font-family: 'Lobster', cursive;
 }
 
-#page h1 {
-    border-bottom: 1px solid #9d9d9d;
-    font-weight: 400;
+h1, h2, h3, h4, h5, h6 {
+    font-size: xx-large;
 }
 
-#page a {
-    color: #718C00;
+h1 small {
+    font-size: inherit;
+    color: #7b7b7b;
+}
+
+a {
+    color: #000;
     transition: 0.5s all;
+    text-decoration: underline;
+}
+
+a:hover {
     text-decoration: none;
 }
 
-#page a:hover {
-    color: #C82829;
+.hint {
+    color: #7b7b7b;
+    font-style: italic;
 }
 
-#page em {
-    background: #e4e4e4;
-    border-radius: 10px;
-    padding: 10px;
+hr {
+    margin: 50px 0;
 }
 
-#page p {
-    color: #717171;
+p {
+    font-weight: 200;
 }
 
-#page .editor {
-    text-align: center;
-    padding: 0 0 100px 0;
-    margin: 0 0 100px 0;
-    border-bottom: 1px solid #9d9d9d;
+.executor-editor-demo {
+    width: inherit;
+    height: 300px;
+    margin: 20px 0;
 }
 
-#page .editor > .executor {
-    margin: 0 auto;
-}
-
-#page .editor > .embed-example,
-#page .editor > .executor-editor {
+.embed-example {
     text-align: left;
     background: rgba(210, 255, 84, .05);
     padding: 10px;
-    border: 1px solid #999;
-    border-radius: 5px;
+    border: 1px solid #7b7b7b;
 }
 
-#page > footer {
+footer {
     text-align: center;
     margin: 100px 0;
     color: #7b7b7b;

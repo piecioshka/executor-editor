@@ -1,0 +1,18 @@
+$font-body: "Open Sans", sans-serif;
+$font-toolbar: "Consolas", monospace;
+
+$color-lightest: #f1f8ff;
+$color-lighter: #dbedff;
+$color-light: #c6e2fe;
+$color: #9bcdfe;
+$color-dark: #70b7fd;
+$color-darker: #65a5e4;
+$color-darkest: #436e98;
+$color-super-dark: #325272;
+$color-super-darker: #22374c;
+
+@import './_definition.scss';
+
+.executor.skin-blue {
+    @include SKIN_DEFINITION();
+}

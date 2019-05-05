@@ -1,0 +1,18 @@
+$font-body: "Menlo", Monaco, Consolas, "Courier New", monospace;
+$font-toolbar: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$color-lightest: #FFFAED;
+$color-lighter: #FFF3D2;
+$color-light: #FFEBB7;
+$color: #FFDC82;
+$color-dark: #FFCD4C;
+$color-darker: #E6B944;
+$color-darkest: #997B2E;
+$color-super-dark: #735C22;
+$color-super-darker: #4D3E17;
+
+@import './_definition.scss';
+
+.executor.skin-normal {
+    @include SKIN_DEFINITION();
+}

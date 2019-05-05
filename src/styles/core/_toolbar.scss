@@ -1,0 +1,42 @@
+.executor {
+    .executor-toolbar {
+        height: 50px;
+        line-height: 50px;
+        overflow: hidden;
+        position: relative;
+        margin: 0;
+
+        /* Disable select */
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+
+        .executor-toolbar-control {
+            padding: 0 15px;
+            float: left;
+
+            &:last-child {
+                padding-right: 0;
+            }
+
+            .executor-autoevaluate-label {
+                cursor: pointer;
+            }
+
+            .executor-autoevaluate-checkbox {
+                margin: 0;
+                cursor: pointer;
+            }
+
+            .executor-layout-switcher-button {
+                cursor: pointer;
+            }
+
+            .executor-execute-button {
+                cursor: pointer;
+            }
+        }
+    }
+}

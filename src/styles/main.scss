@@ -1,0 +1,20 @@
+@import "core/executor";
+@import "core/editor";
+@import "core/toolbar";
+@import "core/result";
+
+// Build colors with
+// https://javisperez.github.io/tailwindcolorshades/
+
+.skin-normal {
+    @import "skins/normal";
+}
+
+.skin-blue {
+    @import "skins/blue";
+}
+
+// .executor {
+//     &.skin-blue {
+//     }
+// }

@@ -1,0 +1,27 @@
+.executor {
+    overflow: hidden;
+    position: relative;
+    width: inherit;
+    height: inherit;
+    text-align: left;
+    box-sizing: border-box;
+
+    *, *:before, *:after {
+        box-sizing: border-box;
+    }
+
+    .executor-main {
+        width: 100%;
+        height: calc(100% - 50px);
+        overflow: hidden;
+    }
+
+    .executor-version-label {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        padding: 5px;
+        font-size: 11px;
+        font-style: normal;
+    }
+}
