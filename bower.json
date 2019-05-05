@@ -1,7 +1,7 @@
 {
     "name": "executor-editor",
-    "description": "Display and evaluate your JavaScript (ES2015) code",
-    "homepage": "http://piecioshka.github.io/executor-editor/demo",
+    "description": "Display and evaluate your JavaScript code",
+    "homepage": "https://piecioshka.github.io/executor-editor/demo",
     "main": [
         "src/index.js"
     ],
@@ -30,15 +30,14 @@
     ],
     "ignore": [
         "**/.*",
-        "Makefile",
         "screenshots",
-        "tasks",
+        "tools",
         "webpack.config.js",
         "package.json"
     ],
     "repository": {
         "type": "git",
-        "url": "http://github.com/piecioshka/executor-editor.git"
+        "url": "https://github.com/piecioshka/executor-editor.git"
     },
     "license": "MIT"
 }

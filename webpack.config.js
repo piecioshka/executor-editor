@@ -1,9 +1,9 @@
 const path = require('path');
-
 const DashboardPlugin = require('webpack-dashboard/plugin');
 
 module.exports = {
-    mode: 'development',
+    // mode: 'development',
+    mode: 'production',
 
     entry: {
         'executor-editor': './src/index'

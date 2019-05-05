@@ -11,22 +11,26 @@
 
 ## Demo 🎉
 
-<http://piecioshka.github.io/executor-editor/demo/>
+<https://piecioshka.github.io/executor-editor/demo/>
 
 ## Features
 
 * :white_check_mark: Embed any programming code
 * :white_check_mark: Highlight JavaScript syntax
 * :white_check_mark: Auto-evaluate the JavaScript code
-* :white_check_mark: Change layout, modes: `horizontal`, `vertical`
 * :white_check_mark: Execute code on demand
+* :white_check_mark: Layout modes: `horizontal`, `vertical`
 * :white_check_mark: Multiple instance on single page
+* :white_check_mark: Support skins
+* :white_check_mark: Display errors in red color
 
 ## Installation
 
 ```bash
 npm install executor-editor
 ```
+
+or
 
 ```bash
 bower install executor-editor
@@ -105,4 +109,4 @@ Project was made to embed code on presentation slides.
 
 ## License
 
-[The MIT License](http://piecioshka.mit-license.org) @ 2015-2019
+[The MIT License](https://piecioshka.mit-license.org) @ 2015-2019

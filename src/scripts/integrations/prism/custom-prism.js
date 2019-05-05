@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-const debounce = require('lodash/debounce');
+const debounce = require('debounce');
 const { Manager } = require('../../manager');
 const select = require('selection-range');
 
