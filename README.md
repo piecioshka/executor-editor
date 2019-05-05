@@ -1,6 +1,4 @@
-<center>
-    <img src="./screenshots/editor.png" alt="Executor Editor v2.0">
-</center>
+<img src="./screenshots/editor.png" alt="Executor Editor v2.0" align="center">
 
 # executor-editor
 
