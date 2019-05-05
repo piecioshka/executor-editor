@@ -1,3 +1,7 @@
+<center>
+    <img src="./screenshots/editor.png" alt="Executor Editor v2.0">
+</center>
+
 # executor-editor
 
 [![npm version](https://badge.fury.io/js/executor-editor.svg)](https://badge.fury.io/js/executor-editor)
@@ -6,8 +10,6 @@
 [![snyk](https://snyk.io/test/github/piecioshka/executor-editor/badge.svg?targetFile=package.json)](https://snyk.io/test/github/piecioshka/executor-editor?targetFile=package.json)
 
 :hammer: Display and evaluate your JavaScript code.
-
-![](./screenshots/editor.png)
 
 ## Demo 🎉
 
