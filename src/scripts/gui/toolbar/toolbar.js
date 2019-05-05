@@ -1,4 +1,4 @@
-export default class Toolbar {
+class Toolbar {
     $el = null;
 
     constructor() {
@@ -18,3 +18,7 @@ export default class Toolbar {
         return item;
     }
 }
+
+module.exports = {
+    Toolbar
+};

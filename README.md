@@ -1,36 +1,49 @@
-# executor-editor
+<p align="center">
+    <img src="./screenshots/editor.png" alt="Executor Editor v2.0">
+</p>
+<h3 align="center">executor-editor</h3>
+<p align="center">:hammer: Display and evaluate your JavaScript code.</p>
+<p align="center">
+    <a href="https://badge.fury.io/js/executor-editor">
+        <img src="https://badge.fury.io/js/executor-editor.svg" alt="npm version">
+    </a>
+    <a href="https://www.npmjs.com/~piecioshka">
+        <img src="https://img.shields.io/npm/dt/executor-editor.svg" alt="downloads count">
+    </a>
+    <a href="https://github.com/piecioshka/executor-editor">
+        <img src="https://david-dm.org/piecioshka/executor-editor.svg" alt="dependencies">
+    </a>
+    <a href="https://snyk.io/test/github/piecioshka/executor-editor?targetFile=package.json">
+        <img src="https://snyk.io/test/github/piecioshka/executor-editor/badge.svg?targetFile=package.json" alt="snyk">
+    </a>
+</p>
 
-[![npm version](https://badge.fury.io/js/executor-editor.svg)](https://badge.fury.io/js/executor-editor)
-[![downloads count](https://img.shields.io/npm/dt/executor-editor.svg)](https://www.npmjs.com/~piecioshka)
-[![dependencies](https://david-dm.org/piecioshka/INSERT_NAME.svg)](https://gibhu.com/piecioshka/INSERT_NAME)
+## Demo 🎉
 
-:hammer: Display and evaluate your JavaScript code.
-
-![](./screenshots/editor.png)
+<https://piecioshka.github.io/executor-editor/demo/>
 
 ## Features
 
-* :checkered_flag: Use Ace (https://ace.c9.io/#nav=howto) editor
-* :checkered_flag: Embed any programming code
-* :checkered_flag: Highlight JavaScript syntax
-* :checkered_flag: Auto-evaluate the JavaScript code
-* :checkered_flag: Change environment, modes: `browser`, `Babel.js`
-* :checkered_flag: Change layout, modes: `horizontal`, `vertical`
-* :checkered_flag: Maximize window with code - containers: `tools` and `result` are hide
-* :checkered_flag: Change font size, limits: `10` - `99`
-* :checkered_flag: Execute code on demand
-* :checkered_flag: Multiple instance on single page
-
-## Demo
-
-:zap: Please enter to: http://piecioshka.github.io/executor-editor/demo/
+* :white_check_mark: Embed any programming code
+* :white_check_mark: Highlight JavaScript syntax
+* :white_check_mark: Auto-evaluate the JavaScript code
+* :white_check_mark: Execute code on demand
+* :white_check_mark: Layout modes: `horizontal`, `vertical`
+* :white_check_mark: Multiple instance on single page
+* :white_check_mark: Support skins
+* :white_check_mark: Display errors in red color
 
 ## Installation
 
-* By Bower command: `bower install executor-editor`
-* By npm command: `npm install executor-editor`
-* Grap from http://piecioshka.github.io/executor-editor/dist/executor-editor.js
-* Build own version by `make` command
+```bash
+npm install executor-editor
+```
+
+or
+
+```bash
+bower install executor-editor
+```
 
 ## Usage
 
@@ -39,19 +52,23 @@
     ```html
     <pre class="executor-editor">
     class Cake {
-        constructor() {
-            this.type = 'Cheesecake';
+        toString() {
+            return '[Cake]';
         }
     }
-    console.log(new Cake());
-    console.log('Applepie');
+
+    console.log(String(new Cake()));
     </pre>
     ```
 
 2. Add on the bottom of page, example before `</body>`
 
     ```html
-    <script src="dist/executor-editor.min.js"></script>
+    <link href="/path/to/executor-editor/dist/executor-editor.css"/>
+    <link href="/path/to/executor-editor/dist/skins/blue-skin.css"/>
+    <link href="/path/to/executor-editor/dist/skins/normal-skin.css"/>
+
+    <script src="/path/to/executor-editor/dist/executor-editor.js"></script>
     <script>ExecutorEditor.setup();</script>
     ```
 
@@ -59,67 +76,46 @@
 
 All settings you can pass by HTML attributes.
 
-### `data-font-size`
+### `data-autoevaluate`
 
-Optional. *Default: 16*<br />
-Change size of font of code and in result container.<br />
-Example:
+* Default: `true`
+* Options: `true` | `false`
+* Example:
 
-```html
-<div class="executor-editor" data-font-size="26">
-```
+    ```html
+    <pre class="executor-editor" data-autoevaluate="false">
+        [...]
+    </pre>
+    ```
 
-### `data-auto-exec-delay`
+### `data-autofocus`
 
-Optional. *Default: 1000*<br />
-Number of **milliseconds** of delay between last keydown and evaluate code.<br />
-Example:
+* Default: `true`
+* Options: `true` | `false`
+* Example:
 
-```html
-<div class="executor-editor" data-auto-exec-delay="500">
-```
+    ```html
+    <pre class="executor-editor" data-autofocus="true">
+        [...]
+    </pre>
+    ```
 
-### `data-width`
+### `data-skin`
 
-Optional. *Default: 800*<br />
-Width of editor<br />
-Example:
+* Default: `normal`
+* Options: `normal` | `blue`
+* Example:
 
-```html
-<div class="executor-editor" data-width="1000">
-```
-
-### `data-height`
-
-Optional. *Default: 460*<br />
-Height of editor<br />
-Example:
-
-```html
-<div class="executor-editor" data-height="800">
-```
+    ```html
+    <pre class="executor-editor" data-skin="blue">
+        [...]
+    </pre>
+    ```
 
 ## Purpose
 
-* Presentation slides
-* Application which evaluate code in ECMAScript 6 or 7
-
-## Build own version
-
-Before execute this code check that you have installed globally `npm`, `bower` and `webpack`.
-
-```bash
-git clone git@github.com:piecioshka/executor-editor.git
-cd executor-editor
-```
-
-Install by run commands:
-
-```bash
-npm install
-npm run build
-```
+The project was created for presentation slides, to embed code and quickly execute it.
 
 ## License
 
-[The MIT License](http://piecioshka.mit-license.org) @ 2015
+[The MIT License](https://piecioshka.mit-license.org) @ 2015-2019

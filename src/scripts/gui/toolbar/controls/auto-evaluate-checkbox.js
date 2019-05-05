@@ -1,28 +1,44 @@
-export default class AutoEvaluateCheckbox {
+const EventEmitter = require('super-event-emitter');
+
+class AutoEvaluateCheckbox extends EventEmitter {
     $el = null;
     $checkbox = null;
-    delay = null;
 
     constructor() {
-        this.compile();
+        super();
+        this._buildDOM();
     }
 
-    compile() {
+    _buildDOM() {
         this.$el = window.document.createElement('label');
+        this.$el.classList.add('executor-autoevaluate-label');
 
         this.$checkbox = window.document.createElement('input');
         this.$checkbox.type = 'checkbox';
-        this.$checkbox.classList.add('executor-auto');
-        this.$checkbox.checked = 'checked';
+        this.$checkbox.classList.add('executor-autoevaluate-checkbox');
+
+        this.$checkbox.addEventListener('click', () => {
+            if (this.$checkbox.checked) {
+                this.emit(AutoEvaluateCheckbox.EVENTS.CHECK);
+            } else {
+                this.emit(AutoEvaluateCheckbox.EVENTS.UNCHECK);
+            }
+        });
 
         this.$el.appendChild(window.document.createTextNode('Auto-evaluate: '));
         this.$el.appendChild(this.$checkbox);
     }
 
-    setup(callback, timeout) {
-        if (this.$checkbox.checked) {
-            clearTimeout(this.delay);
-            this.delay = window.setTimeout(callback, timeout);
-        }
+    mark() {
+        this.$checkbox.checked = 'checked';
     }
 }
+
+AutoEvaluateCheckbox.EVENTS = {
+    CHECK: 'AutoEvaluateCheckbox.EVENTS.CHECK',
+    UNCHECK: 'AutoEvaluateCheckbox.EVENTS.UNCHECK'
+};
+
+module.exports = {
+    AutoEvaluateCheckbox
+};

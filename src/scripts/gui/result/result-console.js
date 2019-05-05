@@ -1,10 +1,8 @@
-export default class ResultConsole {
+class ResultConsole {
     $el = null;
 
     constructor() {
-        this.buffer = new Set();
-
-        this.$el = window.document.createElement('div');
+        this.$el = window.document.createElement('pre');
         this.$el.classList.add('executor-result-console');
     }
 
@@ -12,3 +10,7 @@ export default class ResultConsole {
         this.$el.innerHTML = text;
     }
 }
+
+module.exports = {
+    ResultConsole
+};

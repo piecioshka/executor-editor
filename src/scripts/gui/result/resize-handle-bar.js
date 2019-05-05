@@ -1,19 +1,9 @@
-import EventEmitter from 'super-event-emitter';
+const EventEmitter = require('super-event-emitter');
+const { getCSSProperty } = require('../../helpers/get-css-property');
 
-/**
- * Simplest way to get CSS property.
- *
- * @param {HTMLElement} element
- * @param {string} prop
- * @return {string}
- */
-function getCSSProperty(element, prop) {
-    return window.getComputedStyle(element).getPropertyValue(prop);
-}
-
-export default class ResizeHandleBar {
+class ResizeHandleBar extends EventEmitter {
     constructor() {
-        EventEmitter.mixin(this);
+        super();
 
         this.$el = window.document.createElement('div');
         this.$el.classList.add('executor-resize-handle-bar');
@@ -43,7 +33,7 @@ export default class ResizeHandleBar {
             };
         });
 
-        document.addEventListener('mousemove', (event) => {
+        window.document.addEventListener('mousemove', (event) => {
             if (!drag) {
                 return;
             }
@@ -57,15 +47,20 @@ export default class ResizeHandleBar {
                 editorWindowWidth: initialHeights.editorWidth - deltaX,
                 resultWindowWidth: initialHeights.resultWidth + deltaX
             };
+
             this.emit(ResizeHandleBar.EVENTS.RESIZE, payload);
         });
 
-        document.addEventListener('mouseup', () => {
+        window.document.addEventListener('mouseup', () => {
             drag = false;
         });
     }
 }
 
-ResizeHandleBar.EVENTS = { // eslint-disable-line object-curly-newline
+ResizeHandleBar.EVENTS = {
     RESIZE: 'ResizeHandleBar.EVENTS.RESIZE'
+};
+
+module.exports = {
+    ResizeHandleBar
 };
