@@ -10,9 +10,6 @@
     <a href="https://www.npmjs.com/~piecioshka">
         <img src="https://img.shields.io/npm/dt/executor-editor.svg" alt="downloads count">
     </a>
-    <a href="https://github.com/piecioshka/executor-editor">
-        <img src="https://david-dm.org/piecioshka/executor-editor.svg" alt="dependencies">
-    </a>
     <a href="https://snyk.io/test/github/piecioshka/executor-editor?targetFile=package.json">
         <img src="https://snyk.io/test/github/piecioshka/executor-editor/badge.svg?targetFile=package.json" alt="snyk">
     </a>
