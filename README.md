@@ -15,7 +15,7 @@
     </a>
 </p>
 
-## Demo 🎉
+## Preview 🎉
 
 <https://piecioshka.github.io/executor-editor/demo/>
 
