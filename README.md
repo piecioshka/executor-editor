@@ -4,11 +4,17 @@
 <h3 align="center">executor-editor</h3>
 <p align="center">:hammer: Display and evaluate your JavaScript code.</p>
 <p align="center">
-    <a href="https://badge.fury.io/js/executor-editor">
-        <img src="https://badge.fury.io/js/executor-editor.svg" alt="npm version">
+    <a href="https://www.npmjs.com/package/executor-editor">
+        <img src="https://img.shields.io/node/v/executor-editor.svg" alt="node version"/>
     </a>
-    <a href="https://www.npmjs.com/~piecioshka">
-        <img src="https://img.shields.io/npm/dt/executor-editor.svg" alt="downloads count">
+    <a href="https://badge.fury.io/js/executor-editor">
+        <img src="https://badge.fury.io/js/executor-editor.svg" alt="npm version"/>
+    </a>
+    <a href="https://www.npmjs.com/package/executor-editor">
+        <img src="https://img.shields.io/npm/dt/executor-editor.svg" alt="downloads count"/>
+    </a>
+    <a href="https://www.npmjs.com/package/executor-editor">
+        <img src="https://img.shields.io/npm/l/executor-editor.svg" alt="license"/>
     </a>
     <a href="https://snyk.io/test/github/piecioshka/executor-editor?targetFile=package.json">
         <img src="https://snyk.io/test/github/piecioshka/executor-editor/badge.svg?targetFile=package.json" alt="snyk">
