@@ -4,6 +4,7 @@
 [![npm version](https://badge.fury.io/js/executor-editor.svg)](https://badge.fury.io/js/executor-editor)
 [![downloads count](https://img.shields.io/npm/dt/executor-editor.svg)](https://www.npmjs.com/package/executor-editor)
 [![license](https://img.shields.io/npm/l/executor-editor.svg)](https://www.npmjs.com/package/executor-editor)
+[![github-ci](https://github.com/piecioshka/executor-editor/actions/workflows/testing.yml/badge.svg)](https://github.com/piecioshka/executor-editor/actions/workflows/testing.yml)
 
 :hammer: Display and evaluate your JavaScript code.
 
