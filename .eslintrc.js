@@ -2,7 +2,7 @@ module.exports = {
     extends: 'piecioshka',
     parser: 'babel-eslint',
 
-    // http://eslint.org/docs/user-guide/configuring#specifying-environments
+    // https://eslint.org/docs/user-guide/configuring#specifying-environments
     env: {
         es6: true,
         browser: true,
@@ -13,7 +13,7 @@ module.exports = {
         jasmine: true
     },
 
-    // http://eslint.org/docs/rules/
+    // https://eslint.org/docs/rules/
     rules: {
         'object-property-newline': 'off',
         'require-jsdoc': 'off',
