@@ -64,6 +64,6 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git@github.com:piecioshka/executor-editor.git"
+        "url": "git+ssh://git@github.com/piecioshka/executor-editor.git"
     }
 }
