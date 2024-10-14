@@ -3,7 +3,6 @@
     "version": "2.0.4",
     "description": "Display and evaluate your JavaScript code",
     "homepage": "https://piecioshka.github.io/executor-editor/demo",
-    "main": "src/index.js",
     "license": "MIT",
     "author": {
         "name": "Piotr Kowalski",
@@ -43,7 +42,16 @@
         "webpack-cli": "^3.3.11",
         "webpack-dashboard": "^3.2.0"
     },
-    "dependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/piecioshka/executor-editor.git"
+    },
+    "files": [
+        "dist",
+        "src",
+        "package.json",
+        "README.md"
+    ],
     "keywords": [
         "executor",
         "highlight",
@@ -57,13 +65,5 @@
         "slides",
         "presentation"
     ],
-    "files": [
-        "demo",
-        "dist",
-        "README.md"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "git+ssh://git@github.com/piecioshka/executor-editor.git"
-    }
+    "main": "./dist/index.js"
 }
