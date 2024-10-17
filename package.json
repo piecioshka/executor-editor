@@ -19,8 +19,7 @@
         "watch:js": "webpack -w",
         "watch:css": "./tools/styles-watch.sh",
         "dev": "webpack-dashboard -- npm run build",
-        "lint": "eslint .",
-        "version": "npm run build && git add dist/"
+        "lint": "eslint ."
     },
     "devDependencies": {
         "@babel/core": "^7.9.0",
