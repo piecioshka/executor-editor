@@ -1,6 +1,7 @@
 {
     "name": "executor-editor",
     "description": "Display and evaluate your JavaScript code",
+    "license": "MIT",
     "homepage": "https://piecioshka.github.io/executor-editor/demo",
     "main": [
         "src/index.js"
@@ -15,6 +16,10 @@
             "homepage": "https://piecioshka.pl/"
         }
     ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/piecioshka/executor-editor.git"
+    },
     "keywords": [
         "executor",
         "highlight",
@@ -34,10 +39,5 @@
         "tools",
         "webpack.config.js",
         "package.json"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/piecioshka/executor-editor.git"
-    },
-    "license": "MIT"
+    ]
 }
