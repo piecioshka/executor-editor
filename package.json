@@ -1,6 +1,6 @@
 {
     "name": "executor-editor",
-    "version": "2.0.6",
+    "version": "2.0.7",
     "description": "🔨 Display and evaluate your JavaScript code",
     "homepage": "https://piecioshka.github.io/executor-editor/demo",
     "license": "MIT",
