@@ -111,4 +111,4 @@ The project was created for presentation slides, to embed code and quickly execu
 
 ## License
 
-[The MIT License](https://piecioshka.mit-license.org) @ 2015-2019
+[The MIT License](https://piecioshka.mit-license.org) @ 2015
