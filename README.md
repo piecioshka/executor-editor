@@ -17,16 +17,18 @@
 
 ## Features
 
-* ✅ Embed any programming code
-* ✅ Highlight JavaScript syntax
-* ✅ Auto-evaluate the JavaScript code
-* ✅ Execute code on demand
-* ✅ Layout modes: `horizontal`, `vertical`
-* ✅ Multiple instance on single page
-* ✅ Support skins
-* ✅ Display errors in red color
+- ✅ Embed any programming code
+- ✅ Highlight JavaScript syntax
+- ✅ Auto-evaluate the JavaScript code
+- ✅ Execute code on demand
+- ✅ Layout modes: `horizontal`, `vertical`
+- ✅ Multiple instance on single page
+- ✅ Support skins
+- ✅ Display errors in red color
 
-## Installation
+## Usage
+
+Installation:
 
 ```bash
 npm install executor-editor
@@ -37,8 +39,6 @@ or
 ```bash
 bower install executor-editor
 ```
-
-## Usage
 
 1. Add CSS class `executor-editor` to HTML element:
 
