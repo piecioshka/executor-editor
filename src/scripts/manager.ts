@@ -1,50 +1,71 @@
-const { SuperEventEmitter } = require('super-event-emitter');
+import { SuperEventEmitter } from 'super-event-emitter';
 
-const { Toolbar } = require('./gui/toolbar/toolbar');
-const { Editor } = require('./editor');
+import { Toolbar } from './gui/toolbar/toolbar';
+import { Editor } from './editor';
 
-const { AutoEvaluateCheckbox } = require('./gui/toolbar/controls/auto-evaluate-checkbox');
-const { ExecuteButton } = require('./gui/toolbar/controls/execute-button');
-const { LayoutSwitcherButton } = require('./gui/toolbar/controls/layout-switcher-button');
-const { MaximizeButton } = require('./gui/toolbar/controls/maximize-button');
-const { ResultWindow } = require('./gui/result/result-window');
-const { VersionLabel } = require('./gui/version-label');
+import { AutoEvaluateCheckbox } from './gui/toolbar/controls/auto-evaluate-checkbox';
+import { ExecuteButton } from './gui/toolbar/controls/execute-button';
+import { LayoutSwitcherButton } from './gui/toolbar/controls/layout-switcher-button';
+import { MaximizeButton } from './gui/toolbar/controls/maximize-button';
+import { ResultWindow } from './gui/result/result-window';
+import { VersionLabel } from './gui/version-label';
 
-class Manager extends SuperEventEmitter {
+import type { PartialSettings, Settings } from './types';
 
-    $main = null;
-    $global = null;
+const DEFAULT_SETTINGS: Settings = {
+    autoevaluate: true,
+    autofocus: false,
+    skin: 'normal',
+    layout: 'horizontal',
+    maximize: false
+};
 
-    settings = {
-        autoevaluate: true,
-        autofocus: false,
-        skin: 'normal',
-        layout: 'horizontal',
-        maximize: false
+export class Manager extends SuperEventEmitter {
+    static EVENTS = {
+        UPDATE: 'Manager.EVENTS.UPDATE'
     };
 
-    toolbar = null;
+    settings: Settings;
+    toolbar: Toolbar;
 
-    editor = null;
+    $main: HTMLDivElement;
+    $global: HTMLDivElement;
 
-    autoEvaluate = null;
-    layoutSwitcher = null;
-    maximizeButton = null;
-    executeButton = null;
+    editor: Editor;
 
-    resultsWindow = null;
-    versionLabel = null;
+    autoEvaluate: AutoEvaluateCheckbox;
+    layoutSwitcher: LayoutSwitcherButton;
+    maximizeButton: MaximizeButton;
+    executeButton: ExecuteButton;
 
-    constructor($code, settings) {
+    resultsWindow: ResultWindow;
+    versionLabel: VersionLabel;
+
+    constructor($code: HTMLElement, settings: PartialSettings) {
         super();
-        this.settings = Object.assign(this.settings, settings);
+        this.settings = { ...DEFAULT_SETTINGS, ...settings };
         this.toolbar = new Toolbar();
 
-        this._buildBaseDOM();
+        this.$main = window.document.createElement('div');
+        this.$main.classList.add('executor-main');
+
+        this.$global = window.document.createElement('div');
+        this.$global.classList.add('executor');
+
         this._setupSkin();
         this._setupMode();
-        this._setupEditor($code.textContent);
-        this._buildDOM();
+
+        this.editor = new Editor();
+        this._setupEditor($code.textContent ?? '');
+
+        this.autoEvaluate = this.toolbar.add(new AutoEvaluateCheckbox());
+        this.layoutSwitcher = this.toolbar.add(new LayoutSwitcherButton());
+        this.maximizeButton = this.toolbar.add(new MaximizeButton());
+        this.executeButton = this.toolbar.add(new ExecuteButton());
+
+        this.resultsWindow = new ResultWindow();
+        this.versionLabel = new VersionLabel();
+
         this._setupAutoEvaluate();
         this._setupEvents();
 
@@ -56,19 +77,11 @@ class Manager extends SuperEventEmitter {
         }
     }
 
-    _buildBaseDOM() {
-        this.$main = window.document.createElement('div');
-        this.$main.classList.add('executor-main');
-
-        this.$global = window.document.createElement('div');
-        this.$global.classList.add('executor');
-    }
-
-    _setupSkin() {
+    _setupSkin(): void {
         this.$global.classList.add(`skin-${this.settings.skin}`);
     }
 
-    _setupMode() {
+    _setupMode(): void {
         // `horizontal` (default) renders the editor next to the result
         // (column layout); `vertical` stacks the editor above the result.
         if (this.settings.layout !== 'vertical') {
@@ -82,23 +95,12 @@ class Manager extends SuperEventEmitter {
         }
     }
 
-    _setupEditor(listing) {
-        this.editor = new Editor();
+    _setupEditor(listing: string): void {
         this.editor.setCode(listing);
         this.editor.render(this.$main);
     }
 
-    _buildDOM() {
-        this.autoEvaluate = this.toolbar.add(new AutoEvaluateCheckbox());
-        this.layoutSwitcher = this.toolbar.add(new LayoutSwitcherButton());
-        this.maximizeButton = this.toolbar.add(new MaximizeButton());
-        this.executeButton = this.toolbar.add(new ExecuteButton());
-
-        this.resultsWindow = new ResultWindow();
-        this.versionLabel = new VersionLabel();
-    }
-
-    _setupAutoEvaluate() {
+    _setupAutoEvaluate(): void {
         this.autoEvaluate.on(AutoEvaluateCheckbox.EVENTS.CHECK, () => {
             this.settings.autoevaluate = true;
         });
@@ -111,9 +113,9 @@ class Manager extends SuperEventEmitter {
         }
     }
 
-    _setupEvents() {
+    _setupEvents(): void {
         // Ad 1. Auto evaluate
-        this.editor.on(Editor.EVENTS.CHANGE, (payload) => {
+        this.editor.on(Editor.EVENTS.CHANGE, (payload: unknown) => {
             this.emit(Manager.EVENTS.UPDATE, payload);
 
             if (this.settings.autoevaluate) {
@@ -131,8 +133,8 @@ class Manager extends SuperEventEmitter {
         this.executeButton.setup(() => this.runCode());
     }
 
-    render($code) {
-        $code.parentNode.replaceChild(this.$global, $code);
+    render($code: Element): void {
+        $code.parentNode?.replaceChild(this.$global, $code);
         this.$main.appendChild(this.resultsWindow.$el);
 
         this.$global.appendChild(this.toolbar.$el);
@@ -140,18 +142,18 @@ class Manager extends SuperEventEmitter {
         this.$global.appendChild(this.versionLabel.$el);
     }
 
-    _focus() {
+    _focus(): void {
         if (this.settings.autofocus) {
-            this.$global.querySelector('code').focus();
+            this.$global.querySelector<HTMLElement>('code')?.focus();
         }
     }
 
-    runCode() {
+    runCode(): void {
         this.resultsWindow.catchConsole();
         const code = this.editor.getCode();
 
         try {
-            // eslint-disable-next-line
+            // eslint-disable-next-line no-eval
             eval(code);
         } catch (err) {
             console.error(err);
@@ -160,12 +162,12 @@ class Manager extends SuperEventEmitter {
         this.resultsWindow.print();
     }
 
-    _switchLayout() {
+    _switchLayout(): void {
         this.$global.classList.toggle('executor-column-mode');
         this._resetAfterSwitchLayout();
     }
 
-    _toggleMaximize() {
+    _toggleMaximize(): void {
         const maximized = this.$global.classList.toggle('executor-maximize-mode');
         this.settings.maximize = maximized;
 
@@ -179,7 +181,7 @@ class Manager extends SuperEventEmitter {
         }
     }
 
-    _resetAfterSwitchLayout() {
+    _resetAfterSwitchLayout(): void {
         const $editor = this.editor.$el;
         const $result = this.resultsWindow.$el;
 
@@ -196,11 +198,3 @@ class Manager extends SuperEventEmitter {
         }
     }
 }
-
-Manager.EVENTS = {
-    UPDATE: 'Manager.EVENTS.UPDATE'
-};
-
-module.exports = {
-    Manager
-};

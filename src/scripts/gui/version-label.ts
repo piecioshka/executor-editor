@@ -1,13 +1,11 @@
-const pkg = require('../../../package.json');
+import pkg from '../../../package.json';
 
-class VersionLabel {
+export class VersionLabel {
+    $el: HTMLElement;
+
     constructor() {
         this.$el = window.document.createElement('i');
         this.$el.classList.add('executor-version-label');
         this.$el.innerHTML = `v${pkg.version}`;
     }
 }
-
-module.exports = {
-    VersionLabel
-};

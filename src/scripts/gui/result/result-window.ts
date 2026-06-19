@@ -1,14 +1,24 @@
-const escape = require('escape-html');
+import escape from 'escape-html';
 
-const { ResizeHandleBar } = require('./resize-handle-bar');
-const { ResultConsole } = require('./result-console');
+import { ResizeHandleBar, type ResizePayload } from './resize-handle-bar';
+import { ResultConsole } from './result-console';
 
-class ResultWindow {
-    $el = null;
-    buffer = null;
+type RecordType = 'normal' | 'error';
 
-    resizeHandlerBar = null;
-    resultConsole = null;
+interface ParsedRecord {
+    value: string;
+    type: RecordType;
+}
+
+type ConsoleMethod = 'log' | 'info' | 'warn' | 'error';
+const CONSOLE_METHODS: ConsoleMethod[] = ['log', 'info', 'warn', 'error'];
+
+export class ResultWindow {
+    $el: HTMLDivElement;
+    buffer: Set<unknown[]>;
+
+    resizeHandlerBar: ResizeHandleBar;
+    resultConsole: ResultConsole;
 
     constructor() {
         this.buffer = new Set();
@@ -20,10 +30,15 @@ class ResultWindow {
         this.$el.appendChild(this.resizeHandlerBar.$el);
         this.resizeHandlerBar.setupDOMListeners();
 
-        this.resizeHandlerBar.on(ResizeHandleBar.EVENTS.RESIZE, (payload) => {
-            const $executor = this.$el.parentNode.parentNode;
-            const $editor = this.$el.parentNode.querySelector('.executor-editor');
+        this.resizeHandlerBar.on(ResizeHandleBar.EVENTS.RESIZE, (payload: ResizePayload) => {
+            const $executor = this.$el.parentElement?.parentElement;
+            const $editor = this.$el.parentElement?.querySelector<HTMLElement>('.executor-editor');
             const $result = this.$el;
+
+            if (!$executor || !$editor) {
+                return;
+            }
+
             const isColumnMode = $executor.classList.contains('executor-column-mode');
 
             if (isColumnMode) {
@@ -43,34 +58,37 @@ class ResultWindow {
         this.$el.appendChild(this.resultConsole.$el);
     }
 
-    catchConsole() {
-        ['log', 'info', 'warn', 'error'].forEach((name) => {
-            window.console[name] = (...args) => this.buffer.add(args);
+    catchConsole(): void {
+        CONSOLE_METHODS.forEach((name) => {
+            window.console[name] = (...args: unknown[]): void => {
+                this.buffer.add(args);
+            };
         });
     }
 
-    static parseSingle(item) {
+    static parseSingle(item: unknown): ParsedRecord {
         if (typeof item === 'string') {
             return { value: item, type: 'normal' };
         } else if (typeof item === 'function') {
             return { value: item.toString(), type: 'normal' };
         } else if (item instanceof Error) {
-            return { value: item.stack, type: 'error' };
+            return { value: item.stack ?? item.message, type: 'error' };
         }
         return { value: `${JSON.stringify(item)}`, type: 'normal' };
     }
 
-    static parse(...buffer) {
-        const result = [];
+    static parse(...buffer: unknown[][]): string {
+        const result: string[] = [];
 
         buffer.forEach((row) => {
             row.forEach((item) => {
-                let record = null;
+                let record: ParsedRecord;
 
                 try {
                     record = ResultWindow.parseSingle(item);
                 } catch (evt) {
-                    record = { value: evt.message, type: 'error' };
+                    const message = evt instanceof Error ? evt.message : String(evt);
+                    record = { value: message, type: 'error' };
                 }
 
                 let value = escape(record.value);
@@ -87,16 +105,12 @@ class ResultWindow {
         return result.join('');
     }
 
-    print() {
+    print(): void {
         this.append(ResultWindow.parse(...this.buffer));
         this.buffer.clear();
     }
 
-    append(text) {
+    append(text: string): void {
         this.resultConsole.append(text);
     }
 }
-
-module.exports = {
-    ResultWindow
-};
