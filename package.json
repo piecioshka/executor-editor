@@ -54,7 +54,8 @@
         "dist",
         "src",
         "package.json",
-        "README.md"
+        "README.md",
+        "LICENSE"
     ],
     "keywords": [
         "executor",
