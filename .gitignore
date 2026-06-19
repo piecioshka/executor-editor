@@ -3,8 +3,13 @@ npm-debug.log
 
 dist/
 
+coverage/
+.nyc_output/
+
 tmp/
 
 playwright-report/
 test-results/
 .playwright-mcp/
+
+!.vscode/

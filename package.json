@@ -55,7 +55,8 @@
         "src",
         "package.json",
         "README.md",
-        "LICENSE"
+        "LICENSE",
+        "!**/*.spec.*"
     ],
     "keywords": [
         "executor",
