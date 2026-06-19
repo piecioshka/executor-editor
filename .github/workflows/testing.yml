@@ -30,7 +30,7 @@ jobs:
             - run: npm ci
             - run: npm run build --if-present
             - run: npm run lint --if-present
-            - run: npm test
+            - run: npm test --if-present
             - run: npm run e2e --if-present
               env:
                   CI: true
