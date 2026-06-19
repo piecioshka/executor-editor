@@ -1,4 +1,4 @@
-const EventEmitter = require('super-event-emitter');
+const { SuperEventEmitter } = require('super-event-emitter');
 
 const LEFT = 37;
 const UP = 38;
@@ -8,7 +8,7 @@ const ESCAPE = 27;
 
 const IGNORE_KEYS = [LEFT, UP, RIGHT, DOWN, ESCAPE];
 
-class Editor extends EventEmitter {
+class Editor extends SuperEventEmitter {
     $el = null;
     $code = null;
 

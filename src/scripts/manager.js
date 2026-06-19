@@ -1,4 +1,4 @@
-const EventEmitter = require('super-event-emitter');
+const { SuperEventEmitter } = require('super-event-emitter');
 
 const { Toolbar } = require('./gui/toolbar/toolbar');
 const { Editor } = require('./editor');
@@ -9,7 +9,7 @@ const { LayoutSwitcherButton } = require('./gui/toolbar/controls/layout-switcher
 const { ResultWindow } = require('./gui/result/result-window');
 const { VersionLabel } = require('./gui/version-label');
 
-class Manager extends EventEmitter {
+class Manager extends SuperEventEmitter {
 
     $main = null;
     $global = null;

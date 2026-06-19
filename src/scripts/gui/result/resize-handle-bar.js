@@ -1,7 +1,7 @@
-const EventEmitter = require('super-event-emitter');
+const { SuperEventEmitter } = require('super-event-emitter');
 const { getCSSProperty } = require('../../helpers/get-css-property');
 
-class ResizeHandleBar extends EventEmitter {
+class ResizeHandleBar extends SuperEventEmitter {
     constructor() {
         super();
 
