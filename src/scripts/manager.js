@@ -6,6 +6,7 @@ const { Editor } = require('./editor');
 const { AutoEvaluateCheckbox } = require('./gui/toolbar/controls/auto-evaluate-checkbox');
 const { ExecuteButton } = require('./gui/toolbar/controls/execute-button');
 const { LayoutSwitcherButton } = require('./gui/toolbar/controls/layout-switcher-button');
+const { MaximizeButton } = require('./gui/toolbar/controls/maximize-button');
 const { ResultWindow } = require('./gui/result/result-window');
 const { VersionLabel } = require('./gui/version-label');
 
@@ -18,7 +19,8 @@ class Manager extends SuperEventEmitter {
         autoevaluate: true,
         autofocus: false,
         skin: 'normal',
-        layout: 'horizontal'
+        layout: 'horizontal',
+        maximize: false
     };
 
     toolbar = null;
@@ -27,6 +29,7 @@ class Manager extends SuperEventEmitter {
 
     autoEvaluate = null;
     layoutSwitcher = null;
+    maximizeButton = null;
     executeButton = null;
 
     resultsWindow = null;
@@ -71,6 +74,12 @@ class Manager extends SuperEventEmitter {
         if (this.settings.layout !== 'vertical') {
             this.$global.classList.add('executor-column-mode');
         }
+
+        // `maximize` hides the result and lets the editor fill the component,
+        // useful to present code without running it.
+        if (this.settings.maximize) {
+            this.$global.classList.add('executor-maximize-mode');
+        }
     }
 
     _setupEditor(listing) {
@@ -82,6 +91,7 @@ class Manager extends SuperEventEmitter {
     _buildDOM() {
         this.autoEvaluate = this.toolbar.add(new AutoEvaluateCheckbox());
         this.layoutSwitcher = this.toolbar.add(new LayoutSwitcherButton());
+        this.maximizeButton = this.toolbar.add(new MaximizeButton());
         this.executeButton = this.toolbar.add(new ExecuteButton());
 
         this.resultsWindow = new ResultWindow();
@@ -114,7 +124,10 @@ class Manager extends SuperEventEmitter {
         // Ad 2. Layout
         this.layoutSwitcher.setup(() => this._switchLayout());
 
-        // Ad 3. Execute
+        // Ad 3. Maximize
+        this.maximizeButton.setup(() => this._toggleMaximize());
+
+        // Ad 4. Execute
         this.executeButton.setup(() => this.runCode());
     }
 
@@ -150,6 +163,20 @@ class Manager extends SuperEventEmitter {
     _switchLayout() {
         this.$global.classList.toggle('executor-column-mode');
         this._resetAfterSwitchLayout();
+    }
+
+    _toggleMaximize() {
+        const maximized = this.$global.classList.toggle('executor-maximize-mode');
+        this.settings.maximize = maximized;
+
+        if (maximized) {
+            // Drop inline sizes left by `_switchLayout` so the maximize CSS
+            // (editor at 100%, result hidden) is not overridden.
+            this.editor.$el.style.width = '';
+            this.editor.$el.style.height = '';
+        } else {
+            this._resetAfterSwitchLayout();
+        }
     }
 
     _resetAfterSwitchLayout() {
