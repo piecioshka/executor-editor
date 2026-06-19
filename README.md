@@ -26,6 +26,7 @@
 - ✅ Multiple instance on single page
 - ✅ Support skins
 - ✅ Display errors in red color
+- ✅ Written in TypeScript
 
 ## Usage
 
@@ -145,6 +146,9 @@ npm run e2e
 `npm run e2e` builds the bundle, serves it and drives `e2e/fixtures/index.html`
 in a headless browser. The tests cover initialization, the `data-*` options,
 the toolbar interactions and code execution.
+
+The sources are written in TypeScript. Run `npm run typecheck` to type-check
+without emitting and `npm run build` to bundle with `ts-loader`.
 
 ## Purpose
 

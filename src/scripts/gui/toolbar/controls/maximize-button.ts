@@ -1,12 +1,8 @@
-class MaximizeButton {
-    $el = null;
-    $button = null;
+export class MaximizeButton {
+    $el: DocumentFragment;
+    $button: HTMLInputElement;
 
     constructor() {
-        this.compile();
-    }
-
-    compile() {
         this.$el = window.document.createDocumentFragment();
 
         this.$button = window.document.createElement('input');
@@ -19,11 +15,7 @@ class MaximizeButton {
         this.$el.appendChild(this.$button);
     }
 
-    setup(callback) {
+    setup(callback: () => void): void {
         this.$button.addEventListener('click', callback);
     }
 }
-
-module.exports = {
-    MaximizeButton
-};

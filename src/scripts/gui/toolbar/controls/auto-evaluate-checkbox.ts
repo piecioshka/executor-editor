@@ -1,15 +1,17 @@
-const { SuperEventEmitter } = require('super-event-emitter');
+import { SuperEventEmitter } from 'super-event-emitter';
 
-class AutoEvaluateCheckbox extends SuperEventEmitter {
-    $el = null;
-    $checkbox = null;
+export class AutoEvaluateCheckbox extends SuperEventEmitter {
+    static EVENTS = {
+        CHECK: 'AutoEvaluateCheckbox.EVENTS.CHECK',
+        UNCHECK: 'AutoEvaluateCheckbox.EVENTS.UNCHECK'
+    };
+
+    $el: HTMLLabelElement;
+    $checkbox: HTMLInputElement;
 
     constructor() {
         super();
-        this._buildDOM();
-    }
 
-    _buildDOM() {
         this.$el = window.document.createElement('label');
         this.$el.classList.add('executor-autoevaluate-label');
 
@@ -29,16 +31,7 @@ class AutoEvaluateCheckbox extends SuperEventEmitter {
         this.$el.appendChild(this.$checkbox);
     }
 
-    mark() {
-        this.$checkbox.checked = 'checked';
+    mark(): void {
+        this.$checkbox.checked = true;
     }
 }
-
-AutoEvaluateCheckbox.EVENTS = {
-    CHECK: 'AutoEvaluateCheckbox.EVENTS.CHECK',
-    UNCHECK: 'AutoEvaluateCheckbox.EVENTS.UNCHECK'
-};
-
-module.exports = {
-    AutoEvaluateCheckbox
-};

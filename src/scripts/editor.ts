@@ -1,4 +1,4 @@
-const { SuperEventEmitter } = require('super-event-emitter');
+import { SuperEventEmitter } from 'super-event-emitter';
 
 const LEFT = 37;
 const UP = 38;
@@ -8,33 +8,36 @@ const ESCAPE = 27;
 
 const IGNORE_KEYS = [LEFT, UP, RIGHT, DOWN, ESCAPE];
 
-class Editor extends SuperEventEmitter {
-    $el = null;
-    $code = null;
+export class Editor extends SuperEventEmitter {
+    static EVENTS = {
+        CHANGE: 'Editor.EVENTS.CHANGE'
+    };
+
+    $el: HTMLPreElement;
+    $code: HTMLElement;
 
     constructor() {
         super();
-        this.$el = document.createElement('pre');
-        this.$code = document.createElement('code');
+        this.$el = window.document.createElement('pre');
+        this.$code = window.document.createElement('code');
         this.$el.appendChild(this.$code);
 
         this._buildDOM();
         this._setupKeyboard();
     }
 
-    _buildDOM() {
+    _buildDOM(): void {
         this.$el.classList.add('language-javascript');
         this.$el.classList.add('executor-editor');
         this.$el.classList.add('line-numbers');
-        this.$code.setAttribute('contentEditable', true);
+        this.$code.setAttribute('contentEditable', 'true');
     }
 
-    _setupKeyboard() {
+    _setupKeyboard(): void {
         let ignore = false;
 
         this.$code.addEventListener('keydown', (evt) => {
-            const { keyCode } = evt;
-            const { ctrlKey, metaKey } = evt;
+            const { keyCode, ctrlKey, metaKey } = evt;
 
             if (ctrlKey || metaKey) {
                 // Ignore when CTRL or CMD are pressed
@@ -59,23 +62,15 @@ class Editor extends SuperEventEmitter {
         });
     }
 
-    setCode(listing) {
+    setCode(listing: string): void {
         this.$code.textContent = listing;
     }
 
-    getCode() {
-        return this.$code.textContent;
+    getCode(): string {
+        return this.$code.textContent ?? '';
     }
 
-    render($placeHolder) {
+    render($placeHolder: Element): void {
         $placeHolder.appendChild(this.$el);
     }
 }
-
-Editor.EVENTS = {
-    CHANGE: 'Editor.EVENTS.CHANGE'
-};
-
-module.exports = {
-    Editor
-};
