@@ -4,3 +4,7 @@ npm-debug.log
 dist/
 
 tmp/
+
+playwright-report/
+test-results/
+.playwright-mcp/
