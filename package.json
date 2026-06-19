@@ -70,6 +70,6 @@
         "slides",
         "presentation"
     ],
-    "main": "./dist/index.js",
+    "main": "./dist/executor-editor.js",
     "types": "./dist/types/index.d.ts"
 }
