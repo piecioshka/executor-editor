@@ -18,6 +18,7 @@
         "build": "run-p build:*",
         "build:js": "webpack",
         "build:css": "./tools/styles.sh",
+        "build:types": "tsc -p tsconfig.build.json",
         "watch": "run-p watch:*",
         "watch:js": "webpack -w",
         "watch:css": "./tools/styles-watch.sh",
@@ -61,12 +62,13 @@
         "syntax",
         "evaluate",
         "javascript",
+        "typescript",
         "code",
-        "babel",
         "editor",
         "embed",
         "slides",
         "presentation"
     ],
-    "main": "./dist/index.js"
+    "main": "./dist/index.js",
+    "types": "./dist/types/index.d.ts"
 }
