@@ -19,6 +19,8 @@
     <div id="page">
         <h1>executor-editor :: <small>demo</small></h1>
 
+        <h2>Auto-evaluate &amp; autofocus (blue skin)</h2>
+
         <div class="executor-editor-demo">
 
 <pre class="executor-editor" data-autofocus="true" data-autoevaluate="true" data-skin="blue">
@@ -32,6 +34,8 @@ console.log(String(new Cake()));
 </pre>
 
         </div>
+
+        <h2>Vertical layout, evaluate on demand</h2>
 
         <div class="executor-editor-demo">
 
@@ -47,6 +51,8 @@ console.log(String(new Animal()));
 
         </div>
 
+        <h2>Maximize mode (show the code only)</h2>
+
         <div class="executor-editor-demo">
 
 <pre class="executor-editor" data-skin="blue" data-autoevaluate="false" data-maximize="true">
@@ -57,6 +63,58 @@ class Plant {
 }
 
 console.log(String(new Plant()));
+</pre>
+
+        </div>
+
+        <h2>Normal skin, auto-evaluate</h2>
+
+        <div class="executor-editor-demo">
+
+<pre class="executor-editor" data-skin="normal" data-autoevaluate="true">
+const sum = (a, b) =&gt; a + b;
+
+console.log('2 + 3 =', sum(2, 3));
+</pre>
+
+        </div>
+
+        <h2>Logging different value types</h2>
+
+        <div class="executor-editor-demo">
+
+<pre class="executor-editor" data-skin="blue" data-autoevaluate="true">
+console.log('string', 42, true, null);
+console.log({ name: 'executor', stars: 3 });
+console.log([1, 2, 3].map((n) =&gt; n * n));
+</pre>
+
+        </div>
+
+        <h2>Runtime errors are shown in red</h2>
+
+        <div class="executor-editor-demo">
+
+<pre class="executor-editor" data-skin="normal" data-autoevaluate="true">
+function boom() {
+    throw new Error('Something went wrong');
+}
+
+boom();
+</pre>
+
+        </div>
+
+        <h2>Asynchronous output (setTimeout)</h2>
+
+        <div class="executor-editor-demo">
+
+<pre class="executor-editor" data-skin="blue" data-autoevaluate="true">
+console.log('before timeout');
+
+setTimeout(() =&gt; {
+    console.log('after 500ms');
+}, 500);
 </pre>
 
         </div>
@@ -99,7 +157,7 @@ console.log(String(new Cake()));
         </code>
 
         <footer>
-            <h5><a href="https://piecioshka.pl/">Piotr Kowalski</a> @ 2015-2019</h5>
+            <h5><a href="https://piecioshka.pl/">Piotr Kowalski</a> @ 2015</h5>
         </footer>
 
     </div>
