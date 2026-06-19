@@ -36,12 +36,6 @@ Installation:
 npm install executor-editor
 ```
 
-or
-
-```bash
-bower install executor-editor
-```
-
 1. Add CSS class `executor-editor` to HTML element:
 
     ```html
