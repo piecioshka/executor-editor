@@ -36,6 +36,12 @@ $resize-handle-bar-size: 16px;
     }
 }
 
+.executor.executor-maximize-mode {
+    .executor-result {
+        display: none;
+    }
+}
+
 .executor.executor-column-mode {
     .executor-result {
         width: 50%;

@@ -22,6 +22,7 @@
 - ✅ Auto-evaluate the JavaScript code
 - ✅ Execute code on demand
 - ✅ Layout modes: `horizontal`, `vertical`
+- ✅ Maximize mode: show the code only
 - ✅ Multiple instance on single page
 - ✅ Support skins
 - ✅ Display errors in red color
@@ -114,6 +115,19 @@ All settings you can pass by HTML attributes.
 
     ```html
     <pre class="executor-editor" data-layout="vertical">
+        [...]
+    </pre>
+    ```
+
+### `data-maximize`
+
+* Default: `false`
+* Options: `true` | `false`
+* When `true`, the editor starts maximized: the result panel is hidden and the editor fills the component, useful to present code without running it. Toggle it at runtime with the `Maximize` button.
+* Example:
+
+    ```html
+    <pre class="executor-editor" data-maximize="true">
         [...]
     </pre>
     ```
