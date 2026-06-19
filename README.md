@@ -132,6 +132,20 @@ All settings you can pass by HTML attributes.
     </pre>
     ```
 
+## Testing
+
+End-to-end tests run in a real browser with [Playwright](https://playwright.dev/).
+
+```bash
+npm run build
+npx playwright install chromium
+npm run e2e
+```
+
+`npm run e2e` builds the bundle, serves it and drives `e2e/fixtures/index.html`
+in a headless browser. The tests cover initialization, the `data-*` options,
+the toolbar interactions and code execution.
+
 ## Purpose
 
 The project was created for presentation slides, to embed code and quickly execute it.

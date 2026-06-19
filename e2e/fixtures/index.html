@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>executor-editor :: e2e fixture</title>
+
+    <link rel="stylesheet" href="/dist/executor-editor.css" type="text/css"/>
+    <link rel="stylesheet" href="/dist/skins/normal-skin.css" type="text/css"/>
+    <link rel="stylesheet" href="/dist/skins/blue-skin.css" type="text/css"/>
+</head>
+<body>
+<pre class="executor-editor" id="default" data-autoevaluate="false">var a = 1;</pre>
+
+<pre class="executor-editor" id="skin-blue" data-skin="blue" data-autoevaluate="false">var b = 2;</pre>
+
+<pre class="executor-editor" id="layout-vertical" data-layout="vertical" data-autoevaluate="false">var c = 3;</pre>
+
+<pre class="executor-editor" id="maximize" data-maximize="true" data-autoevaluate="false">var d = 4;</pre>
+
+<pre class="executor-editor" id="autofocus" data-autofocus="true" data-autoevaluate="false">var e = 5;</pre>
+
+<pre class="executor-editor" id="autoeval" data-autoevaluate="true">console.log('hello');</pre>
+
+<pre class="executor-editor" id="manual" data-autoevaluate="false">console.log('manual');</pre>
+
+<script src="/dist/executor-editor.js"></script>
+<script>ExecutorEditor.setup();</script>
+</body>
+</html>

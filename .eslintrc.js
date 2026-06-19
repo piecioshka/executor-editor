@@ -28,6 +28,18 @@ module.exports = {
         'sort-imports': 'off'
     },
 
+    // Relax rules that are noise in Playwright end-to-end tests.
+    overrides: [
+        {
+            files: ['e2e/**/*.js', 'playwright.config.js'],
+            rules: {
+                'no-magic-numbers': 'off',
+                'newline-per-chained-call': 'off',
+                'no-implicit-coercion': 'off'
+            }
+        }
+    ],
+
     // List of global variables.
     globals: {}
 };
