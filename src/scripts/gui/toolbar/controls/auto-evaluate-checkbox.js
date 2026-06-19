@@ -1,6 +1,6 @@
-const EventEmitter = require('super-event-emitter');
+const { SuperEventEmitter } = require('super-event-emitter');
 
-class AutoEvaluateCheckbox extends EventEmitter {
+class AutoEvaluateCheckbox extends SuperEventEmitter {
     $el = null;
     $checkbox = null;
 

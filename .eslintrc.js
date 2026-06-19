@@ -1,6 +1,9 @@
 module.exports = {
     extends: 'piecioshka',
-    parser: 'babel-eslint',
+    parser: '@babel/eslint-parser',
+    parserOptions: {
+        requireConfigFile: false
+    },
 
     // https://eslint.org/docs/user-guide/configuring#specifying-environments
     env: {

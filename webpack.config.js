@@ -1,5 +1,4 @@
 const path = require('path');
-const DashboardPlugin = require('webpack-dashboard/plugin');
 
 module.exports = {
     // mode: 'development',
@@ -25,9 +24,5 @@ module.exports = {
                 use: 'babel-loader'
             }
         ]
-    },
-
-    plugins: [
-        new DashboardPlugin()
-    ]
+    }
 };
