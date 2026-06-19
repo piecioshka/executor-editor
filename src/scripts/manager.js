@@ -17,7 +17,8 @@ class Manager extends SuperEventEmitter {
     settings = {
         autoevaluate: true,
         autofocus: false,
-        skin: 'normal'
+        skin: 'normal',
+        layout: 'horizontal'
     };
 
     toolbar = null;
@@ -65,7 +66,11 @@ class Manager extends SuperEventEmitter {
     }
 
     _setupMode() {
-        this.$global.classList.add('executor-column-mode');
+        // `horizontal` (default) renders the editor next to the result
+        // (column layout); `vertical` stacks the editor above the result.
+        if (this.settings.layout !== 'vertical') {
+            this.$global.classList.add('executor-column-mode');
+        }
     }
 
     _setupEditor(listing) {

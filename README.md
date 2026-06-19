@@ -105,6 +105,19 @@ All settings you can pass by HTML attributes.
     </pre>
     ```
 
+### `data-layout`
+
+* Default: `horizontal`
+* Options: `horizontal` | `vertical`
+* `horizontal` places the editor next to the result; `vertical` stacks the editor above the result.
+* Example:
+
+    ```html
+    <pre class="executor-editor" data-layout="vertical">
+        [...]
+    </pre>
+    ```
+
 ## Purpose
 
 The project was created for presentation slides, to embed code and quickly execute it.
