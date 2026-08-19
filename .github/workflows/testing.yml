@@ -5,18 +5,19 @@ name: Testing
 
 on:
     push:
-        branches: ["main"]
     pull_request:
-        branches: ["main"]
 
 concurrency:
-    group: testing-${{ github.ref }}
+    group: ${{ github.workflow }}-${{ github.ref }}
     cancel-in-progress: true
+
+permissions:
+    contents: read
 
 jobs:
     build:
         runs-on: ubuntu-latest
-        timeout-minutes: 10
+        timeout-minutes: 15
 
         strategy:
             matrix:
@@ -38,7 +39,15 @@ jobs:
             - run: npm run lint --if-present
             - run: npm test --if-present
 
+            - name: Cache Playwright browsers
+              id: playwright-cache
+              uses: actions/cache@v6
+              with:
+                  path: ~/.cache/ms-playwright
+                  key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
             - name: Install Playwright browsers
+              if: steps.playwright-cache.outputs.cache-hit != 'true'
               run: npx playwright install chromium
 
             - run: npm run e2e --if-present
