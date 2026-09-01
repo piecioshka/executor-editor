@@ -5,7 +5,7 @@
 [![downloads count](https://img.shields.io/npm/dt/executor-editor.svg)](https://www.npmjs.com/package/executor-editor)
 [![size](https://packagephobia.com/badge?p=executor-editor)](https://packagephobia.com/result?p=executor-editor)
 [![license](https://img.shields.io/npm/l/executor-editor.svg)](https://piecioshka.mit-license.org)
-[![github-ci](https://github.com/piecioshka/executor-editor/actions/workflows/testing.yml/badge.svg)](https://github.com/piecioshka/executor-editor/actions/workflows/testing.yml)
+[![github-ci](https://github.com/piecioshka/executor-editor/actions/workflows/ci.yml/badge.svg)](https://github.com/piecioshka/executor-editor/actions/workflows/ci.yml)
 
 🔨 Display and evaluate your JavaScript code.
 
